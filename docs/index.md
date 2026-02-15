@@ -30,6 +30,8 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors |
 | [**Gueridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code |
 
+![How the brigade fits together](assets/brigade.png)
+
 Together they address knowledge work from different angles: bon tracks *what needs doing*, trousse gives each session *the right tools and memory of the last*, mise preps *content from the outside world*, passe *automates the browser*, garde-manger provides *searchable ancestral memory*, and aboyeur *coordinates multiple sessions* so no single context window has to hold everything.
 
 ## Design Principles

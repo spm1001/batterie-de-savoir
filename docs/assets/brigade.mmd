@@ -1,0 +1,57 @@
+flowchart TB
+    subgraph session["Session Lifecycle"]
+        direction LR
+        trousse["🔪 Trousse\nknife roll"]
+        bon["🎫 Bon\nthe ticket"]
+        trousse -->|"hooks inject\ntactical state"| bon
+        bon -->|"/open loads\nbon context"| trousse
+    end
+
+    subgraph content["Content & Automation"]
+        direction LR
+        mise["🧅 Mise\nmise en place"]
+        passe["🪟 Passe\nthe pass"]
+        mise <-->|"cross-refer:\narticles ↔ DOM"| passe
+    end
+
+    subgraph memory["Memory"]
+        garde["🧊 Garde-manger\ncold station"]
+    end
+
+    subgraph analysis["Analysis"]
+        consomme["🍲 Consommé\nclarification"]
+    end
+
+    subgraph orchestration["Orchestration"]
+        aboyeur["📢 Aboyeur\nthe caller"]
+    end
+
+    subgraph access["Access"]
+        gueridon["🛒 Guéridon\ntableside"]
+    end
+
+    trousse -->|"handoffs"| garde
+    bon -->|"work state"| garde
+    aboyeur -->|"spawns workers\n& reflectors"| session
+    aboyeur -->|"reads bon_hash\nfor stuck detection"| bon
+    gueridon -->|"mobile UI for"| trousse
+    mise -->|"deposits files\nto disk"| fs[("📁 Filesystem\nshared state")]
+    passe -->|"deposits files\nto disk"| fs
+    bon -->|".bon/items.jsonl"| fs
+    trousse -->|"handoffs/*.md"| fs
+
+    classDef sessionNode fill:#1a1a2e,stroke:#00d9ff,color:#e0e0e0
+    classDef contentNode fill:#1a1a2e,stroke:#00c000,color:#e0e0e0
+    classDef memoryNode fill:#1a1a2e,stroke:#ff6b6b,color:#e0e0e0
+    classDef analysisNode fill:#1a1a2e,stroke:#ffd93d,color:#e0e0e0
+    classDef orchNode fill:#1a1a2e,stroke:#c084fc,color:#e0e0e0
+    classDef accessNode fill:#1a1a2e,stroke:#fb923c,color:#e0e0e0
+    classDef fsNode fill:#0d0d1a,stroke:#888,color:#ccc
+
+    class trousse,bon sessionNode
+    class mise,passe contentNode
+    class garde memoryNode
+    class consomme analysisNode
+    class aboyeur orchNode
+    class gueridon accessNode
+    class fs fsNode

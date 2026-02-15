@@ -15,6 +15,10 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors |
 | [**Gueridon**](https://github.com/spm1001/gueridon) | Tableside trolley | Mobile web UI for Claude Code |
 
+## How They Fit Together
+
+![Brigade architecture](docs/assets/brigade.png)
+
 ## Documentation
 
 **[spm1001.github.io/batterie-de-savoir](https://spm1001.github.io/batterie-de-savoir/)**
