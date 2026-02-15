@@ -1,0 +1,10 @@
+title: Batterie de Savoir
+description: Kitchen tools for knowledge work
+url: https://spm1001.github.io
+baseurl: /batterie-de-savoir
+theme: minima
+
+header_pages:
+  - getting-started.md
+  - principles.md
+  - for-agents.md
