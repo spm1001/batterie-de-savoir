@@ -2,6 +2,8 @@
 
 *Kitchen tools for knowledge work.*
 
+> **Status:** Documentation — this is the umbrella repo
+
 A suite of tools for AI-assisted knowledge work, each named for a station in a professional kitchen [brigade](https://en.wikipedia.org/wiki/Brigade_de_cuisine).
 
 | Tool | Station | What it does |
