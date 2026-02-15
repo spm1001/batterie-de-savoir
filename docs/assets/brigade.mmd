@@ -1,42 +1,42 @@
 flowchart TB
     subgraph session["Session Lifecycle"]
         direction LR
-        trousse["🔪 Trousse\nknife roll"]
-        bon["🎫 Bon\nthe ticket"]
-        trousse -->|"hooks inject\ntactical state"| bon
-        bon -->|"/open loads\nbon context"| trousse
+        trousse["Trousse — knife roll"]
+        bon["Bon — the ticket"]
+        trousse -->|"hooks inject tactical state"| bon
+        bon -->|"/open loads bon context"| trousse
     end
 
     subgraph content["Content & Automation"]
         direction LR
-        mise["🧅 Mise\nmise en place"]
-        passe["🪟 Passe\nthe pass"]
-        mise <-->|"cross-refer:\narticles ↔ DOM"| passe
+        mise["Mise — mise en place"]
+        passe["Passe — the pass"]
+        mise <-->|"cross-refer: articles vs DOM"| passe
     end
 
     subgraph memory["Memory"]
-        garde["🧊 Garde-manger\ncold station"]
+        garde["Garde-manger — cold station"]
     end
 
     subgraph analysis["Analysis"]
-        consomme["🍲 Consommé\nclarification"]
+        consomme["Consomme — clarification"]
     end
 
     subgraph orchestration["Orchestration"]
-        aboyeur["📢 Aboyeur\nthe caller"]
+        aboyeur["Aboyeur — the caller"]
     end
 
     subgraph access["Access"]
-        gueridon["🛒 Guéridon\ntableside"]
+        gueridon["Gueridon — tableside"]
     end
 
     trousse -->|"handoffs"| garde
     bon -->|"work state"| garde
-    aboyeur -->|"spawns workers\n& reflectors"| session
-    aboyeur -->|"reads bon_hash\nfor stuck detection"| bon
+    aboyeur -->|"spawns workers and reflectors"| session
+    aboyeur -->|"reads bon_hash for stuck detection"| bon
     gueridon -->|"mobile UI for"| trousse
-    mise -->|"deposits files\nto disk"| fs[("📁 Filesystem\nshared state")]
-    passe -->|"deposits files\nto disk"| fs
+    mise -->|"deposits to disk"| fs[("Filesystem — shared state")]
+    passe -->|"deposits to disk"| fs
     bon -->|".bon/items.jsonl"| fs
     trousse -->|"handoffs/*.md"| fs
 
