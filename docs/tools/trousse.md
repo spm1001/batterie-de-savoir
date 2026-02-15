@@ -41,11 +41,13 @@ The current skill set:
 |-------|----------------|
 | `/open` | Re-orient to session context; loads companion skills |
 | `/close` | End-of-session ritual; writes the handoff |
+| `/amp-close` | End-of-session ritual for Amp threads |
 | `/titans` (`/review`) | Three-lens code review (hindsight, craft, foresight) |
 | `/diagram` | Iterative diagram creation with render-and-check |
 | `/screenshot` | Screen capture for verification |
 | `/filing` | File cleanup with mandatory content processing |
 | `/picture` | Image generation via Google Imagen |
+| `/google-devdocs` | Google developer documentation lookup via REST API |
 | `/server-checkup` | Systematic Linux server audit |
 | `/github-cleanup` | Progressive GitHub account maintenance |
 | `/sprite` | Controls inner Claude instances on VMs |

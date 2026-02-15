@@ -60,6 +60,12 @@ Every analysis passes through a validation stage before the agent presents it. R
 
 The Consommé ↔ Mise boundary is a concrete example of the **tools referee themselves** principle: Consommé's skill says "for Workspace content, use Mise." Neither tool tries to do both jobs. The brigade directs traffic.
 
+## What Consommé is (and isn't)
+
+Consommé is a **skill** — a behavioural document that teaches an AI agent a methodology. It is not a CLI, a library, or a Python package. There is nothing to `pip install` or `uv tool install`. You install it by symlinking the skill directory into `~/.claude/skills/` (or `~/.gemini/skills/`), and the agent loads it on demand when data work begins. The skill is invoked as `/consomme` in Claude Code.
+
+The analytical capability comes from the external BQ MCP server (`bq-toolbox` or Google's BQ Data Analytics extension). Consommé provides the discipline — the structured methodology that turns "run some queries" into a repeatable analytical workflow.
+
 ## Repository
 
-Install, configuration, and usage: [github.com/spm1001/consomme](https://github.com/spm1001/consomme)
+Source, skill content, and test plan: [github.com/spm1001/consomme](https://github.com/spm1001/consomme)

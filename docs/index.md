@@ -19,16 +19,18 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 
 ## The Brigade
 
-| Tool | Station | What it does |
-|------|---------|-------------|
-| [**Bon**](tools/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps |
-| [**Trousse**](tools/trousse) | The knife roll | Skills, hooks, and session lifecycle for Claude Code |
-| [**Mise en Space**](tools/mise) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) |
-| [**Passe**](tools/passe) | The pass | Fast browser automation via Chrome DevTools Protocol |
-| [**Garde-manger**](tools/garde-manger) | The cold station | Persistent, searchable memory across sessions |
-| [**Consomme**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out |
-| [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors |
-| [**Gueridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code |
+| Tool | Station | What it does | Robustness |
+|------|---------|-------------|------------|
+| [**Bon**](tools/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps | ⚡ Stable |
+| [**Trousse**](tools/trousse) | The knife roll | Skills, hooks, and session lifecycle for Claude Code | ⚡ Stable |
+| [**Mise en Space**](tools/mise) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
+| [**Passe**](tools/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
+| [**Garde-manger**](tools/garde-manger) | The cold station | Persistent, searchable memory across sessions | ⚡ Stable |
+| [**Consomme**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
+| [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
+| [**Gueridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
+
+![Brigade architecture](assets/brigade.png)
 
 Together they address knowledge work from different angles: bon tracks *what needs doing*, trousse gives each session *the right tools and memory of the last*, mise preps *content from the outside world*, passe *automates the browser*, garde-manger provides *searchable ancestral memory*, and aboyeur *coordinates multiple sessions* so no single context window has to hold everything.
 

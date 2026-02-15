@@ -43,7 +43,18 @@ Search returns summaries first — short, structured records that let the agent 
 
 ### Source types
 
-Garde-manger indexes several source types: `claude_code` sessions (from `~/.claude/projects/`), `claude.ai` exports, handoffs (the session-to-session batons from trousse), local markdown files, and bon items. Each source type has its own scanner that knows where to find content and how to extract metadata.
+Garde-manger indexes eight source types, each with its own scanner that knows where to find content and how to extract metadata:
+
+| Source type | What it indexes |
+|-------------|----------------|
+| `claude_code` | Claude Code sessions (from `~/.claude/projects/`) |
+| `claude_ai` | Claude.ai web exports |
+| `cloud_session` | Cloud sessions (web Claude) |
+| `handoff` | Session-to-session batons from trousse |
+| `local_md` | Local markdown files |
+| `bon` | Bon work tracker items |
+| `knowledge` | Knowledge articles |
+| `amp` | Amp thread transcripts |
 
 ### Local only
 

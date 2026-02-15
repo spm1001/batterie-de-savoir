@@ -75,11 +75,13 @@ The tools are independent but they're designed to work together. Here's what fee
 
 **Aboyeur** sits on top of everything. It uses bon for work items, trousse for session lifecycle, and handoff files for inter-session communication. It's the tool you reach for when the work exceeds a single context window and you need sustained, multi-session progress without degradation.
 
+**Guéridon** extends the session lifecycle to mobile. The bridge spawns `claude -p` processes that load the same trousse skills, write the same handoffs, and track work in the same bon items. A session started from your phone is indistinguishable from one started in a terminal — same tools, same memory, same protocol. Where aboyeur orchestrates *multiple* sessions, guéridon untethers *one* session from the desk.
+
 ## Prerequisites
 
 **An AI coding agent.** The batterie is built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), but the filesystem-first design means most tools work with any agent that can read and write files.
 
-**Python and uv.** Several tools (bon, garde-manger, mise, passe, consommé) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step.
+**Python and uv.** Several tools (bon, garde-manger, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (Consommé is a skill — a behavioural document — not a Python package. It has nothing to install via uv.)
 
 **No monorepo.** Each tool installs independently from its own repo. There is no unified installer, no shared config, no dependency graph to resolve. This is the point.
 

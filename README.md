@@ -15,7 +15,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Passe**](https://github.com/spm1001/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
 | [**Consomme**](https://github.com/spm1001/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
-| [**Gueridon**](https://github.com/spm1001/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🧪 Alpha |
+| [**Gueridon**](https://github.com/spm1001/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
 
 ## Documentation
 
