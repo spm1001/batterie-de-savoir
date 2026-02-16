@@ -33,9 +33,15 @@ This is the most common first pick, because statelessness is the first pain you 
 
 📦 [spm1001/garde-manger](https://github.com/spm1001/garde-manger)
 
+### "I need Google Workspace access (Mise, Consommé, or anything with Google APIs)"
+
+**[Jeton](tools/jeton)** handles Google OAuth for the suite. It acquires, refreshes, and manages tokens so the Google-facing tools don't have to reinvent auth. If you're adopting Mise or Consommé, you'll need Jeton first — it's the plumbing that makes their Google access work.
+
+📦 [spm1001/jeton](https://github.com/spm1001/jeton)
+
 ### "I need to pull in content from Google Workspace or the web"
 
-**[Mise en Space](tools/mise)** is an MCP server that fetches and preps content — Google Docs, Sheets, Slides, Gmail, web pages, PDFs, video, audio — and deposits clean markdown to disk. It works standalone, no dependency on other tools in the batterie. If you work with Google Workspace, this is probably your first pick regardless of anything else.
+**[Mise en Space](tools/mise)** is an MCP server that fetches and preps content — Google Docs, Sheets, Slides, Gmail, web pages, PDFs, video, audio — and deposits clean markdown to disk. For Google Workspace content it uses **jeton** for authentication. If you work with Google Workspace, mise + jeton is probably your first pick regardless of anything else.
 
 📦 [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space)
 
@@ -69,6 +75,8 @@ The tools are independent but they're designed to work together. Here's what fee
 
 **Trousse + Bon** is the natural first pair. Trousse provides the session lifecycle (hooks, handoffs, skills); bon provides the work tracking. Together they mean each session knows what happened last time *and* what needs doing next. Most of the batterie assumes this pair is in place.
 
+**Jeton + Mise** — jeton provides OAuth credentials that mise needs for Google Workspace access. Without jeton, mise still works for web content but can't reach Drive, Gmail, or Sheets. If you're adding Google Workspace access, jeton is the prerequisite.
+
 **Mise + Passe** complement each other. Mise fetches clean content from structured sources (Workspace, web articles). Passe automates the browser for everything else (interactive pages, form submissions, screenshots). Their skills even cross-reference each other — mise says "for DOM-faithful extraction, use passe"; passe says "for clean article extraction, use mise."
 
 **Garde-manger + Trousse** — garde-manger gets better when trousse is producing structured handoffs. The handoffs become a high-quality source for indexing. Without trousse, garde-manger still works (it indexes raw transcripts), but the signal-to-noise ratio improves with structured session boundaries.
@@ -81,7 +89,7 @@ The tools are independent but they're designed to work together. Here's what fee
 
 **An AI coding agent.** The batterie is built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), but the filesystem-first design means most tools work with any agent that can read and write files.
 
-**Python and uv.** Several tools (bon, garde-manger, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (Consommé is a skill — a behavioural document — not a Python package. It has nothing to install via uv.)
+**Python and uv.** Several tools (bon, garde-manger, jeton, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (Consommé is a skill — a behavioural document — not a Python package. It has nothing to install via uv.)
 
 **No monorepo.** Each tool installs independently from its own repo. There is no unified installer, no shared config, no dependency graph to resolve. This is the point.
 

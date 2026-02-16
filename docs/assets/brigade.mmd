@@ -7,6 +7,10 @@ flowchart TB
         bon -->|"/open loads bon context"| trousse
     end
 
+    subgraph auth["Infrastructure"]
+        jeton["Jeton — the token"]
+    end
+
     subgraph content["Content & Automation"]
         direction LR
         mise["Mise — mise en place"]
@@ -35,6 +39,8 @@ flowchart TB
     aboyeur -->|"spawns workers and reflectors"| session
     aboyeur -->|"reads bon_hash for stuck detection"| bon
     gueridon -->|"mobile UI for"| trousse
+    jeton -->|"OAuth credentials"| mise
+    jeton -->|"OAuth credentials"| consomme
     mise -->|"deposits to disk"| fs[("Filesystem — shared state")]
     passe -->|"deposits to disk"| fs
     bon -->|".bon/items.jsonl"| fs
@@ -46,6 +52,7 @@ flowchart TB
     classDef analysisNode fill:#1a1a2e,stroke:#ffd93d,color:#e0e0e0
     classDef orchNode fill:#1a1a2e,stroke:#c084fc,color:#e0e0e0
     classDef accessNode fill:#1a1a2e,stroke:#fb923c,color:#e0e0e0
+    classDef authNode fill:#1a1a2e,stroke:#34d399,color:#e0e0e0
     classDef fsNode fill:#0d0d1a,stroke:#888,color:#ccc
 
     class trousse,bon sessionNode
@@ -54,4 +61,5 @@ flowchart TB
     class consomme analysisNode
     class aboyeur orchNode
     class gueridon accessNode
+    class jeton authNode
     class fs fsNode

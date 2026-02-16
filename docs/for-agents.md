@@ -16,6 +16,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Mise (en Space)** | Content fetching from Google Workspace and the web (MCP server) |
 | **Passe** | Fast browser automation via Chrome DevTools Protocol (CDP) |
 | **Garde-manger** | Persistent, searchable memory across sessions |
+| **Jeton** | Google OAuth token management — scopes, refresh, multi-mode auth |
 | **Consommé** | BigQuery data analysis — messy data in, clear insights out |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
 | **Guéridon** | Mobile web UI for Claude Code |
@@ -39,6 +40,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | DOM-faithful extraction (tables, code blocks) | **passe** | mise |
 | Screenshots, browser interaction, form filling | **passe** | — |
 | Search past sessions | **garde-manger** | — |
+| Google OAuth tokens (acquire, refresh, status) | **jeton** | — |
 | BigQuery analysis | **consommé** | mise |
 | Multi-session orchestration | **aboyeur** | — |
 | Mobile access to Claude Code | **guéridon** | — |
@@ -50,6 +52,7 @@ What feeds what — arrows show data flow.
 | Source | → | Destination |
 |--------|---|-------------|
 | mise, passe | → | Files on disk (content deposit) |
+| jeton | → | mise, consommé (OAuth credentials for Google APIs) |
 | bon | → | trousse (hooks inject tactical state) |
 | trousse | → | bon (session open/close triggers draw-down/draw-up) |
 | garde-manger | → | Any session (search retrieves past context) |
@@ -77,6 +80,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Mise en Space | [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space) |
 | Passe | [spm1001/passe](https://github.com/spm1001/passe) |
 | Garde-manger | [spm1001/garde-manger](https://github.com/spm1001/garde-manger) |
+| Jeton | [spm1001/jeton](https://github.com/spm1001/jeton) |
 | Consommé | [spm1001/consomme](https://github.com/spm1001/consomme) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Guéridon | [spm1001/gueridon](https://github.com/spm1001/gueridon) |
