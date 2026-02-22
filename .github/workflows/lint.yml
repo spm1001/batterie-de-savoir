@@ -1,0 +1,17 @@
+name: Lint registry
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Check GENERATED sections are up to date
+        run: uv run --script scripts/lint.py
