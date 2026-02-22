@@ -67,13 +67,57 @@ title: <Name>
 Install, usage, and full reference: [github.com/spm1001/<name>](https://github.com/spm1001/<name>)
 ```
 
-## Future: Registry-Driven Generation
+## Registry-Driven Generation (current)
 
-The manual checklist above works but doesn't scale. A better pattern (filed as a bon outcome):
+Several sections across the docs are now generated from `brigade.toml` — the single source of truth for tool metadata. The scripts live in `scripts/`.
 
-1. A `brigade.toml` file as the single source of truth for tool metadata
-2. A PEP 723 render script that generates tables and page headers from the registry
-3. A lint script that detects drift between registry and docs
-4. Generated sections fenced with `<!-- GENERATED:START -->` / `<!-- GENERATED:END -->` markers
+### Day-to-day workflow
 
-This is the pattern used by mise (jdx/mise) and Homebrew's formulae site. It would reduce this checklist to: "edit brigade.toml, run the render script."
+When adding, renaming, or changing maturity of a tool:
+
+1. **Edit `brigade.toml`** — update the relevant `[tool.{slug}]` section
+2. **Run the render script** — `uv run --script scripts/render.py`
+3. **Commit** — the updated files will show in `git diff`
+
+To check for drift without changing anything:
+
+```
+uv run --script scripts/lint.py
+```
+
+Exits 0 if clean, exits 1 with a diff if any GENERATED section is stale.
+
+### What's generated
+
+| File | Marker | Content |
+|------|--------|---------|
+| `README.md` | `brigade-table` | Brigade table (links to GitHub repos) |
+| `docs/index.md` | `brigade-table` | Brigade table (links to docs tool pages) |
+| `docs/for-agents.md` | `vocabulary` | Tool vocabulary rows |
+| `docs/for-agents.md` | `tool-routing` | Tool routing table |
+| `docs/for-agents.md` | `dependency-direction` | Dependency direction table |
+| `docs/for-agents.md` | `key-repos` | Key repos table |
+
+Generated regions are fenced with `<!-- GENERATED:{name}:START -->` / `<!-- GENERATED:{name}:END -->` markers. Do not hand-edit content between these markers — it will be overwritten on the next render.
+
+### What remains manual
+
+The following checklist items are **not** generated and still require hand-editing:
+
+- **`docs/getting-started.md`** — "When to use this" section and "How the Tools Compose" paragraph
+- **`docs/tools/<name>.md`** — tool page creation (follow the Template below)
+- **`docs/principles.md`** — "In practice" additions
+- **`docs/assets/brigade.mmd` / `brigade.png`** — diagram (re-render with `mmdc`)
+- **`CLAUDE.md` (global)** — "The Kitchen" table
+- **Skill frontmatter** — description mentioning the kitchen name
+
+### Deliberate exclusions — do not "fix" these
+
+Some rows sit **outside** the GENERATED markers by design:
+
+- **`docs/for-agents.md` vocabulary table** — the "Brigade" row and the GTD terms (Outcome, Action, Brief, Handoff, Skill, Draw-down, Draw-up) are static. Only the per-tool rows are generated. The vocabulary table order now follows `meta.order` in brigade.toml — this is intentional, not a bug to revert.
+- **`docs/for-agents.md` key-repos table** — the "This docs site → spm1001/batterie-de-savoir" row is a meta-reference, not a tool entry. It lives outside the generated region deliberately.
+
+### Tool pages are hand-authored, not generated
+
+`docs/tools/*.md` pages will never be generated from `brigade.toml`. The registry holds metadata (one-liners, stations, routing hints) — tool pages hold judgement (key concepts, design decisions, how tools relate). That richness can't be templated without losing what makes the pages useful.

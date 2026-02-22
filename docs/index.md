@@ -19,17 +19,17 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 
 ## The Brigade
 
-| Tool | Station | What it does | Robustness |
-|------|---------|-------------|------------|
+<!-- GENERATED:brigade-table:START -->
 | [**Bon**](tools/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps | ⚡ Stable |
 | [**Trousse**](tools/trousse) | The knife roll | Skills, hooks, and session lifecycle for Claude Code | ⚡ Stable |
 | [**Garde-manger**](tools/garde-manger) | The cold station | Persistent, searchable memory across sessions | ⚡ Stable |
 | [**Jeton**](tools/jeton) | The token | Google OAuth token management for the suite | ⚡ Stable |
 | [**Mise en Space**](tools/mise) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
 | [**Passe**](tools/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
-| [**Consomme**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
+| [**Consommé**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
-| [**Gueridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
+| [**Guéridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
+<!-- GENERATED:brigade-table:END -->
 
 ![Brigade architecture](assets/brigade.png)
 

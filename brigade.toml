@@ -1,0 +1,184 @@
+# brigade.toml — single source of truth for Batterie de Savoir tool metadata
+#
+# Rendered into: README.md, docs/index.md, docs/for-agents.md
+# How: uv run --script scripts/render.py
+# Lint: uv run --script scripts/lint.py
+#
+# Schema:
+#   [tool.{slug}]
+#     name          — display name (with accents if applicable)
+#     slug          — URL-safe identifier, used for docs paths and routing refs
+#     station       — kitchen role (short label)
+#     what          — one-line description for brigade table
+#     vocab_term    — term as shown in vocabulary table (omit if same as name)
+#     vocab_meaning — meaning in vocabulary table
+#     maturity      — "stable" | "beta" | "alpha"
+#     repo          — GitHub org/repo, e.g. "spm1001/bon"
+#     skill         — skill name if the tool has one (optional)
+#     routing       — array of {need, not} for tool routing table
+#                     "not" is empty string if no counter-recommendation
+#
+#   [[dependency]]  — rows for the dependency direction table (relational)
+#     from          — list of slugs (or ["all"] for "All tools")
+#     to            — destination label (free text)
+#     label         — parenthetical description
+
+[meta]
+order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "consomme", "aboyeur", "gueridon"]
+
+[tool.bon]
+name = "Bon"
+slug = "bon"
+station = "The ticket"
+what = "GTD-flavoured work tracking — outcomes, actions, tactical steps"
+vocab_meaning = "Work tracker — outcomes, actions, tactical steps (GTD, not Agile)"
+maturity = "stable"
+repo = "spm1001/bon"
+skill = "bon"
+routing = [
+  {need = "Track work, outcomes, actions", not = ""},
+]
+
+[tool.trousse]
+name = "Trousse"
+slug = "trousse"
+station = "The knife roll"
+what = "Skills, hooks, and session lifecycle for Claude Code"
+vocab_meaning = "Skills, hooks, and session lifecycle for Claude Code"
+maturity = "stable"
+repo = "spm1001/trousse"
+skill = "open"
+routing = [
+  {need = "Session lifecycle (/open → work → /close)", not = ""},
+]
+
+[tool."garde-manger"]
+name = "Garde-manger"
+slug = "garde-manger"
+station = "The cold station"
+what = "Persistent, searchable memory across sessions"
+vocab_meaning = "Persistent, searchable memory across sessions"
+maturity = "stable"
+repo = "spm1001/garde-manger"
+skill = "garde"
+routing = [
+  {need = "Search past sessions", not = ""},
+]
+
+[tool.jeton]
+name = "Jeton"
+slug = "jeton"
+station = "The token"
+what = "Google OAuth token management for the suite"
+vocab_meaning = "Google OAuth token management — scopes, refresh, multi-mode auth"
+maturity = "stable"
+repo = "spm1001/jeton"
+# Note: jeton has no public README — it's the renamed itv-google-auth library.
+# A 404 when fetching its README is expected, not a bug.
+routing = [
+  {need = "Google OAuth tokens (acquire, refresh, status)", not = ""},
+]
+
+[tool.mise]
+name = "Mise en Space"
+slug = "mise"
+station = "Mise en place"
+what = "Content fetching and prep from Google Workspace and the web (MCP)"
+vocab_term = "Mise (en Space)"
+vocab_meaning = "Content fetching from Google Workspace and the web (MCP server)"
+maturity = "beta"
+repo = "spm1001/mise-en-space"
+skill = "mise"
+routing = [
+  {need = "Fetch Google Workspace content", not = "passe"},
+  {need = "Clean article / blog extraction", not = "passe"},
+]
+
+[tool.passe]
+name = "Passe"
+slug = "passe"
+station = "The pass"
+what = "Fast browser automation via Chrome DevTools Protocol"
+vocab_meaning = "Fast browser automation via Chrome DevTools Protocol (CDP)"
+maturity = "beta"
+repo = "spm1001/passe"
+skill = "passe"
+routing = [
+  {need = "DOM-faithful extraction (tables, code blocks)", not = "mise"},
+  {need = "Screenshots, browser interaction, form filling", not = ""},
+]
+
+[tool.consomme]
+name = "Consommé"
+slug = "consomme"
+station = "Clarification"
+what = "BigQuery data analysis — messy data in, clear insights out"
+vocab_meaning = "BigQuery data analysis — messy data in, clear insights out"
+maturity = "beta"
+repo = "spm1001/consomme"
+skill = "consomme"
+routing = [
+  {need = "BigQuery analysis", not = "mise"},
+]
+
+[tool.aboyeur]
+name = "Aboyeur"
+slug = "aboyeur"
+station = "The caller"
+what = "Multi-session orchestrator — alternates workers and reflectors"
+vocab_meaning = "Multi-session orchestrator — alternates workers and reflectors"
+maturity = "alpha"
+repo = "spm1001/aboyeur"
+routing = [
+  {need = "Multi-session orchestration", not = ""},
+]
+
+[tool.gueridon]
+name = "Guéridon"
+slug = "gueridon"
+station = "Tableside trolley"
+what = "Mobile web UI for Claude Code"
+vocab_meaning = "Mobile web UI for Claude Code"
+maturity = "beta"
+repo = "spm1001/gueridon"
+routing = [
+  {need = "Mobile access to Claude Code", not = ""},
+]
+
+# Dependency direction — relational, rendered as the Dependency Direction table
+# in docs/for-agents.md. from=["all"] renders as "All tools".
+
+[[dependency]]
+from = ["mise", "passe"]
+to = "Files on disk"
+label = "content deposit"
+
+[[dependency]]
+from = ["jeton"]
+to = "mise, consommé"
+label = "OAuth credentials for Google APIs"
+
+[[dependency]]
+from = ["bon"]
+to = "trousse"
+label = "hooks inject tactical state"
+
+[[dependency]]
+from = ["trousse"]
+to = "bon"
+label = "session open/close triggers draw-down/draw-up"
+
+[[dependency]]
+from = ["garde-manger"]
+to = "Any session"
+label = "search retrieves past context"
+
+[[dependency]]
+from = ["aboyeur"]
+to = "Multiple sessions"
+label = "spawns workers, collects results"
+
+[[dependency]]
+from = ["all"]
+to = "Filesystem"
+label = "files are the protocol — no IPC, no daemons"
