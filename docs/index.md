@@ -20,6 +20,8 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 ## The Brigade
 
 <!-- GENERATED:brigade-table:START -->
+| Tool | Station | Description | Status |
+|------|---------|-------------|--------|
 | [**Bon**](tools/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps | ⚡ Stable |
 | [**Trousse**](tools/trousse) | The knife roll | Skills, hooks, and session lifecycle for Claude Code | ⚡ Stable |
 | [**Garde-manger**](tools/garde-manger) | The cold station | Persistent, searchable memory across sessions | ⚡ Stable |

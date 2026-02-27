@@ -9,9 +9,9 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 
 ## Vocabulary
 
+<!-- GENERATED:vocabulary:START -->
 | Term | Meaning |
 |------|---------|
-<!-- GENERATED:vocabulary:START -->
 | **Bon** | Work tracker — outcomes, actions, tactical steps (GTD, not Agile) |
 | **Trousse** | Skills, hooks, and session lifecycle for Claude Code |
 | **Garde-manger** | Persistent, searchable memory across sessions |
@@ -22,6 +22,11 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
 | **Guéridon** | Mobile web UI for Claude Code |
 <!-- GENERATED:vocabulary:END -->
+
+### GTD & Brigade Terms
+
+| Term | Meaning |
+|------|---------|
 | **Brigade** | The full tool suite, named after a kitchen's brigade de cuisine |
 | **Outcome** | A desired result, not a task — the unit of work in bon |
 | **Action** | A concrete next step that moves an outcome forward |
@@ -33,9 +38,9 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 
 ## Tool Routing
 
+<!-- GENERATED:tool-routing:START -->
 | Need | Use | NOT this |
 |------|-----|----------|
-<!-- GENERATED:tool-routing:START -->
 | Track work, outcomes, actions | **bon** | — |
 | Session lifecycle (/open → work → /close) | **trousse** | — |
 | Search past sessions | **garde-manger** | — |
@@ -53,9 +58,9 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 
 What feeds what — arrows show data flow.
 
+<!-- GENERATED:dependency-direction:START -->
 | Source | → | Destination |
 |--------|---|-------------|
-<!-- GENERATED:dependency-direction:START -->
 | Mise en Space, Passe | → | Files on disk (content deposit) |
 | Jeton | → | mise, consommé (OAuth credentials for Google APIs) |
 | Bon | → | trousse (hooks inject tactical state) |
@@ -79,9 +84,9 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 
 ## Key Repos
 
+<!-- GENERATED:key-repos:START -->
 | Tool | Repo |
 |------|------|
-<!-- GENERATED:key-repos:START -->
 | Bon | [spm1001/bon](https://github.com/spm1001/bon) |
 | Trousse | [spm1001/trousse](https://github.com/spm1001/trousse) |
 | Garde-manger | [spm1001/garde-manger](https://github.com/spm1001/garde-manger) |
@@ -92,6 +97,9 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Guéridon | [spm1001/gueridon](https://github.com/spm1001/gueridon) |
 <!-- GENERATED:key-repos:END -->
+
+| Tool | Repo |
+|------|------|
 | This docs site | [spm1001/batterie-de-savoir](https://github.com/spm1001/batterie-de-savoir) |
 
 ## What's Generated vs Authored

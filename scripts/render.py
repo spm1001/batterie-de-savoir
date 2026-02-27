@@ -102,7 +102,10 @@ REPO_ROW = env.from_string(
 # ---------------------------------------------------------------------------
 
 def render_brigade_table_readme() -> str:
-    rows = []
+    rows = [
+        "| Tool | Station | Description | Status |",
+        "|------|---------|-------------|--------|",
+    ]
     for t in tools:
         rows.append(README_ROW.render(
             name=t["name"],
@@ -115,7 +118,10 @@ def render_brigade_table_readme() -> str:
 
 
 def render_brigade_table_docs() -> str:
-    rows = []
+    rows = [
+        "| Tool | Station | Description | Status |",
+        "|------|---------|-------------|--------|",
+    ]
     for t in tools:
         rows.append(DOCS_ROW.render(
             name=t["name"],
@@ -128,7 +134,10 @@ def render_brigade_table_docs() -> str:
 
 
 def render_vocabulary() -> str:
-    rows = []
+    rows = [
+        "| Term | Meaning |",
+        "|------|---------|",
+    ]
     for t in tools:
         term = t.get("vocab_term", t["name"])
         rows.append(VOCAB_ROW.render(term=term, meaning=t["vocab_meaning"]))
@@ -136,7 +145,10 @@ def render_vocabulary() -> str:
 
 
 def render_tool_routing() -> str:
-    rows = []
+    rows = [
+        "| Need | Use | NOT this |",
+        "|------|-----|----------|",
+    ]
     for t in tools:
         for r in t.get("routing", []):
             not_this = r["not"] if r["not"] else "—"
@@ -149,7 +161,10 @@ def render_tool_routing() -> str:
 
 
 def render_dependency_direction() -> str:
-    rows = []
+    rows = [
+        "| Source | → | Destination |",
+        "|--------|---|-------------|",
+    ]
     for dep in dependencies:
         from_slugs = dep["from"]
         if from_slugs == ["all"]:
@@ -173,7 +188,10 @@ def render_dependency_direction() -> str:
 
 
 def render_key_repos() -> str:
-    rows = []
+    rows = [
+        "| Tool | Repo |",
+        "|------|------|",
+    ]
     for t in tools:
         rows.append(REPO_ROW.render(name=t["name"], repo=t["repo"]))
     return "\n".join(rows)
