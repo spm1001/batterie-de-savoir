@@ -9,8 +9,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 
 ## Vocabulary
 
-<!-- GENERATED:vocabulary:START -->
-
+{% comment %}GENERATED:vocabulary:START{% endcomment %}
 | Term | Meaning |
 |------|---------|
 | **Bon** | Work tracker — outcomes, actions, tactical steps (GTD, not Agile) |
@@ -22,7 +21,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Consommé** | BigQuery data analysis — messy data in, clear insights out |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
 | **Guéridon** | Mobile web UI for Claude Code |
-<!-- GENERATED:vocabulary:END -->
+{% comment %}GENERATED:vocabulary:END{% endcomment %}
 
 ### GTD & Brigade Terms
 
@@ -39,8 +38,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 
 ## Tool Routing
 
-<!-- GENERATED:tool-routing:START -->
-
+{% comment %}GENERATED:tool-routing:START{% endcomment %}
 | Need | Use | NOT this |
 |------|-----|----------|
 | Track work, outcomes, actions | **bon** | — |
@@ -54,14 +52,13 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | BigQuery analysis | **consomme** | mise |
 | Multi-session orchestration | **aboyeur** | — |
 | Mobile access to Claude Code | **gueridon** | — |
-<!-- GENERATED:tool-routing:END -->
+{% comment %}GENERATED:tool-routing:END{% endcomment %}
 
 ## Dependency Direction
 
 What feeds what — arrows show data flow.
 
-<!-- GENERATED:dependency-direction:START -->
-
+{% comment %}GENERATED:dependency-direction:START{% endcomment %}
 | Source | → | Destination |
 |--------|---|-------------|
 | Mise en Space, Passe | → | Files on disk (content deposit) |
@@ -71,7 +68,7 @@ What feeds what — arrows show data flow.
 | Garde-manger | → | Any session (search retrieves past context) |
 | Aboyeur | → | Multiple sessions (spawns workers, collects results) |
 | All tools | → | Filesystem (files are the protocol — no IPC, no daemons) |
-<!-- GENERATED:dependency-direction:END -->
+{% comment %}GENERATED:dependency-direction:END{% endcomment %}
 
 ## Memory Layers
 
@@ -87,8 +84,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 
 ## Key Repos
 
-<!-- GENERATED:key-repos:START -->
-
+{% comment %}GENERATED:key-repos:START{% endcomment %}
 | Tool | Repo |
 |------|------|
 | Bon | [spm1001/bon](https://github.com/spm1001/bon) |
@@ -100,7 +96,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Consommé | [spm1001/consomme](https://github.com/spm1001/consomme) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Guéridon | [spm1001/gueridon](https://github.com/spm1001/gueridon) |
-<!-- GENERATED:key-repos:END -->
+{% comment %}GENERATED:key-repos:END{% endcomment %}
 
 | Tool | Repo |
 |------|------|

@@ -7,7 +7,6 @@
 A suite of tools for AI-assisted knowledge work, each named for a station in a professional kitchen [brigade](https://en.wikipedia.org/wiki/Brigade_de_cuisine).
 
 <!-- GENERATED:brigade-table:START -->
-
 | Tool | Station | Description | Status |
 |------|---------|-------------|--------|
 | [**Bon**](https://github.com/spm1001/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps | ⚡ Stable |

@@ -201,12 +201,38 @@ def render_key_repos() -> str:
 # Marker replacement engine
 # ---------------------------------------------------------------------------
 
+# Two marker formats:
+#   HTML:   <!-- GENERATED:name:START --> / <!-- GENERATED:name:END -->
+#   Liquid: {% comment %}GENERATED:name:START{% endcomment %} / ...
+#
+# HTML markers are for files rendered by GitHub's GFM (README.md).
+# Liquid markers are for Jekyll docs — Jekyll strips them before kramdown
+# sees the content, so markdown tables render correctly. HTML comments
+# would survive into kramdown and break table parsing.
+
+# Matches either marker format — the (?:...|...) alternation covers both styles.
+_OPEN = r"(?:<!-- |{%\s*comment\s*%})"    # start delimiter
+_CLOSE = r"(?:\s*-->|{%\s*endcomment\s*%})"  # end delimiter
+
 MARKER_RE = re.compile(
-    r"(<!-- GENERATED:(?P<name>[^:]+):START -->\n)"
+    rf"(?P<start>{_OPEN}GENERATED:(?P<name>[^:]+):START{_CLOSE})\n"
     r"(?P<content>.*?)"
-    r"(<!-- GENERATED:(?P=name):END -->)",
+    rf"{_OPEN}GENERATED:(?P=name):END{_CLOSE}",
     re.DOTALL,
 )
+
+
+def _marker_pair(start_tag: str, name: str) -> tuple[str, str]:
+    """Return (start, end) markers matching the format of the matched tag."""
+    if start_tag.startswith("<!--"):
+        return (
+            f"<!-- GENERATED:{name}:START -->",
+            f"<!-- GENERATED:{name}:END -->",
+        )
+    return (
+        f"{{% comment %}}GENERATED:{name}:START{{% endcomment %}}",
+        f"{{% comment %}}GENERATED:{name}:END{{% endcomment %}}",
+    )
 
 
 def replace_markers(text: str, sections: dict[str, str]) -> tuple[str, list[str]]:
@@ -220,13 +246,8 @@ def replace_markers(text: str, sections: dict[str, str]) -> tuple[str, list[str]
             return m.group(0)
         new_content = sections[name] + "\n"
         replaced.append(name)
-        # Blank line after START marker prevents kramdown from treating
-        # the HTML comment and the following markdown table as one HTML block.
-        return (
-            f"<!-- GENERATED:{name}:START -->\n"
-            f"\n{new_content}"
-            f"<!-- GENERATED:{name}:END -->"
-        )
+        start_tag, end_tag = _marker_pair(m.group("start"), name)
+        return f"{start_tag}\n{new_content}{end_tag}"
 
     new_text = MARKER_RE.sub(replacer, text)
     return new_text, replaced

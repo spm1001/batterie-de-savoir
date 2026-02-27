@@ -35,10 +35,14 @@ import render  # noqa: E402 — must come after sys.path manipulation
 # Extract actual content between markers
 # ---------------------------------------------------------------------------
 
+# Match both HTML and Liquid marker formats (see render.py for rationale).
+_OPEN = r"(?:<!-- |{%\s*comment\s*%})"
+_CLOSE = r"(?:\s*-->|{%\s*endcomment\s*%})"
+
 MARKER_RE = re.compile(
-    r"<!-- GENERATED:(?P<name>[^:]+):START -->\n"
+    rf"{_OPEN}GENERATED:(?P<name>[^:]+):START{_CLOSE}\n"
     r"(?P<content>.*?)"
-    r"<!-- GENERATED:(?P<end>[^:]+):END -->",
+    rf"{_OPEN}GENERATED:(?P=name):END{_CLOSE}",
     re.DOTALL,
 )
 
@@ -49,8 +53,8 @@ def extract_sections(path: Path) -> dict[str, str]:
     sections = {}
     for m in MARKER_RE.finditer(text):
         name = m.group("name")
-        # content includes surrounding newlines from the blank-line separators
-        content = m.group("content").strip("\n")
+        # content includes a trailing newline before the END marker
+        content = m.group("content").rstrip("\n")
         sections[name] = content
     return sections
 

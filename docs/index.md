@@ -19,8 +19,7 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 
 ## The Brigade
 
-<!-- GENERATED:brigade-table:START -->
-
+{% comment %}GENERATED:brigade-table:START{% endcomment %}
 | Tool | Station | Description | Status |
 |------|---------|-------------|--------|
 | [**Bon**](tools/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps | ⚡ Stable |
@@ -32,7 +31,7 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Consommé**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
 | [**Guéridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
-<!-- GENERATED:brigade-table:END -->
+{% comment %}GENERATED:brigade-table:END{% endcomment %}
 
 ![Brigade architecture](assets/brigade.png)
 

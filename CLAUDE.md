@@ -13,7 +13,7 @@ This is the **documentation umbrella repo** for the Batterie de Savoir tool suit
 
 **Edit `brigade.toml`, then run `uv run --script scripts/render.py`.**
 
-Adding or changing a tool means touching exactly one file. The render script handles the rest. Never hand-edit content between `<!-- GENERATED:*:START -->` and `<!-- GENERATED:*:END -->` markers — it will be overwritten.
+Adding or changing a tool means touching exactly one file. The render script handles the rest. Never hand-edit content between GENERATED markers — it will be overwritten. Two marker formats exist: HTML comments (`<!-- GENERATED:*:START -->`) in README.md, and Liquid comments (`{% comment %}GENERATED:*:START{% endcomment %}`) in docs/ files. The dual format exists because kramdown treats HTML comments as block elements that break table parsing, while Jekyll strips Liquid comments before kramdown runs.
 
 To check for drift without writing: `uv run --script scripts/lint.py`
 
