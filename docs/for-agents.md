@@ -10,6 +10,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 ## Vocabulary
 
 <!-- GENERATED:vocabulary:START -->
+
 | Term | Meaning |
 |------|---------|
 | **Bon** | Work tracker — outcomes, actions, tactical steps (GTD, not Agile) |
@@ -39,6 +40,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 ## Tool Routing
 
 <!-- GENERATED:tool-routing:START -->
+
 | Need | Use | NOT this |
 |------|-----|----------|
 | Track work, outcomes, actions | **bon** | — |
@@ -59,6 +61,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 What feeds what — arrows show data flow.
 
 <!-- GENERATED:dependency-direction:START -->
+
 | Source | → | Destination |
 |--------|---|-------------|
 | Mise en Space, Passe | → | Files on disk (content deposit) |
@@ -85,6 +88,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 ## Key Repos
 
 <!-- GENERATED:key-repos:START -->
+
 | Tool | Repo |
 |------|------|
 | Bon | [spm1001/bon](https://github.com/spm1001/bon) |

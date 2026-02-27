@@ -49,8 +49,8 @@ def extract_sections(path: Path) -> dict[str, str]:
     sections = {}
     for m in MARKER_RE.finditer(text):
         name = m.group("name")
-        # content includes a trailing newline before the END marker
-        content = m.group("content").rstrip("\n")
+        # content includes surrounding newlines from the blank-line separators
+        content = m.group("content").strip("\n")
         sections[name] = content
     return sections
 

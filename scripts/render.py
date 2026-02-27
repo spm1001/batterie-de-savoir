@@ -220,9 +220,11 @@ def replace_markers(text: str, sections: dict[str, str]) -> tuple[str, list[str]
             return m.group(0)
         new_content = sections[name] + "\n"
         replaced.append(name)
+        # Blank line after START marker prevents kramdown from treating
+        # the HTML comment and the following markdown table as one HTML block.
         return (
             f"<!-- GENERATED:{name}:START -->\n"
-            f"{new_content}"
+            f"\n{new_content}"
             f"<!-- GENERATED:{name}:END -->"
         )
 
