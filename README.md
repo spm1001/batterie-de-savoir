@@ -20,6 +20,17 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Guéridon**](https://github.com/spm1001/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
 <!-- GENERATED:brigade-table:END -->
 
+## Install
+
+**Via Claude Code plugin marketplace** (2.1+):
+
+```
+/plugin marketplace add spm1001/batterie-de-savoir
+/plugin install bon@batterie-de-savoir
+```
+
+**Manually** — each tool installs independently from its own repo. See [Getting Started](https://spm1001.github.io/batterie-de-savoir/getting-started) for the recommended adoption order.
+
 ## Documentation
 
 **[spm1001.github.io/batterie-de-savoir](https://spm1001.github.io/batterie-de-savoir/)**

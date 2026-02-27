@@ -91,7 +91,32 @@ The tools are independent but they're designed to work together. Here's what fee
 
 **Python and uv.** Several tools (bon, garde-manger, jeton, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (Consommé is a skill — a behavioural document — not a Python package. It has nothing to install via uv.)
 
-**No monorepo.** Each tool installs independently from its own repo. There is no unified installer, no shared config, no dependency graph to resolve. This is the point.
+**No monorepo.** Each tool installs independently from its own repo. There is no shared config and no dependency graph to resolve. You can adopt one tool without touching the rest.
+
+## Plugin Marketplace
+
+If you're using Claude Code 2.1+, the entire batterie is available as a [plugin marketplace](https://github.com/spm1001/batterie-de-savoir):
+
+```
+/plugin marketplace add spm1001/batterie-de-savoir
+```
+
+This gives you access to all 8 tools as plugins. Install individually:
+
+```
+/plugin install bon@batterie-de-savoir
+/plugin install trousse@batterie-de-savoir
+```
+
+Or browse the catalogue from within Claude Code:
+
+```
+/plugin marketplace
+```
+
+**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, garde, passe, todoist). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed.
+
+The manual symlink-based install path (via each tool's `install.sh` or README) continues to work and remains the right choice if you want short command names (`/close` instead of `/trousse:close`) or if you're not on Claude Code.
 
 ---
 

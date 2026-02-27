@@ -102,6 +102,14 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 |------|------|
 | This docs site | [spm1001/batterie-de-savoir](https://github.com/spm1001/batterie-de-savoir) |
 
+## Installation
+
+Two paths:
+
+**Plugin marketplace** (Claude Code 2.1+): `/plugin marketplace add spm1001/batterie-de-savoir` then `/plugin install <tool>@batterie-de-savoir`. Handles skills, hooks, and MCP config. CLI tools (bon, garde, passe, todoist) still need `uv tool install` separately.
+
+**Manual** (any agent): Clone repo → run `install.sh` or create symlinks per tool's README. Gives short command names (`/close` vs `/trousse:close`).
+
 ## What's Generated vs Authored
 
 | File type | Status |
