@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "bon",
-      "source": { "source": "url", "url": "https://github.com/spm1001/bon.git", "sha": "d66ac3f1af243b58d061010b0edc835d4ff22332" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/bon.git" },
       "description": "GTD-native work tracker — outcomes, actions, tactical steps",
       "category": "productivity",
       "keywords": ["gtd", "tracking"]
@@ -25,7 +25,7 @@
     },
     {
       "name": "mise",
-      "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git", "sha": "7dfd18bd23441f8b869a29a4cdf473580a907a55" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git" },
       "description": "Google Workspace MCP — search Drive, fetch Gmail, act on documents",
       "category": "integration",
       "keywords": ["google", "workspace", "mcp"]
@@ -53,7 +53,7 @@
     },
     {
       "name": "todoist-gtd",
-      "source": { "source": "url", "url": "https://github.com/spm1001/todoist-gtd.git", "sha": "8965f775b884d4afee6372ef73769062f976e297" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/todoist-gtd.git" },
       "description": "Todoist CLI with GTD coaching",
       "category": "productivity",
       "keywords": ["todoist", "gtd"]
