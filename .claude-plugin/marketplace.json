@@ -12,56 +12,76 @@
     {
       "name": "bon",
       "source": { "source": "url", "url": "https://github.com/spm1001/bon.git" },
-      "description": "GTD-native work tracker — outcomes, actions, tactical steps",
+      "description": "GTD-native work tracker — outcomes, actions, tactical steps. Includes session lifecycle (/open, /close).",
       "category": "productivity",
-      "keywords": ["gtd", "tracking"]
+      "keywords": ["gtd", "tracking"],
+      "strict": false,
+      "skills": ["tracker", "open", "close", "audit"]
     },
     {
       "name": "trousse",
       "source": { "source": "url", "url": "https://github.com/spm1001/trousse.git" },
-      "description": "Session lifecycle, code review, and behavioral skills",
+      "description": "Utility skills — code review, diagrams, screenshots, filing, architecture review, and more.",
       "category": "workflow",
-      "keywords": ["session", "hooks", "review"]
+      "keywords": ["session", "hooks", "review"],
+      "strict": false,
+      "skills": ["titans", "review", "toise", "diagram", "picture", "screenshot", "filing", "mandoline", "skill-forge", "setup", "google-devdocs", "ia-presenter", "server-checkup", "sprite", "neutral-claude", "claude-survey", "github-cleanup"]
     },
     {
       "name": "mise",
       "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git" },
-      "description": "Google Workspace MCP — search Drive, fetch Gmail, act on documents",
+      "description": "Google Workspace MCP — search Drive, fetch Gmail, act on documents. Requires Google OAuth.",
       "category": "integration",
-      "keywords": ["google", "workspace", "mcp"]
+      "keywords": ["google", "workspace", "mcp"],
+      "strict": false,
+      "skills": ["workspace"],
+      "mcpServers": {
+        "mise": {
+          "command": "uv",
+          "args": ["run", "--project", "${CLAUDE_PLUGIN_ROOT}", "python3", "${CLAUDE_PLUGIN_ROOT}/server.py"]
+        }
+      }
     },
     {
       "name": "passe",
       "source": { "source": "url", "url": "https://github.com/spm1001/passe.git" },
-      "description": "Fast browser automation via Chrome DevTools Protocol",
+      "description": "Fast browser automation via Chrome DevTools Protocol.",
       "category": "automation",
-      "keywords": ["browser", "cdp", "chrome"]
+      "keywords": ["browser", "cdp", "chrome"],
+      "strict": false,
+      "skills": ["passe"]
     },
     {
       "name": "garde-manger",
       "source": { "source": "url", "url": "https://github.com/spm1001/garde-manger.git" },
-      "description": "Persistent searchable memory across Claude sessions",
+      "description": "Persistent searchable memory across Claude sessions.",
       "category": "memory",
-      "keywords": ["memory", "search"]
+      "keywords": ["memory", "search"],
+      "strict": false,
+      "skills": ["garde"]
     },
     {
       "name": "consomme",
       "source": { "source": "url", "url": "https://github.com/spm1001/consomme.git" },
-      "description": "BigQuery data analysis methodology and workflow",
+      "description": "BigQuery data analysis methodology and workflow.",
       "category": "data",
-      "keywords": ["bigquery", "analysis"]
+      "keywords": ["bigquery", "analysis"],
+      "strict": false,
+      "skills": ["consomme"]
     },
     {
       "name": "todoist-gtd",
       "source": { "source": "url", "url": "https://github.com/spm1001/todoist-gtd.git" },
-      "description": "Todoist CLI with GTD coaching",
+      "description": "Todoist with GTD coaching — outcomes, weekly review, pattern detection.",
       "category": "productivity",
-      "keywords": ["todoist", "gtd"]
+      "keywords": ["todoist", "gtd"],
+      "strict": false,
+      "skills": ["coaching"]
     },
     {
       "name": "gueridon",
       "source": { "source": "url", "url": "https://github.com/spm1001/gueridon.git" },
-      "description": "Mobile web UI for Claude Code — setup and management",
+      "description": "Mobile web UI for Claude Code — setup and management.",
       "category": "infrastructure",
       "keywords": ["mobile", "pwa"]
     }
