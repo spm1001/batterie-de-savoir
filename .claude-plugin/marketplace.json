@@ -59,20 +59,6 @@
       "keywords": ["todoist", "gtd"]
     },
     {
-      "name": "plongeur",
-      "source": { "source": "url", "url": "https://github.com/spm1001/plongeur.git" },
-      "description": "Streamlit data exploration UI — makes consomme analysis accessible to non-technical users.",
-      "category": "data",
-      "keywords": ["streamlit", "visualization"]
-    },
-    {
-      "name": "aboyeur",
-      "source": { "source": "url", "url": "https://github.com/spm1001/aboyeur.git" },
-      "description": "ALPHA: Multi-session orchestrator — alternates workers and reflectors.",
-      "category": "orchestration",
-      "keywords": ["multi-session", "orchestration"]
-    },
-    {
       "name": "gueridon",
       "source": { "source": "url", "url": "https://github.com/spm1001/gueridon.git" },
       "description": "Mobile web UI for Claude Code — setup and management.",
