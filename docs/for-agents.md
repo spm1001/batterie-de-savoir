@@ -19,6 +19,8 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Mise (en Space)** | Content fetching from Google Workspace and the web (MCP server) |
 | **Passe** | Fast browser automation via Chrome DevTools Protocol (CDP) |
 | **Consommé** | BigQuery data analysis — messy data in, clear insights out |
+| **Plongeur** | Streamlit data exploration UI powered by Vertex AI and BigQuery |
+| **Todoist GTD** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
 | **Guéridon** | Mobile web UI for Claude Code |
 {% comment %}GENERATED:vocabulary:END{% endcomment %}
@@ -50,6 +52,8 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | DOM-faithful extraction (tables, code blocks) | **passe** | mise |
 | Screenshots, browser interaction, form filling | **passe** | — |
 | BigQuery analysis | **consomme** | mise |
+| Non-technical data exploration UI | **plongeur** | consomme |
+| Track human-owned tasks and deadlines | **todoist-gtd** | bon |
 | Multi-session orchestration | **aboyeur** | — |
 | Mobile access to Claude Code | **gueridon** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
@@ -94,6 +98,8 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Mise en Space | [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space) |
 | Passe | [spm1001/passe](https://github.com/spm1001/passe) |
 | Consommé | [spm1001/consomme](https://github.com/spm1001/consomme) |
+| Plongeur | [spm1001/plongeur](https://github.com/spm1001/plongeur) |
+| Todoist GTD | [spm1001/todoist-gtd](https://github.com/spm1001/todoist-gtd) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Guéridon | [spm1001/gueridon](https://github.com/spm1001/gueridon) |
 {% comment %}GENERATED:key-repos:END{% endcomment %}
