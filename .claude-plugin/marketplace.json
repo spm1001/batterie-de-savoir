@@ -21,7 +21,7 @@
       "source": { "source": "url", "url": "https://github.com/spm1001/trousse.git" },
       "description": "Utility skills — code review, diagrams, screenshots, filing, architecture review, and more.",
       "category": "workflow",
-      "keywords": ["session", "hooks", "review"]
+      "keywords": ["skills", "review", "utilities"]
     },
     {
       "name": "mise",
