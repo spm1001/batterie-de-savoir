@@ -14,69 +14,49 @@
       "source": { "source": "url", "url": "https://github.com/spm1001/bon.git" },
       "description": "GTD-native work tracker — outcomes, actions, tactical steps. Includes session lifecycle (/open, /close).",
       "category": "productivity",
-      "keywords": ["gtd", "tracking"],
-      "strict": false,
-      "skills": ["tracker", "open", "close", "audit"]
+      "keywords": ["gtd", "tracking"]
     },
     {
       "name": "trousse",
       "source": { "source": "url", "url": "https://github.com/spm1001/trousse.git" },
       "description": "Utility skills — code review, diagrams, screenshots, filing, architecture review, and more.",
       "category": "workflow",
-      "keywords": ["session", "hooks", "review"],
-      "strict": false,
-      "skills": ["titans", "review", "toise", "diagram", "picture", "screenshot", "filing", "mandoline", "skill-forge", "setup", "google-devdocs", "ia-presenter", "server-checkup", "sprite", "neutral-claude", "claude-survey", "github-cleanup"]
+      "keywords": ["session", "hooks", "review"]
     },
     {
       "name": "mise",
       "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git" },
       "description": "Google Workspace MCP — search Drive, fetch Gmail, act on documents. Requires Google OAuth.",
       "category": "integration",
-      "keywords": ["google", "workspace", "mcp"],
-      "strict": false,
-      "skills": ["workspace"],
-      "mcpServers": {
-        "mise": {
-          "command": "uv",
-          "args": ["run", "--project", "${CLAUDE_PLUGIN_ROOT}", "python3", "${CLAUDE_PLUGIN_ROOT}/server.py"]
-        }
-      }
+      "keywords": ["google", "workspace", "mcp"]
     },
     {
       "name": "passe",
       "source": { "source": "url", "url": "https://github.com/spm1001/passe.git" },
       "description": "Fast browser automation via Chrome DevTools Protocol.",
       "category": "automation",
-      "keywords": ["browser", "cdp", "chrome"],
-      "strict": false,
-      "skills": ["passe"]
+      "keywords": ["browser", "cdp", "chrome"]
     },
     {
       "name": "garde-manger",
       "source": { "source": "url", "url": "https://github.com/spm1001/garde-manger.git" },
       "description": "Persistent searchable memory across Claude sessions.",
       "category": "memory",
-      "keywords": ["memory", "search"],
-      "strict": false,
-      "skills": ["garde"]
+      "keywords": ["memory", "search"]
     },
     {
       "name": "consomme",
       "source": { "source": "url", "url": "https://github.com/spm1001/consomme.git" },
       "description": "BigQuery data analysis methodology and workflow.",
       "category": "data",
-      "keywords": ["bigquery", "analysis"],
-      "strict": false,
-      "skills": ["consomme"]
+      "keywords": ["bigquery", "analysis"]
     },
     {
       "name": "todoist-gtd",
       "source": { "source": "url", "url": "https://github.com/spm1001/todoist-gtd.git" },
       "description": "Todoist with GTD coaching — outcomes, weekly review, pattern detection.",
       "category": "productivity",
-      "keywords": ["todoist", "gtd"],
-      "strict": false,
-      "skills": ["coaching"]
+      "keywords": ["todoist", "gtd"]
     },
     {
       "name": "gueridon",
