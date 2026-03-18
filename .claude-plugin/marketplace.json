@@ -54,7 +54,7 @@
     {
       "name": "todoist-gtd",
       "source": { "source": "url", "url": "https://github.com/spm1001/todoist-gtd.git" },
-      "description": "Todoist with GTD coaching — outcomes, weekly review, pattern detection.",
+      "description": "Todoist integration with GTD coaching — human-owned tasks, weekly review, pattern detection.",
       "category": "productivity",
       "keywords": ["todoist", "gtd"]
     },
