@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "bon",
-      "source": { "source": "url", "url": "https://github.com/spm1001/bon.git", "sha": "2cdac583464d2a9b4b48d6924e2a60b8cbd6fd56" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/bon.git", "sha": "d66ac3f1af243b58d061010b0edc835d4ff22332" },
       "description": "GTD-native work tracker — outcomes, actions, tactical steps",
       "category": "productivity",
       "keywords": ["gtd", "tracking"]
@@ -25,7 +25,7 @@
     },
     {
       "name": "mise",
-      "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git", "sha": "4d3bfd3331c8af5b4794715fec32b50d07b8aa7f" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git", "sha": "7dfd18bd23441f8b869a29a4cdf473580a907a55" },
       "description": "Google Workspace MCP — search Drive, fetch Gmail, act on documents",
       "category": "integration",
       "keywords": ["google", "workspace", "mcp"]
