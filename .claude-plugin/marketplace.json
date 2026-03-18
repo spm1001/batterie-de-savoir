@@ -11,56 +11,56 @@
   "plugins": [
     {
       "name": "bon",
-      "source": { "source": "git", "url": "https://github.com/spm1001/bon.git", "ref": "v0.4.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/bon.git" },
       "description": "GTD-native work tracker — outcomes, actions, tactical steps",
       "category": "productivity",
       "keywords": ["gtd", "tracking"]
     },
     {
       "name": "trousse",
-      "source": { "source": "git", "url": "https://github.com/spm1001/trousse.git", "ref": "v1.0.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/trousse.git" },
       "description": "Session lifecycle, code review, and behavioral skills",
       "category": "workflow",
       "keywords": ["session", "hooks", "review"]
     },
     {
       "name": "mise",
-      "source": { "source": "git", "url": "https://github.com/spm1001/mise-en-space.git", "ref": "v0.1.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/mise-en-space.git" },
       "description": "Google Workspace MCP — search Drive, fetch Gmail, act on documents",
       "category": "integration",
       "keywords": ["google", "workspace", "mcp"]
     },
     {
       "name": "passe",
-      "source": { "source": "git", "url": "https://github.com/spm1001/passe.git", "ref": "v0.1.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/passe.git" },
       "description": "Fast browser automation via Chrome DevTools Protocol",
       "category": "automation",
       "keywords": ["browser", "cdp", "chrome"]
     },
     {
       "name": "garde-manger",
-      "source": { "source": "git", "url": "https://github.com/spm1001/garde-manger.git", "ref": "v0.1.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/garde-manger.git" },
       "description": "Persistent searchable memory across Claude sessions",
       "category": "memory",
       "keywords": ["memory", "search"]
     },
     {
       "name": "consomme",
-      "source": { "source": "git", "url": "https://github.com/spm1001/consomme.git", "ref": "v0.1.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/consomme.git" },
       "description": "BigQuery data analysis methodology and workflow",
       "category": "data",
       "keywords": ["bigquery", "analysis"]
     },
     {
       "name": "todoist-gtd",
-      "source": { "source": "git", "url": "https://github.com/spm1001/todoist-gtd.git", "ref": "v0.1.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/todoist-gtd.git" },
       "description": "Todoist CLI with GTD coaching",
       "category": "productivity",
       "keywords": ["todoist", "gtd"]
     },
     {
       "name": "gueridon",
-      "source": { "source": "git", "url": "https://github.com/spm1001/gueridon.git", "ref": "v0.1.0" },
+      "source": { "source": "url", "url": "https://github.com/spm1001/gueridon.git" },
       "description": "Mobile web UI for Claude Code — setup and management",
       "category": "infrastructure",
       "keywords": ["mobile", "pwa"]
