@@ -26,7 +26,7 @@ To check for drift without writing: `uv run --script scripts/lint.py`
 | `docs/tools/*.md` — individual tool pages | **Hand-authored** — never generated |
 | `docs/getting-started.md` | **Hand-authored** |
 | `docs/principles.md` | **Hand-authored** |
-| `MAINTAINING.md` | **Hand-authored** |
+| `docs/MAINTAINING.md` | **Hand-authored** |
 
 Tool pages are hand-authored by design. The registry holds one-liners; tool pages hold judgement.
 

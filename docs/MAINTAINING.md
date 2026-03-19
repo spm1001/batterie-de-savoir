@@ -22,6 +22,19 @@ When a tool is **added, renamed, or removed** from the suite, update all of the 
 12. **CLAUDE.md (global)** — add to "The Kitchen" table if not already there
 13. **Skill frontmatter** — if the tool has a skill, ensure the description mentions the kitchen name
 
+## Checklist: Pushing Plugin Changes
+
+Claude Code's plugin cache is **version-keyed**. If you push content changes without bumping the version in `.claude-plugin/plugin.json`, users with the old version cached will never see the update — `/plugin install` says "already at latest."
+
+**Every push that changes plugin behaviour must bump the version:**
+
+1. Edit `.claude-plugin/plugin.json` — increment the patch version (e.g., `1.0.0` → `1.0.1`)
+2. Commit the version bump alongside the content changes (or as a follow-up if you forget)
+
+This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, garde-manger, consomme, todoist-gtd, gueridon, plongeur, aboyeur.
+
+**What counts as a behaviour change:** hook scripts, skills, MCP server code, plugin.json fields (description, keywords, hooks). Does NOT include: README, CLAUDE.md, tests, docs, non-plugin scripts.
+
 ## Checklist: Changing a Tool's Maturity
 
 1. **README.md** — update the Robustness column

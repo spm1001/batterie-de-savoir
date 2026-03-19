@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "consomme", "aboyeur", "gueridon"]
+order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "consomme", "plongeur", "todoist-gtd", "aboyeur", "gueridon"]
 
 [tool.bon]
 name = "Bon"
@@ -114,7 +114,7 @@ slug = "consomme"
 station = "Clarification"
 what = "BigQuery data analysis — messy data in, clear insights out"
 vocab_meaning = "BigQuery data analysis — messy data in, clear insights out"
-maturity = "beta"
+maturity = "alpha"
 repo = "spm1001/consomme"
 skill = "consomme"
 routing = [
@@ -131,6 +131,32 @@ maturity = "alpha"
 repo = "spm1001/aboyeur"
 routing = [
   {need = "Multi-session orchestration", not = ""},
+]
+
+[tool.plongeur]
+name = "Plongeur"
+slug = "plongeur"
+station = "The dishwasher"
+what = "Streamlit data exploration UI — makes consommé accessible to non-technical users"
+vocab_meaning = "Streamlit data exploration UI powered by Vertex AI and BigQuery"
+maturity = "beta"
+repo = "spm1001/plongeur"
+routing = [
+  {need = "Non-technical data exploration UI", not = "consomme"},
+]
+
+[tool.todoist-gtd]
+name = "Todoist GTD"
+slug = "todoist-gtd"
+station = "The commis"
+what = "Todoist integration with GTD coaching — human-owned tasks and deadlines"
+vocab_term = "Todoist GTD"
+vocab_meaning = "Todoist integration — human-owned tasks, weekly review, pattern detection"
+maturity = "stable"
+repo = "spm1001/todoist-gtd"
+skill = "todoist-gtd"
+routing = [
+  {need = "Track human-owned tasks and deadlines", not = "bon"},
 ]
 
 [tool.gueridon]

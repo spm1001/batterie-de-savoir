@@ -16,6 +16,8 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Mise en Space**](https://github.com/spm1001/mise-en-space) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
 | [**Passe**](https://github.com/spm1001/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
 | [**Consommé**](https://github.com/spm1001/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
+| [**Plongeur**](https://github.com/spm1001/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
+| [**Todoist GTD**](https://github.com/spm1001/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
 | [**Guéridon**](https://github.com/spm1001/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
 <!-- GENERATED:brigade-table:END -->
