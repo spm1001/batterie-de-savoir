@@ -75,11 +75,11 @@ Four batterie plugins ship CLI tools installed via `uv tool install`:
 For each installed plugin that has a CLI:
 1. Read the **new** plugin version from `<installPath>/.claude-plugin/plugin.json`
 2. Compare against the CLI version shown in the "before" snapshot above
-3. If they differ, tell the user:
+3. If they differ (or the CLI is not in PATH), run:
    ```
-   ⚠️ <cli> CLI is v<old> but plugin is now v<new>. Run:
    uv tool install "<installPath>" --force --reinstall
    ```
+   Report success or failure. If `uv` is not available or the install fails, fall back to showing the manual command.
 
 ### 4. Summarise
 
