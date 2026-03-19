@@ -8,6 +8,14 @@
   },
   "plugins": [
     {
+      "name": "batterie",
+      "source": ".",
+      "description": "Suite-level utilities — cross-plugin updates and maintenance.",
+      "category": "productivity",
+      "homepage": "https://github.com/spm1001/batterie-de-savoir",
+      "keywords": ["update", "maintenance", "utilities"]
+    },
+    {
       "name": "bon",
       "source": { "source": "url", "url": "https://github.com/spm1001/bon.git" },
       "description": "GTD-native work tracker — outcomes, actions, tactical steps. Includes session lifecycle (/open, /close).",
