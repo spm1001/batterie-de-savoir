@@ -35,6 +35,23 @@ This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon
 
 **What counts as a behaviour change:** hook scripts, skills, MCP server code, plugin.json fields (description, keywords, hooks). Does NOT include: README, CLAUDE.md, tests, docs, non-plugin scripts.
 
+### Version source of truth
+
+For plugins that ship a CLI tool (bon, garde-manger, passe, todoist-gtd), the version lives in **one place only**: `.claude-plugin/plugin.json`. The `pyproject.toml` reads it dynamically via hatchling:
+
+```toml
+[project]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = ".claude-plugin/plugin.json"
+pattern = "\"version\":\\s*\"(?P<version>[^\"]+)\""
+```
+
+**Never add a static `version = "X.Y.Z"` to pyproject.toml in these repos.** Bump plugin.json and both the marketplace and `<tool> --version` follow automatically.
+
+Plugins without CLIs (trousse, mise, consomme, gueridon) only have plugin.json — no sync concern.
+
 ## Checklist: Changing a Tool's Maturity
 
 1. **README.md** — update the Robustness column

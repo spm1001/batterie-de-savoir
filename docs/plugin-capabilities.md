@@ -200,6 +200,7 @@ Which plugin capabilities each batterie tool currently uses.
 
 | Plugin | Commands | Notes |
 |---|---|---|
+| **batterie** | 1 command (.md format) | batterie-update — cross-plugin updater with marketplace refresh, CLI drift detection, and auto-install |
 | **consomme** | 7 commands (.toml format) | consomme, consomme-explore, consomme-ingest, consomme-profile, consomme-dashboard, consomme-sheets, consomme-validate |
 | All others | — | — |
 
@@ -404,7 +405,7 @@ This is informational, not blocking. The description field remains the primary s
 
 ## Consomme: A Different Pattern
 
-Consomme is the only batterie plugin using the **commands** feature (7 `.toml` commands). This gives it a clean sub-command UX:
+Consomme was the first batterie plugin to use the **commands** feature (7 `.toml` commands). The batterie plugin itself now also has a command (`/batterie-update`). Consomme's approach gives it a clean sub-command UX:
 
 ```
 /consomme          → orient
@@ -425,7 +426,7 @@ Each command uses `{{args}}` for argument interpolation and a focused `prompt` f
 ```
                     USING          NOT USING
 Skills              ████████████
-Commands            █              ███████████  (only consomme)
+Commands            ██             ██████████   (batterie + consomme)
 Agents              ░              ████████████ (none)
 MCP Servers         █              ███████████  (only mise)
 
@@ -440,4 +441,4 @@ PreCompact          ░              ████████████ (none)
 Notification        ░              ████████████ (none)
 ```
 
-We are skill-heavy and hook-light. The plugin system's most powerful features — commands with load-time execution, Stop hooks for discipline, PreCompact for memory, PreToolUse for guardrails — are almost entirely unused. The infrastructure is there; the wiring isn't.
+We are skill-heavy and hook-light. Commands are gaining traction (batterie + consomme), but the plugin system's most powerful features — Stop hooks for discipline, PreCompact for memory, PreToolUse for guardrails, declared agents — remain unused. The infrastructure is there; the wiring isn't.
