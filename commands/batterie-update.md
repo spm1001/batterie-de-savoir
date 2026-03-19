@@ -45,7 +45,15 @@ PYEOF`
 
 Update every batterie-de-savoir plugin listed above. Follow these steps exactly:
 
-### 1. Update each plugin
+### 1. Refresh the marketplace
+
+```
+claude plugin marketplace update batterie-de-savoir
+```
+
+This pulls the latest marketplace index so plugin updates can see new versions. Without this, `claude plugin update` compares against a stale index.
+
+### 2. Update each plugin
 
 For each plugin shown above, run:
 
@@ -55,13 +63,13 @@ claude plugin update <name>@batterie-de-savoir
 
 Run them sequentially — each must complete before the next starts. Report the output of each.
 
-### 2. Check what changed
+### 3. Check what changed
 
 After all updates, read `~/.claude/plugins/installed_plugins.json` again. For each batterie plugin, compare the **version** and **gitCommitSha** against the "before" snapshot above. Report:
 - Which plugins had version changes (old → new)
 - Which were already up to date
 
-### 3. Detect CLI version drift
+### 4. Detect CLI version drift
 
 Four batterie plugins ship CLI tools installed via `uv tool install`:
 
@@ -81,7 +89,7 @@ For each installed plugin that has a CLI:
    ```
    Report success or failure. If `uv` is not available or the install fails, fall back to showing the manual command.
 
-### 4. Summarise
+### 5. Summarise
 
 If any plugins were updated:
 ```
