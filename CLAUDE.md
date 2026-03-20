@@ -30,6 +30,16 @@ To check for drift without writing: `uv run --script scripts/lint.py`
 
 Tool pages are hand-authored by design. The registry holds one-liners; tool pages hold judgement.
 
+## Versioning convention
+
+**`plugin.json` is the single source of truth for version numbers across the entire suite.**
+
+- `pyproject.toml` uses `dynamic = ["version"]` with `[tool.hatch.version]` pointing at `.claude-plugin/plugin.json` via regex — never has a hardcoded version
+- To bump a version: edit the `"version"` field in `.claude-plugin/plugin.json` only
+- `/batterie-update` triggers when the installed plugin.json version is lower than the repo's — so bumping plugin.json is what drives updates
+
+Repos aligned on this pattern: bon, passe, garde-manger, mise-en-space, trousse. If you add a new tool with a pyproject.toml, follow the same pattern.
+
 ## Deliberate quirks — do not "fix" these
 
 - **jeton has no public README** — it's the renamed `itv-google-auth` library. A 404 when fetching its README is expected.
