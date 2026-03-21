@@ -69,6 +69,22 @@ After all updates, read `~/.claude/plugins/installed_plugins.json` again. For ea
 - Which plugins had version changes (old → new)
 - Which were already up to date
 
+**JSON structure of `installed_plugins.json`:**
+
+```json
+{
+  "version": "...",
+  "plugins": {
+    "bon@batterie-de-savoir": [
+      {"scope": "user", "installPath": "/path/to/cache/bon/0.8.0", "version": "0.8.0", "gitCommitSha": "..."}
+    ],
+    ...
+  }
+}
+```
+
+Each plugin key maps to a **list** of installations (one per scope). Use `v[0]` to get the user-scope entry.
+
 ### 4. Detect CLI version drift
 
 Four batterie plugins ship CLI tools installed via `uv tool install`:
@@ -81,9 +97,10 @@ Four batterie plugins ship CLI tools installed via `uv tool install`:
 | todoist-gtd | `todoist` |
 
 For each installed plugin that has a CLI:
-1. Read the **new** plugin version from `<installPath>/.claude-plugin/plugin.json`
-2. Compare against the CLI version shown in the "before" snapshot above
-3. If they differ (or the CLI is not in PATH), run:
+1. Get the plugin's `installPath` from the JSON above (e.g. `plugins["bon@batterie-de-savoir"][0]["installPath"]`)
+2. The plugin version is already in the same entry — use `["version"]`
+3. Compare against the CLI version shown in the "before" snapshot above
+4. If they differ (or the CLI is not in PATH), run:
    ```
    uv tool install "<installPath>" --force --reinstall
    ```
