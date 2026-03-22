@@ -28,7 +28,7 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Jeton**](tools/jeton) | The token | Google OAuth token management for the suite | ⚡ Stable |
 | [**Mise en Space**](tools/mise) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
 | [**Passe**](tools/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
-| [**Consommé**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🔧 Beta |
+| [**Consommé**](tools/consomme) | Clarification | BigQuery data analysis — messy data in, clear insights out | 🧪 Alpha |
 | [**Plongeur**](tools/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Todoist GTD**](tools/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
