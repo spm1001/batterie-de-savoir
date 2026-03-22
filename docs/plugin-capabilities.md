@@ -179,8 +179,8 @@ Which plugin capabilities each batterie tool currently uses.
 
 | Event | bon | trousse | mise | todoist-gtd | garde-manger | passe | consomme | gueridon |
 |---|---|---|---|---|---|---|---|---|
-| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | — | — | — | — |
-| **SessionEnd** | session-end | — | — | — | — | — | — | — |
+| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-garde | — | — | — |
+| **SessionEnd** | session-end | — | — | — | session-end | — | — | — |
 | **UserPromptSubmit** | bon-tactical | — | — | — | — | — | — | — |
 | **PreToolUse** | — | — | — | — | — | — | — | — |
 | **PostToolUse** | — | — | — | — | — | — | — | — |
@@ -372,16 +372,17 @@ fi
 
 ### <a id="p1-plugins-missing-prerequisite-checks"></a>P1: Plugins missing prerequisite checks
 
-**What:** Four plugins require external tools or services but have no SessionStart hook to verify:
+**What:** Three plugins require external tools or services but have no SessionStart hook to verify:
 
 | Plugin | Prerequisites | What fails silently |
 |---|---|---|
-| **garde-manger** | `garde` CLI | Memory skill invokes garde commands that don't exist |
 | **passe** | `passe` CLI + Chrome with CDP on port 9222 | Browser skill tells Claude to run passe commands |
 | **consomme** | Google BQ MCP extension | Analysis skill references MCP tools that aren't available |
 | **gueridon** | Node.js + Tailscale | Setup skill assumes both are present |
 
-**Pattern to follow:** bon, mise, and todoist-gtd all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. The pattern is established — it just needs replicating.
+**Resolved:** garde-manger added `ensure-garde.sh` in v0.3.0 (Mar 2026), including CLI version alignment check.
+
+**Pattern to follow:** bon, mise, todoist-gtd, and now garde-manger all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. The pattern is established — it just needs replicating for the remaining three.
 
 **Belongs in:** Each plugin, as `hooks/ensure-<name>.sh`.
 
@@ -430,8 +431,8 @@ Commands            ██             ██████████   (batteri
 Agents              ░              ████████████ (none)
 MCP Servers         █              ███████████  (only mise)
 
-SessionStart        ████           ████         (4/8 plugins)
-SessionEnd          █              ███████████  (only bon)
+SessionStart        █████          ███          (5/8 plugins)
+SessionEnd          ██             ██████████   (bon + garde-manger)
 UserPromptSubmit    █              ███████████  (only bon)
 PreToolUse          ░              ████████████ (none)
 PostToolUse         ░              ████████████ (none)
