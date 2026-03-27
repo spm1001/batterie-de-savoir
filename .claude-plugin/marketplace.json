@@ -73,7 +73,12 @@
     },
     {
       "name": "gueridon",
-      "source": { "source": "url", "url": "https://github.com/spm1001/gueridon.git" },
+      "source": {
+        "source": "git-subdir",
+        "url": "spm1001/gueridon",
+        "path": ".",
+        "ref": "main"
+      },
       "description": "Mobile web UI for Claude Code — setup and management.",
       "category": "infrastructure",
       "homepage": "https://github.com/spm1001/gueridon",
