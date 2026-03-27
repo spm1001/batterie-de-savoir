@@ -1,0 +1,7 @@
+{
+  "name": "passe",
+  "description": "Fast browser automation via Chrome DevTools Protocol",
+  "author": {
+    "name": "Sameer Modha"
+  }
+}
