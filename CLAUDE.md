@@ -55,6 +55,31 @@ Test rendering before pushing: `docker run --rm -v "$PWD/docs:/srv/jekyll" -p 40
 
 This machine runs Python 3.9, which doesn't have `tomllib` (added in 3.11). The PEP 723 scripts declare `tomli; python_version < '3.11'` as a dependency — `uv run --script` handles this automatically. Don't validate TOML with bare `python3 -c "import tomllib"` — it'll fail. Use `uv run --with tomli python3 -c "import tomli; ..."` or just run the scripts via uv.
 
+## Two-Repo Marketplace Pattern
+
+This repo (`batterie-de-savoir`) is the **CLI marketplace** — uses `source: url` to reference plugins across repos. The CLI handles this natively.
+
+Desktop's backend rejects all external sources from personal marketplaces. A second repo, [`spm1001/batterie`](https://github.com/spm1001/batterie), serves as the **Desktop marketplace** with all plugin content physically present and `"./"` relative paths.
+
+### Keeping Desktop in sync
+
+```bash
+cd ~/Repos/batterie/batterie
+./assemble.sh          # copies .claude-plugin/, skills/, hooks/, etc. from each source repo
+git add -A
+git add -f plugins/mise/   # global gitignore has mise/ — always force-add
+git commit -m "Reassemble — <reason>"
+git push
+```
+
+Then refresh the marketplace in Desktop (may need uninstall/reinstall of individual plugins to pick up changes).
+
+### Debugging Desktop marketplace
+
+- UI errors are opaque ("Marketplace sync failed")
+- Real errors: `~/Library/Logs/Claude/claude.ai-web.log` — shows per-plugin validation results
+- Sync status: `~/Library/Logs/Claude/main.log` — shows `failed_content` / `success` / `in_progress`
+
 ## Open outcomes
 
 - `bds-lozeti` — Track Claude Office add-in bundle changes over time
