@@ -1,7 +1,0 @@
-{
-  "name": "garde-manger",
-  "description": "Persistent searchable memory across Claude sessions",
-  "author": {
-    "name": "Sameer Modha"
-  }
-}
