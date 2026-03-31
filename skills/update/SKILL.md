@@ -1,4 +1,5 @@
 ---
+name: update
 description: "Update all installed batterie-de-savoir plugins in one go"
 allowed-tools: ["Bash", "Read"]
 ---

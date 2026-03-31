@@ -3,6 +3,8 @@ name: Lint registry
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '0 7 * * 1'  # Weekly Monday 07:00 UTC — catches cross-repo drift
 
 jobs:
   lint:
@@ -15,3 +17,6 @@ jobs:
 
       - name: Check GENERATED sections are up to date
         run: uv run --script scripts/lint.py
+
+      - name: Lint plugin structure (all plugins)
+        run: uv run --script scripts/batterie-lint.py
