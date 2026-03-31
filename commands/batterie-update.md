@@ -102,9 +102,9 @@ For each installed plugin that has a CLI:
 3. Compare against the CLI version shown in the "before" snapshot above
 4. If they differ (or the CLI is not in PATH), run:
    ```
-   uv tool install "<installPath>" --force --reinstall
+   uv cache clean <cli_name> --force && uv tool install "<installPath>" --force --reinstall
    ```
-   Report success or failure. If `uv` is not available or the install fails, fall back to showing the manual command.
+   The `--force` on `uv cache clean` prevents blocking on lock contention from other uv processes (e.g. marketplace refresh). Report success or failure. If `uv` is not available or the install fails, fall back to showing the manual command.
 
 ### 5. Summarise
 
