@@ -8,5 +8,18 @@
   },
   "repository": "https://github.com/spm1001/batterie-de-savoir",
   "license": "MIT",
-  "keywords": ["update", "maintenance", "batterie"]
+  "keywords": ["update", "maintenance", "batterie"],
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh"
+          }
+        ]
+      }
+    ]
+  }
 }
