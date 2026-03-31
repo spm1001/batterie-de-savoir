@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur"]
+order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur", "tafelmusik"]
 
 [tool.bon]
 name = "Bon"
@@ -147,6 +147,20 @@ routing = [
   {need = "Track human-owned tasks and deadlines", not = "bon"},
 ]
 
+[tool.tafelmusik]
+name = "Tafelmusik"
+slug = "tafelmusik"
+station = "Table music"
+what = "Collaborative CRDT editing — co-edit markdown documents in real time (MCP)"
+vocab_meaning = "Collaborative CRDT editing — Yjs Y.Text + CodeMirror for real-time co-authoring"
+maturity = "beta"
+repo = "spm1001/tafelmusik"
+skill = "collaborate"
+routing = [
+  {need = "Co-edit a document with Sameer in real time", not = ""},
+  {need = "Comment on specific text passages inline", not = ""},
+]
+
 # Dependency direction — relational, rendered as the Dependency Direction table
 # in docs/for-agents.md. from=["all"] renders as "All tools".
 
@@ -179,6 +193,11 @@ label = "search retrieves past context"
 from = ["aboyeur"]
 to = "Multiple sessions"
 label = "spawns workers, collects results"
+
+[[dependency]]
+from = ["tafelmusik"]
+to = "Files on disk"
+label = "flush_doc writes .md + git commits"
 
 [[dependency]]
 from = ["all"]

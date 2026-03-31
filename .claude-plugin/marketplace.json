@@ -62,6 +62,14 @@
       "category": "productivity",
       "homepage": "https://github.com/spm1001/todoist-gtd",
       "keywords": ["todoist", "gtd"]
+    },
+    {
+      "name": "tafelmusik",
+      "source": { "source": "url", "url": "https://github.com/spm1001/tafelmusik.git" },
+      "description": "Collaborative CRDT editing — co-edit markdown documents in real time via Yjs.",
+      "category": "collaboration",
+      "homepage": "https://github.com/spm1001/tafelmusik",
+      "keywords": ["collaboration", "yjs", "crdt", "editing", "mcp"]
     }
   ]
 }
