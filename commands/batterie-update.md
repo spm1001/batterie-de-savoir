@@ -89,12 +89,12 @@ Each plugin key maps to a **list** of installations (one per scope). Use `v[0]` 
 
 Four batterie plugins ship CLI tools installed via `uv tool install`:
 
-| Plugin | CLI binary |
-|--------|-----------|
-| bon | `bon` |
-| garde-manger | `garde` |
-| passe | `passe` |
-| todoist-gtd | `todoist` |
+| Plugin | CLI binary | Extras |
+|--------|-----------|--------|
+| bon | `bon` | `[dolt]` |
+| garde-manger | `garde` | |
+| passe | `passe` | |
+| todoist-gtd | `todoist` | |
 
 For each installed plugin that has a CLI:
 1. Get the plugin's `installPath` from the JSON above (e.g. `plugins["bon@batterie-de-savoir"][0]["installPath"]`)
@@ -102,8 +102,9 @@ For each installed plugin that has a CLI:
 3. Compare against the CLI version shown in the "before" snapshot above
 4. If they differ (or the CLI is not in PATH), run:
    ```
-   uv cache clean <cli_name> --force && uv tool install "<installPath>" --force --reinstall
+   uv cache clean <cli_name> --force && uv tool install "<installPath>[<extras>]" --force --reinstall
    ```
+   Always include extras from the table above (e.g. bon is always `"<installPath>[dolt]"`). PyMySQL is tiny and harmless — always installing it avoids silent breakage when any project uses the Dolt backend.
    The `--force` on `uv cache clean` prevents blocking on lock contention from other uv processes (e.g. marketplace refresh). Report success or failure. If `uv` is not available or the install fails, fall back to showing the manual command.
 
 ### 5. Summarise
