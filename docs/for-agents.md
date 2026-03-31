@@ -22,7 +22,6 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Plongeur** | Streamlit data exploration UI powered by Vertex AI and BigQuery |
 | **Todoist GTD** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
-| **Guéridon** | Mobile web UI for Claude Code |
 {% comment %}GENERATED:vocabulary:END{% endcomment %}
 
 ### GTD & Brigade Terms
@@ -55,7 +54,6 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | Non-technical data exploration UI | **plongeur** | consomme |
 | Track human-owned tasks and deadlines | **todoist-gtd** | bon |
 | Multi-session orchestration | **aboyeur** | — |
-| Mobile access to Claude Code | **gueridon** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
 
 ## Dependency Direction
@@ -101,7 +99,6 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Plongeur | [spm1001/plongeur](https://github.com/spm1001/plongeur) |
 | Todoist GTD | [spm1001/todoist-gtd](https://github.com/spm1001/todoist-gtd) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
-| Guéridon | [spm1001/gueridon](https://github.com/spm1001/gueridon) |
 {% comment %}GENERATED:key-repos:END{% endcomment %}
 
 | Tool | Repo |

@@ -63,12 +63,6 @@ This is the most common first pick, because statelessness is the first pain you 
 
 📦 [spm1001/aboyeur](https://github.com/spm1001/aboyeur)
 
-### "I want Claude Code on my phone"
-
-**[Guéridon](tools/gueridon)** is a mobile web UI. It connects to your existing Claude Code setup and gives you tableside access from a phone or tablet.
-
-📦 [spm1001/gueridon](https://github.com/spm1001/gueridon)
-
 ## How the Tools Compose
 
 The tools are independent but they're designed to work together. Here's what feeds what:
@@ -82,8 +76,6 @@ The tools are independent but they're designed to work together. Here's what fee
 **Garde-manger + Trousse** — garde-manger gets better when trousse is producing structured handoffs. The handoffs become a high-quality source for indexing. Without trousse, garde-manger still works (it indexes raw transcripts), but the signal-to-noise ratio improves with structured session boundaries.
 
 **Aboyeur** sits on top of everything. It uses bon for work items, trousse for session lifecycle, and handoff files for inter-session communication. It's the tool you reach for when the work exceeds a single context window and you need sustained, multi-session progress without degradation.
-
-**Guéridon** extends the session lifecycle to mobile. The bridge spawns `claude -p` processes that load the same trousse skills, write the same handoffs, and track work in the same bon items. A session started from your phone is indistinguishable from one started in a terminal — same tools, same memory, same protocol. Where aboyeur orchestrates *multiple* sessions, guéridon untethers *one* session from the desk.
 
 ## Prerequisites
 

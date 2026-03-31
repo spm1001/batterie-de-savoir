@@ -22,7 +22,7 @@ set -euo pipefail
 
 # ── Config ─────────────────────────────────────────────────────────────
 
-ALL_PLUGINS=(batterie bon trousse mise todoist-gtd garde-manger passe consomme gueridon)
+ALL_PLUGINS=(batterie bon trousse mise todoist-gtd garde-manger passe consomme)
 
 # Expected skills per plugin (subset — smoke test, not exhaustive)
 # Note: CC surfaces commands as skills, so commands appear here too
@@ -35,7 +35,6 @@ declare -A EXPECTED_SKILLS=(
     [garde-manger]="garde"
     [passe]="passe"
     [consomme]="consomme"
-    [gueridon]="setup"
 )
 
 # Expected commands per plugin (checked separately via file existence)

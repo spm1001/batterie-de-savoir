@@ -16,7 +16,6 @@ All tools follow a professional kitchen metaphor. Suite: **Batterie de Savoir**.
 | Session memory & search | **Garde-manger** | The cold station |
 | BigQuery analysis | **Consommé** | Clarification |
 | Multi-session orchestrator | **Aboyeur** | The caller |
-| Mobile Claude | **Guéridon** | Tableside trolley |
 
 ## Filesystem Zones
 

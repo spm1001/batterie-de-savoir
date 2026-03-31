@@ -173,15 +173,14 @@ Which plugin capabilities each batterie tool currently uses.
 | **garde-manger** | memory | Persistent memory search |
 | **passe** | browser | Chrome automation |
 | **consomme** | analysis | BigQuery methodology |
-| **gueridon** | setup | Mobile UI setup |
 
 ### Hooks
 
-| Event | bon | trousse | mise | todoist-gtd | garde-manger | passe | consomme | gueridon |
-|---|---|---|---|---|---|---|---|---|
-| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-garde | — | — | — |
-| **SessionEnd** | session-end | — | — | — | session-end | — | — | — |
-| **UserPromptSubmit** | bon-tactical | — | — | — | — | — | — | — |
+| Event | bon | trousse | mise | todoist-gtd | garde-manger | passe | consomme |
+|---|---|---|---|---|---|---|---|
+| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-garde | ensure-passe + session-start | — |
+| **SessionEnd** | session-end | — | — | — | session-end | — | — |
+| **UserPromptSubmit** | bon-tactical | — | — | — | — | — | — |
 | **PreToolUse** | — | — | — | — | — | — | — | — |
 | **PostToolUse** | — | — | — | — | — | — | — | — |
 | **Stop** | — | — | — | — | — | — | — | — |
@@ -221,7 +220,6 @@ Which plugin capabilities each batterie tool currently uses.
 | **mise** | — | No CLI; MCP server only |
 | **trousse** | — | No CLI; skills only |
 | **consomme** | — | No CLI; skills + commands only |
-| **gueridon** | — | Node.js app, separate setup |
 
 ---
 
@@ -239,7 +237,7 @@ Which plugin capabilities each batterie tool currently uses.
 | **Agents** | No custom agents defined | Low | trousse, bon | [A1](#a1-subagents-for-parallel-review) |
 | **CLI install** | No version drift detection | Medium | bon, passe, todoist-gtd, garde-manger | [T1](#t1-cli-version-drift) |
 | **CLI install** | uv tool install not editable | Low | all with CLIs | [T2](#t2-uv-editable-installs) |
-| **Prerequisites** | Silent failure without setup hooks | Medium | garde-manger, passe, consomme, gueridon | [P1](#p1-plugins-missing-prerequisite-checks) |
+| **Prerequisites** | Silent failure without setup hooks | Medium | consomme | [P1](#p1-plugins-missing-prerequisite-checks) |
 | **Cross-plugin** | No dependency declaration | Low | all | [X1](#x1-cross-plugin-dependencies) |
 
 ---
@@ -378,11 +376,10 @@ fi
 |---|---|---|
 | **passe** | `passe` CLI + Chrome with CDP on port 9222 | Browser skill tells Claude to run passe commands |
 | **consomme** | Google BQ MCP extension | Analysis skill references MCP tools that aren't available |
-| **gueridon** | Node.js + Tailscale | Setup skill assumes both are present |
 
-**Resolved:** garde-manger added `ensure-garde.sh` in v0.3.0 (Mar 2026), including CLI version alignment check.
+**Resolved:** garde-manger added `ensure-garde.sh` in v0.3.0 (Mar 2026), including CLI version alignment check. Passe added `ensure-passe.sh` in v0.5.1 (Mar 2026).
 
-**Pattern to follow:** bon, mise, todoist-gtd, and now garde-manger all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. The pattern is established — it just needs replicating for the remaining three.
+**Pattern to follow:** bon, mise, todoist-gtd, garde-manger, and passe all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. Only consomme remains without one.
 
 **Belongs in:** Each plugin, as `hooks/ensure-<name>.sh`.
 

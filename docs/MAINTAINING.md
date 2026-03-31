@@ -31,7 +31,7 @@ Claude Code's plugin cache is **version-keyed**. If you push content changes wit
 1. Edit `.claude-plugin/plugin.json` — increment the patch version (e.g., `1.0.0` → `1.0.1`)
 2. Commit the version bump alongside the content changes (or as a follow-up if you forget)
 
-This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, garde-manger, consomme, todoist-gtd, gueridon, plongeur, aboyeur.
+This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, garde-manger, consomme, todoist-gtd, plongeur, aboyeur.
 
 **What counts as a behaviour change:** hook scripts, skills, MCP server code, plugin.json fields (description, keywords, hooks). Does NOT include: README, CLAUDE.md, tests, docs, non-plugin scripts.
 
@@ -50,7 +50,7 @@ pattern = "\"version\":\\s*\"(?P<version>[^\"]+)\""
 
 **Never add a static `version = "X.Y.Z"` to pyproject.toml in these repos.** Bump plugin.json and both the marketplace and `<tool> --version` follow automatically.
 
-Plugins without CLIs (trousse, mise, consomme, gueridon) only have plugin.json — no sync concern.
+Plugins without CLIs (trousse, mise, consomme) only have plugin.json — no sync concern.
 
 ## Checklist: Changing a Tool's Maturity
 

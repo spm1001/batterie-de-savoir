@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "consomme", "plongeur", "todoist-gtd", "aboyeur", "gueridon"]
+order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "consomme", "plongeur", "todoist-gtd", "aboyeur"]
 
 [tool.bon]
 name = "Bon"
@@ -157,18 +157,6 @@ repo = "spm1001/todoist-gtd"
 skill = "todoist-gtd"
 routing = [
   {need = "Track human-owned tasks and deadlines", not = "bon"},
-]
-
-[tool.gueridon]
-name = "Guéridon"
-slug = "gueridon"
-station = "Tableside trolley"
-what = "Mobile web UI for Claude Code"
-vocab_meaning = "Mobile web UI for Claude Code"
-maturity = "beta"
-repo = "spm1001/gueridon"
-routing = [
-  {need = "Mobile access to Claude Code", not = ""},
 ]
 
 # Dependency direction — relational, rendered as the Dependency Direction table

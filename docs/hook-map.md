@@ -14,7 +14,7 @@ How the batterie uses Claude Code hooks. Updated 2026-03-30.
 | **global** | | `context-budget-hook.sh` | | Tiered context window usage warnings at 30/75/90%. Lives in `~/.claude/`, registered in `~/.claude/settings.json`. |
 
 **Repos with no hooks:** trousse (empty `hooks.json` placeholder), aboyeur,
-consomme, ecoute, gueridon, jeton, passe, plongeur, tafelmusik (has dormant
+consomme, ecoute, jeton, passe, plongeur, tafelmusik (has dormant
 ensure hook, not installed).
 
 ### Ownership

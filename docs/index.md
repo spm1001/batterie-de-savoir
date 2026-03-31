@@ -32,7 +32,6 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Plongeur**](tools/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Todoist GTD**](tools/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
-| [**Guéridon**](tools/gueridon) | Tableside trolley | Mobile web UI for Claude Code | 🔧 Beta |
 {% comment %}GENERATED:brigade-table:END{% endcomment %}
 
 ![Brigade architecture](assets/brigade.png)

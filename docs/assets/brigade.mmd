@@ -30,15 +30,10 @@ flowchart TB
         aboyeur["Aboyeur — the caller"]
     end
 
-    subgraph access["Access"]
-        gueridon["Gueridon — tableside"]
-    end
-
     trousse -->|"handoffs"| garde
     bon -->|"work state"| garde
     aboyeur -->|"spawns workers and reflectors"| session
     aboyeur -->|"reads bon_hash for stuck detection"| bon
-    gueridon -->|"mobile UI for"| trousse
     jeton -->|"OAuth credentials"| mise
     jeton -->|"OAuth credentials"| consomme
     mise -->|"deposits to disk"| fs[("Filesystem — shared state")]
@@ -51,7 +46,6 @@ flowchart TB
     classDef memoryNode fill:#1a1a2e,stroke:#ff6b6b,color:#e0e0e0
     classDef analysisNode fill:#1a1a2e,stroke:#ffd93d,color:#e0e0e0
     classDef orchNode fill:#1a1a2e,stroke:#c084fc,color:#e0e0e0
-    classDef accessNode fill:#1a1a2e,stroke:#fb923c,color:#e0e0e0
     classDef authNode fill:#1a1a2e,stroke:#34d399,color:#e0e0e0
     classDef fsNode fill:#0d0d1a,stroke:#888,color:#ccc
 
@@ -60,6 +54,5 @@ flowchart TB
     class garde memoryNode
     class consomme analysisNode
     class aboyeur orchNode
-    class gueridon accessNode
     class jeton authNode
     class fs fsNode
