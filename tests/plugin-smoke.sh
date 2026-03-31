@@ -28,13 +28,13 @@ ALL_PLUGINS=(batterie bon trousse mise todoist-gtd garde-manger passe consomme)
 # Note: CC surfaces commands as skills, so commands appear here too
 declare -A EXPECTED_SKILLS=(
     [batterie]="update"
-    [bon]="bon open close audit"
+    [bon]="open close review"
     [trousse]="titans diagram screenshot skill-forge toise"
-    [mise]="mise"
-    [todoist-gtd]="todoist-gtd"
-    [garde-manger]="garde"
+    [mise]="workspace"
+    [todoist-gtd]="coaching"
+    [garde-manger]="memory"
     [passe]="passe"
-    [consomme]="consomme"
+    [consomme]="analysis"
 )
 
 # Expected commands per plugin (checked separately via file existence)
