@@ -167,26 +167,25 @@ Which plugin capabilities each batterie tool currently uses.
 | Plugin | Skills | Notes |
 |---|---|---|
 | **bon** | tracker, open, close, audit | Session lifecycle + work tracking |
-| **trousse** | 18 skills (titans, diagram, picture, skill-forge, screenshot, ...) | Utility/behavioural skills |
+| **trousse** | 17 skills (titans, diagram, picture, consomme, mandoline, skill-forge, ...) | Utility/behavioural + data analysis skills |
 | **mise** | workspace | Google Workspace orchestration |
 | **todoist-gtd** | coaching | GTD coaching for Todoist |
 | **garde-manger** | memory | Persistent memory search |
 | **passe** | browser | Chrome automation |
-| **consomme** | analysis | BigQuery methodology |
 
 ### Hooks
 
-| Event | bon | trousse | mise | todoist-gtd | garde-manger | passe | consomme |
-|---|---|---|---|---|---|---|---|
-| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-garde | ensure-passe + session-start | — |
-| **SessionEnd** | session-end | — | — | — | session-end | — | — |
-| **UserPromptSubmit** | bon-tactical | — | — | — | — | — | — |
-| **PreToolUse** | — | — | — | — | — | — | — | — |
-| **PostToolUse** | — | — | — | — | — | — | — | — |
-| **Stop** | — | — | — | — | — | — | — | — |
-| **SubagentStop** | — | — | — | — | — | — | — | — |
-| **PreCompact** | — | — | — | — | — | — | — | — |
-| **Notification** | — | — | — | — | — | — | — | — |
+| Event | bon | trousse | mise | todoist-gtd | garde-manger | passe |
+|---|---|---|---|---|---|---|
+| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-garde | ensure-passe + session-start |
+| **SessionEnd** | session-end | — | — | — | session-end | — |
+| **UserPromptSubmit** | bon-tactical | — | — | — | — | — |
+| **PreToolUse** | — | — | — | — | — | — |
+| **PostToolUse** | — | — | — | — | — | — |
+| **Stop** | — | — | — | — | — | — |
+| **SubagentStop** | — | — | — | — | — | — |
+| **PreCompact** | — | — | — | — | — | — |
+| **Notification** | — | — | — | — | — | — |
 
 ### MCP Servers
 
@@ -200,7 +199,7 @@ Which plugin capabilities each batterie tool currently uses.
 | Plugin | Commands | Notes |
 |---|---|---|
 | **batterie** | 1 command (.md format) | batterie-update — cross-plugin updater with marketplace refresh, CLI drift detection, and auto-install |
-| **consomme** | 7 commands (.toml format) | consomme, consomme-explore, consomme-ingest, consomme-profile, consomme-dashboard, consomme-sheets, consomme-validate |
+| **trousse** | 7 commands (.md format) | consomme, consomme-explore, consomme-ingest, consomme-profile, consomme-dashboard, consomme-sheets, consomme-validate |
 | All others | — | — |
 
 ### Agents
@@ -218,8 +217,7 @@ Which plugin capabilities each batterie tool currently uses.
 | **passe** | `passe` | `uv tool install passe` |
 | **todoist-gtd** | `todoist` | `uv tool install todoist-gtd` |
 | **mise** | — | No CLI; MCP server only |
-| **trousse** | — | No CLI; skills only |
-| **consomme** | — | No CLI; skills + commands only |
+| **trousse** | — | No CLI; skills + commands only |
 
 ---
 
@@ -237,7 +235,7 @@ Which plugin capabilities each batterie tool currently uses.
 | **Agents** | No custom agents defined | Low | trousse, bon | [A1](#a1-subagents-for-parallel-review) |
 | **CLI install** | No version drift detection | Medium | bon, passe, todoist-gtd, garde-manger | [T1](#t1-cli-version-drift) |
 | **CLI install** | uv tool install not editable | Low | all with CLIs | [T2](#t2-uv-editable-installs) |
-| **Prerequisites** | Silent failure without setup hooks | Medium | consomme | [P1](#p1-plugins-missing-prerequisite-checks) |
+| **Prerequisites** | Silent failure without setup hooks | Medium | trousse (consomme skill) | [P1](#p1-plugins-missing-prerequisite-checks) |
 | **Cross-plugin** | No dependency declaration | Low | all | [X1](#x1-cross-plugin-dependencies) |
 
 ---
@@ -375,11 +373,11 @@ fi
 | Plugin | Prerequisites | What fails silently |
 |---|---|---|
 | **passe** | `passe` CLI + Chrome with CDP on port 9222 | Browser skill tells Claude to run passe commands |
-| **consomme** | Google BQ MCP extension | Analysis skill references MCP tools that aren't available |
+| **trousse** (consomme skill) | Google BQ MCP extension | Analysis skill references MCP tools that aren't available |
 
 **Resolved:** garde-manger added `ensure-garde.sh` in v0.3.0 (Mar 2026), including CLI version alignment check. Passe added `ensure-passe.sh` in v0.5.1 (Mar 2026).
 
-**Pattern to follow:** bon, mise, todoist-gtd, garde-manger, and passe all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. Only consomme remains without one.
+**Pattern to follow:** bon, mise, todoist-gtd, garde-manger, and passe all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. The consomme skill (now in trousse) still lacks a prerequisite check for the BQ MCP extension.
 
 **Belongs in:** Each plugin, as `hooks/ensure-<name>.sh`.
 
@@ -401,9 +399,9 @@ This is informational, not blocking. The description field remains the primary s
 
 ---
 
-## Consomme: A Different Pattern
+## Commands: The Consomme Pattern (now in Trousse)
 
-Consomme was the first batterie plugin to use the **commands** feature (7 `.toml` commands). The batterie plugin itself now also has a command (`/batterie-update`). Consomme's approach gives it a clean sub-command UX:
+Consomme was the first batterie tool to use the **commands** feature (7 commands, now in trousse). The batterie plugin itself now also has a command (`/batterie-update`). The consomme commands give a clean sub-command UX:
 
 ```
 /consomme          → orient
@@ -424,7 +422,7 @@ Each command uses `{{args}}` for argument interpolation and a focused `prompt` f
 ```
                     USING          NOT USING
 Skills              ████████████
-Commands            ██             ██████████   (batterie + consomme)
+Commands            ██             ██████████   (batterie + trousse)
 Agents              ░              ████████████ (none)
 MCP Servers         █              ███████████  (only mise)
 
@@ -439,4 +437,4 @@ PreCompact          ░              ████████████ (none)
 Notification        ░              ████████████ (none)
 ```
 
-We are skill-heavy and hook-light. Commands are gaining traction (batterie + consomme), but the plugin system's most powerful features — Stop hooks for discipline, PreCompact for memory, PreToolUse for guardrails, declared agents — remain unused. The infrastructure is there; the wiring isn't.
+We are skill-heavy and hook-light. Commands are gaining traction (batterie + trousse), but the plugin system's most powerful features — Stop hooks for discipline, PreCompact for memory, PreToolUse for guardrails, declared agents — remain unused. The infrastructure is there; the wiring isn't.

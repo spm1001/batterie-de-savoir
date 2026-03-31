@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "consomme", "plongeur", "todoist-gtd", "aboyeur"]
+order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur"]
 
 [tool.bon]
 name = "Bon"
@@ -43,13 +43,14 @@ routing = [
 name = "Trousse"
 slug = "trousse"
 station = "The knife roll"
-what = "Skills, hooks, and session lifecycle for Claude Code"
-vocab_meaning = "Skills, hooks, and session lifecycle for Claude Code"
+what = "Skills, hooks, data analysis, and session lifecycle for Claude Code"
+vocab_meaning = "Skills, hooks, data analysis, and session lifecycle for Claude Code"
 maturity = "stable"
 repo = "spm1001/trousse"
 skill = "open"
 routing = [
   {need = "Session lifecycle (/open → work → /close)", not = ""},
+  {need = "BigQuery analysis", not = "mise"},
 ]
 
 [tool."garde-manger"]
@@ -108,19 +109,6 @@ routing = [
   {need = "Screenshots, browser interaction, form filling", not = ""},
 ]
 
-[tool.consomme]
-name = "Consommé"
-slug = "consomme"
-station = "Clarification"
-what = "BigQuery data analysis — messy data in, clear insights out"
-vocab_meaning = "BigQuery data analysis — messy data in, clear insights out"
-maturity = "alpha"
-repo = "spm1001/consomme"
-skill = "consomme"
-routing = [
-  {need = "BigQuery analysis", not = "mise"},
-]
-
 [tool.aboyeur]
 name = "Aboyeur"
 slug = "aboyeur"
@@ -142,7 +130,7 @@ vocab_meaning = "Streamlit data exploration UI powered by Vertex AI and BigQuery
 maturity = "beta"
 repo = "spm1001/plongeur"
 routing = [
-  {need = "Non-technical data exploration UI", not = "consomme"},
+  {need = "Non-technical data exploration UI", not = "trousse"},
 ]
 
 [tool.todoist-gtd]
@@ -169,7 +157,7 @@ label = "content deposit"
 
 [[dependency]]
 from = ["jeton"]
-to = "mise, consommé"
+to = "mise"
 label = "OAuth credentials for Google APIs"
 
 [[dependency]]

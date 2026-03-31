@@ -1,7 +1,7 @@
 flowchart TB
     subgraph session["Session Lifecycle"]
         direction LR
-        trousse["Trousse — knife roll"]
+        trousse["Trousse — knife roll\n(incl. consomme, mandoline)"]
         bon["Bon — the ticket"]
         trousse -->|"hooks inject tactical state"| bon
         bon -->|"/open loads bon context"| trousse
@@ -22,10 +22,6 @@ flowchart TB
         garde["Garde-manger — cold station"]
     end
 
-    subgraph analysis["Analysis"]
-        consomme["Consomme — clarification"]
-    end
-
     subgraph orchestration["Orchestration"]
         aboyeur["Aboyeur — the caller"]
     end
@@ -35,7 +31,6 @@ flowchart TB
     aboyeur -->|"spawns workers and reflectors"| session
     aboyeur -->|"reads bon_hash for stuck detection"| bon
     jeton -->|"OAuth credentials"| mise
-    jeton -->|"OAuth credentials"| consomme
     mise -->|"deposits to disk"| fs[("Filesystem — shared state")]
     passe -->|"deposits to disk"| fs
     bon -->|".bon/items.jsonl"| fs
@@ -44,7 +39,6 @@ flowchart TB
     classDef sessionNode fill:#1a1a2e,stroke:#00d9ff,color:#e0e0e0
     classDef contentNode fill:#1a1a2e,stroke:#00c000,color:#e0e0e0
     classDef memoryNode fill:#1a1a2e,stroke:#ff6b6b,color:#e0e0e0
-    classDef analysisNode fill:#1a1a2e,stroke:#ffd93d,color:#e0e0e0
     classDef orchNode fill:#1a1a2e,stroke:#c084fc,color:#e0e0e0
     classDef authNode fill:#1a1a2e,stroke:#34d399,color:#e0e0e0
     classDef fsNode fill:#0d0d1a,stroke:#888,color:#ccc
@@ -52,7 +46,6 @@ flowchart TB
     class trousse,bon sessionNode
     class mise,passe contentNode
     class garde memoryNode
-    class consomme analysisNode
     class aboyeur orchNode
     class jeton authNode
     class fs fsNode

@@ -13,12 +13,11 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | Term | Meaning |
 |------|---------|
 | **Bon** | Work tracker — outcomes, actions, tactical steps (GTD, not Agile) |
-| **Trousse** | Skills, hooks, and session lifecycle for Claude Code |
+| **Trousse** | Skills, hooks, data analysis, and session lifecycle for Claude Code |
 | **Garde-manger** | Persistent, searchable memory across sessions |
 | **Jeton** | Google OAuth token management — scopes, refresh, multi-mode auth |
 | **Mise (en Space)** | Content fetching from Google Workspace and the web (MCP server) |
 | **Passe** | Fast browser automation via Chrome DevTools Protocol (CDP) |
-| **Consommé** | BigQuery data analysis — messy data in, clear insights out |
 | **Plongeur** | Streamlit data exploration UI powered by Vertex AI and BigQuery |
 | **Todoist GTD** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
@@ -44,14 +43,14 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 |------|-----|----------|
 | Track work, outcomes, actions | **bon** | — |
 | Session lifecycle (/open → work → /close) | **trousse** | — |
+| BigQuery analysis | **trousse** | mise |
 | Search past sessions | **garde-manger** | — |
 | Google OAuth tokens (acquire, refresh, status) | **jeton** | — |
 | Fetch Google Workspace content | **mise** | passe |
 | Clean article / blog extraction | **mise** | passe |
 | DOM-faithful extraction (tables, code blocks) | **passe** | mise |
 | Screenshots, browser interaction, form filling | **passe** | — |
-| BigQuery analysis | **consomme** | mise |
-| Non-technical data exploration UI | **plongeur** | consomme |
+| Non-technical data exploration UI | **plongeur** | trousse |
 | Track human-owned tasks and deadlines | **todoist-gtd** | bon |
 | Multi-session orchestration | **aboyeur** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
@@ -64,7 +63,7 @@ What feeds what — arrows show data flow.
 | Source | → | Destination |
 |--------|---|-------------|
 | Mise en Space, Passe | → | Files on disk (content deposit) |
-| Jeton | → | mise, consommé (OAuth credentials for Google APIs) |
+| Jeton | → | mise (OAuth credentials for Google APIs) |
 | Bon | → | trousse (hooks inject tactical state) |
 | Trousse | → | bon (session open/close triggers draw-down/draw-up) |
 | Garde-manger | → | Any session (search retrieves past context) |
@@ -95,7 +94,6 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Jeton | [spm1001/jeton](https://github.com/spm1001/jeton) |
 | Mise en Space | [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space) |
 | Passe | [spm1001/passe](https://github.com/spm1001/passe) |
-| Consommé | [spm1001/consomme](https://github.com/spm1001/consomme) |
 | Plongeur | [spm1001/plongeur](https://github.com/spm1001/plongeur) |
 | Todoist GTD | [spm1001/todoist-gtd](https://github.com/spm1001/todoist-gtd) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |

@@ -20,7 +20,7 @@ Mise en Space is an MCP server that preps content from Google Workspace and the 
 ## When NOT to use it
 
 - **DOM-faithful extraction** (tables, code blocks, interactive elements) — use [Passe](passe) with its `read` verb instead. Mise optimises for clean article text; Passe preserves the DOM structure.
-- **BigQuery or data warehouse queries** — use [Consommé](consomme). Mise fetches *documents*, not *datasets*.
+- **BigQuery or data warehouse queries** — use the [consomme skill](consomme) in trousse. Mise fetches *documents*, not *datasets*.
 - **Browser automation** (clicking, filling forms, navigating SPAs) — use [Passe](passe). Mise fetches static content; it doesn't interact with pages.
 
 ## Key concepts
@@ -54,7 +54,7 @@ Mise also ships a CLI (`cli.py`) for agents that don't speak MCP — or for huma
 Mise is the station that preps content from the outside world. It sits at the boundary between the kitchen and the ingredients:
 
 - **[Passe](passe)** — Mise and Passe share the web-fetching space but referee each other. Passe's own README says "for clean article/blog extraction, use mise." Mise's skill says "for DOM-faithful extraction (tables, code blocks, technical docs), use passe read." If you want the *text* of an article, Mise. If you want the *structure* of a page, Passe.
-- **[Consommé](consomme)** — Consommé handles data in BigQuery; Mise handles documents in Workspace. Consommé's skill explicitly routes Workspace content requests to Mise.
+- **[Consommé](consomme)** — The consomme skill (now in trousse) handles data in BigQuery; Mise handles documents in Workspace. The consomme skill explicitly routes Workspace content requests to Mise.
 - **[Garde-manger](garde-manger)** — Mise fetches content from the outside; Garde-manger retrieves context from past sessions. Different sources, same idea: get the right context to the agent without bloating the window.
 - **[Bon](bon)** — Mise deposits to the filesystem; Bon reads from it. A session might search Gmail via Mise, find actions to track, and file them with Bon. The filesystem is the shared protocol.
 

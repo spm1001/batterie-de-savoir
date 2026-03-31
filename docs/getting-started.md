@@ -53,9 +53,9 @@ This is the most common first pick, because statelessness is the first pain you 
 
 ### "I need to analyse data in BigQuery"
 
-**[Consommé](tools/consomme)** provides a structured methodology for BigQuery analysis — discover, understand, analyse, validate, present. It needs the BigQuery MCP server and works with either Claude Code or Gemini CLI. No dependency on the rest of the batterie.
+The **[consomme skill](tools/consomme)** in [Trousse](tools/trousse) provides a structured methodology for BigQuery analysis — discover, understand, analyse, validate, present. It needs the BigQuery MCP server. Install trousse and the consomme skill comes with it.
 
-📦 [spm1001/consomme](https://github.com/spm1001/consomme)
+📦 [spm1001/trousse](https://github.com/spm1001/trousse)
 
 ### "I want to orchestrate work across multiple sessions"
 
@@ -81,7 +81,7 @@ The tools are independent but they're designed to work together. Here's what fee
 
 **An AI coding agent.** The batterie is built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), but the filesystem-first design means most tools work with any agent that can read and write files.
 
-**Python and uv.** Several tools (bon, garde-manger, jeton, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (Consommé is a skill — a behavioural document — not a Python package. It has nothing to install via uv.)
+**Python and uv.** Several tools (bon, garde-manger, jeton, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (The consomme skill in trousse is a behavioural document, not a Python package. It has nothing to install via uv.)
 
 **No monorepo.** Each tool installs independently from its own repo. There is no shared config and no dependency graph to resolve. You can adopt one tool without touching the rest.
 
