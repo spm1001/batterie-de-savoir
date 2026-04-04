@@ -18,6 +18,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Plongeur**](https://github.com/spm1001/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Todoist GTD**](https://github.com/spm1001/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
+| [**Tafelmusik**](https://github.com/spm1001/tafelmusik) | Table music | Collaborative CRDT editing — co-edit markdown documents in real time (MCP) | 🔧 Beta |
 <!-- GENERATED:brigade-table:END -->
 
 ## Install
