@@ -194,8 +194,82 @@ Never deleted. The handoff is the permanent session record. understanding.md is 
 - Processed marker design
 - Deglacer fallback for unclosed sessions
 - Cross-machine: runs on hezza, reads git-synced handoffs from both machines
+- Spatial maintenance (see below)
 
-### 4. Cleanup
+### 4. Spatial maintenance — outcome hierarchy (~/Repos/work)
+
+The overnight composting process (workstream 3) handles the **temporal** dimension — reducing handoffs into understanding.md and garde. This workstream adds a **spatial** dimension: maintaining the folder hierarchy that gives Claudes the right context for knowledge work.
+
+#### The problem it solves
+
+Code repos have a natural organising principle — the code itself. A Claude landing in `~/Repos/batterie/passe/` reads CLAUDE.md and understands the project. But knowledge-work repos like `~/Repos/work/` organise around *areas of focus* and *desired outcomes* that shift quarterly. Without maintenance, the folder structure drifts from reality: outcomes complete but their dossiers linger, new outcomes appear in Todoist but have no folder, actions float in @Work with no link to an outcome.
+
+The spatial problem is: **how does the folder hierarchy stay aligned with Sameer's actual work priorities, so that a Claude arriving cold can navigate to the right context?**
+
+#### Design principle: scope resolution
+
+The folder hierarchy is a scope resolution chain. Each level answers a different question and loads a different CLAUDE.md:
+
+```
+~/Repos/work/CLAUDE.md                                    → "How does this system work?"
+areas/team-and-capability/CLAUDE.md                        → "What do we know about this domain?"
+areas/team-and-capability/probation-360s-lauren-judi/CLAUDE.md → "What are we doing and where are we?"
+```
+
+The constraint: **the path from root to leaf must be monotonically increasing in specificity.** Every directory level must carry a CLAUDE.md with meaningful context. If you can't write one, the directory shouldn't exist.
+
+Placement follows "what context does the working Claude need?" — e.g. probation-360s lives under team-and-capability (not self-management) because the parent CLAUDE.md automatically loads team knowledge (Manuals of Me, roles, 121 links).
+
+#### Todoist as ground truth
+
+The hierarchy should converge toward mirroring Todoist's structure:
+
+| Todoist | Folder |
+|---------|--------|
+| Areas of Focus (sections) | `areas/` directories |
+| Desired Outcomes (sections in outcomes projects) | Subdirectories within areas |
+| Next Actions (@Work tasks) | Referenced in outcome dossier CLAUDE.md |
+
+Todoist is the source of truth for *what the hierarchy should look like*. The folders are the materialised context that makes it *useful to Claude*.
+
+#### What the spatial walker does
+
+Runs as part of the overnight composting process. Four checks:
+
+1. **Coverage:** For each active Todoist outcome (section in Desired Outcomes Q2 / 2026), does a corresponding folder exist? Flag orphaned outcomes.
+2. **Liveness:** For each outcome folder, is the outcome still active in Todoist? Flag completed/stale dossiers for archiving.
+3. **Orphaned actions:** For each @Work task, can it be mapped to an outcome? Flag unlinked work — either the outcome is missing from Todoist, or the action needs a home.
+4. **Scope health:** For each CLAUDE.md in the hierarchy, check: duplication with siblings (lift to parent), staleness (last commit vs Todoist activity), empty files (unnecessary scope level).
+
+The walker produces a **review brief** — never acts unilaterally. The brief surfaces at the next `/open` in `~/Repos/work/` alongside the bon orientation. Sameer approves, rejects, or modifies.
+
+#### Sediment routing
+
+When the overnight composting process encounters a Learned section in a handoff, and the session can be mapped to an outcome (via bon item prefix, CWD, or explicit tag), the Learned content flows to two places:
+
+- **understanding.md** (project-level, as per Fond workstream 1)
+- **The outcome dossier's `## Sediment` section** (outcome-level, new)
+
+This means outcome dossiers accumulate context automatically — each session that works on an outcome deposits a layer. The dossier thickens over time without anyone having to maintain it. Like understanding.md, the sediment is written to stand alone without session context.
+
+#### Relationship to other workstreams
+
+This workstream depends on workstreams 1-3 being stable. It's additive — the temporal plumbing works without it, but it adds the spatial dimension that makes knowledge-work repos navigable. Implementation order:
+
+1. Workstream 1 (handoff format + /close + /open) — **must be first**
+2. Workstream 2 (garde adapter) — can parallel with 1
+3. Workstream 3 (overnight composting) — depends on 1, 2
+4. **Workstream 4 (spatial maintenance) — depends on 3, additive**
+5. Workstream 5 (cleanup) — can run anytime
+
+#### Build notes
+
+- The tree walker is a read-only process: Todoist API (via todoist-gtd CLI) + filesystem walk + diff logic. No writes except the review brief.
+- The sediment routing is a write process but only appends to existing files. Low blast radius.
+- The Todoist→folder mapping table lives in `~/Repos/work/CLAUDE.md` (the area routing table already exists). Outcome→folder mapping is by convention: slugified outcome name as directory name.
+- Cross-cutting outcomes ("Learning", "Telling" per-person) may not need folders. The walker should have an exclusion list for meta-outcomes that live in Todoist only.
+
+### 5. Cleanup
 - Process 15 pending contribution files across repos
 - Backfill existing handoffs into garde with new adapter (or just new ones going forward?)
 - Update understanding.md in bon and garde repos
