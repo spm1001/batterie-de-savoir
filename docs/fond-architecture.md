@@ -2,6 +2,20 @@
 
 Design brief from session 2026-04-04 (~/Repos, Mac). Spans bon, garde, and a new overnight composting process.
 
+## Why "Fond"
+
+In French cooking, **fond** is foundation stock — bones and scraps reduced into a rich base that everything else is built from. **Glace** is stock reduced further to a syrup, the most concentrated form.
+
+| Kitchen | Ours |
+|---------|------|
+| Bones and scraps | Handoffs — session waste (what happened, what went wrong, what was learned) |
+| Fond (stock) | Garde extractions — searchable base, derived from handoffs |
+| Glace (reduction) | understanding.md — the most concentrated, distilled project knowledge |
+
+The overnight process is literally reduction: taking a day's handoffs and reducing them into richer, more concentrated forms. Like real stock-making, you do it when the bones accumulate, not during service.
+
+"Fond" in French also means "foundation" or "basis" — which is what this architecture provides for the whole batterie session lifecycle.
+
 ## The Problem
 
 The session lifecycle produces too many artifacts with too much duplication. /close currently writes 6 outputs: handoff, contribution, staged garde extraction, bon updates, git commit, and triggers garde ingest. The handoff and staged extraction contain ~90% the same content — same Claude, same moment, two formats. Contributions are a separate file that serves a similar purpose to a handoff section. The auto-handoff (for unclosed sessions) spawns a background Opus call that races the next /open.
