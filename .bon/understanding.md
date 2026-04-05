@@ -23,3 +23,20 @@ CLI-bearing plugins (bon, garde-manger, passe, todoist-gtd) keep version in one 
 ## Current Marketplace
 
 8 plugins in the CLI marketplace (guéridon removed — it's infrastructure, not a Claude capability).
+
+## Library Extraction Lessons
+
+When extracting a library from a working script, inventory knowledge artifacts alongside the code. ccconv's 40-line docstring was doing double duty as API documentation and CC JSONL schema reference. When parsing functions moved to deglacer, the code moved but the documentation didn't — the canonical schema reference now lives in a file that will become a thin shim. Code extraction without knowledge extraction is half the job. Future extractions should ask: "what docs, comments, and skill files describe this code, and where should they live in the new structure?"
+
+## CC Session Knowledge Layers
+
+CC session data has three distinct layers that were historically conflated:
+- **Schema** — what the JSONL fields mean
+- **Parsing** — how to load and deduplicate
+- **Interpretation** — what constitutes a turn, what's noise
+
+Deglacer consolidates parsing and interpretation. The schema reference still needs a home. The open question for bds-nijaja: should deglacer also own the skill and schema docs (single source of truth) or should trousse keep the skill as a wrapper? Trade-off is self-containment vs separation of concerns.
+
+## Session Lifecycle Direction
+
+The lifecycle is being redesigned around a single primary artifact: the handoff. Currently /close produces six outputs; the new design collapses to one handoff with two zones — a Now zone (Gotchas/Risks/Next/Commands) consumed by the next /open, and a Compost zone (Done/Reflection/Learned) processed overnight into understanding.md updates and garde extractions. The Learned section replaces the separate contribution file. Overnight composting reads unprocessed handoffs across all repos, produces garde extractions by parsing handoff sections (not LLM), and falls back to cold JSONL processing via deglacer only for sessions without handoffs. Auto-handoff becomes a thin mechanical safety net (git + bon state, instant, no race condition). Scratch repos route handoffs to target repos based on bon prefixes.
