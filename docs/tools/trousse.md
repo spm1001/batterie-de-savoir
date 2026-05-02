@@ -11,7 +11,7 @@ Trousse is a toolkit for Claude Code that solves its most fundamental limitation
 
 **Use trousse when:**
 - You want Claude Code sessions to remember what happened in the last session
-- You need Claude to have specialised behaviours (diagramming, code review, browser automation, filing) without cramming instructions into the system prompt
+- You need Claude to have specialised behaviours (diagramming, code review, browser automation, screenshots) without cramming instructions into the system prompt
 - You're adopting any other tool in the batterie — trousse is how their skills get loaded
 
 **Do NOT use trousse when:**
@@ -45,7 +45,6 @@ The current skill set:
 | `/titans` (`/review`) | Three-lens code review (hindsight, craft, foresight) |
 | `/diagram` | Iterative diagram creation with render-and-check |
 | `/screenshot` | Screen capture for verification |
-| `/filing` | File cleanup with mandatory content processing |
 | `/picture` | Image generation via Google Imagen |
 | `/google-devdocs` | Google developer documentation lookup via REST API |
 | `/server-checkup` | Systematic Linux server audit |
