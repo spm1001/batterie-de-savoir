@@ -11,6 +11,13 @@ new commit — source-repo version bumps alone are invisible to it.
 If Desktop offers mise 0.7.3 after this lands, hypothesis confirmed
 (relevant to bds-sucega convergence and the mit-tools design).
 
+**CONFIRMED same evening:** Desktop offered and installed mise 0.7.3
+after this commit landed. Marketplace-repo commits are the update bus;
+source-repo bumps alone are invisible to Desktop/org clients. The
+assemble pipeline in spm1001/batterie was redesigned accordingly
+(direct push to main, daily, forensic commit bodies — see that repo's
+CLAUDE.md for the full post-mortem).
+
 ## [0.2.0] - 2026-03-18
 
 Batterie-wide consistency pass: docs consolidation, registry, versioning.
