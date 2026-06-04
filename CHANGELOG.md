@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-06-04 — Vendor-drift deploy + Desktop re-sync probe
+
+The 2026-05-31 diagnosis (Desktop stuck on mise 0.7.2) deployed today:
+spm1001/batterie's vendored shims re-synced (bon 0.23.0, trousse 0.5.9,
+mise 0.7.3) and the phantom gueridon entry dropped. This commit also
+probes the Desktop update mechanism: hypothesis is that Desktop
+re-resolves this marketplace's URL sources only when THIS repo gets a
+new commit — source-repo version bumps alone are invisible to it.
+If Desktop offers mise 0.7.3 after this lands, hypothesis confirmed
+(relevant to bds-sucega convergence and the mit-tools design).
+
 ## [0.2.0] - 2026-03-18
 
 Batterie-wide consistency pass: docs consolidation, registry, versioning.
