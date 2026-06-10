@@ -87,17 +87,17 @@ The tools are independent but they're designed to work together. Here's what fee
 
 ## Plugin Marketplace
 
-If you're using Claude Code 2.1+, the entire batterie is available as a [plugin marketplace](https://github.com/spm1001/batterie-de-savoir):
+If you're using Claude Code 2.1+, the batterie is available as a [plugin marketplace](https://github.com/spm1001/batterie) — an assembled mirror, rebuilt daily from each tool's source repo:
 
 ```
-/plugin marketplace add spm1001/batterie-de-savoir
+/plugin marketplace add spm1001/batterie
 ```
 
-This gives you access to all 8 tools as plugins. Install individually:
+Install individually:
 
 ```
-/plugin install bon@batterie-de-savoir
-/plugin install trousse@batterie-de-savoir
+/plugin install bon@batterie
+/plugin install trousse@batterie
 ```
 
 Or browse the catalogue from within Claude Code:
@@ -106,7 +106,7 @@ Or browse the catalogue from within Claude Code:
 /plugin marketplace
 ```
 
-**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, garde, passe, todoist). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed.
+**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, passe, todoist). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed.
 
 The manual symlink-based install path (via each tool's `install.sh` or README) continues to work and remains the right choice if you want short command names (`/close` instead of `/trousse:close`) or if you're not on Claude Code.
 

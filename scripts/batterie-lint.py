@@ -3,8 +3,9 @@
 # ///
 """plugin-lint.py — Structural and alignment validation for batterie plugins.
 
-Reads marketplace.json, resolves each plugin to a local path (cloning if
-needed), and runs two tiers of checks:
+Reads marketplace.json from the spm1001/batterie sibling checkout (the
+single assembled marketplace since the 2026-06-10 cutover), resolves each
+plugin to its local source repo, and runs two tiers of checks:
 
 Structural (original):
   - plugin.json is valid JSON with required fields
@@ -20,8 +21,10 @@ Alignment (from batterie-ci-recommendation.md):
   4. Instruction shards — instructions.md has matching SessionStart hook
   5. Hook executability — every hooks/*.sh is chmod +x
 
-CI-safe: clones remote plugins via shallow git clone into a temp dir.
-Local-fast: uses ~/Repos/batterie/<name> when available.
+Lints SOURCE repos (working trees/clones), not the vendored copies in
+spm1001/batterie — assemble.sh's invariant checks guard the vendored side.
+Expects source repos as siblings of this repo: the assemble workflow
+clones them next to the batterie checkout; locally that's ~/repos/spm1001/.
 
 Usage:
   uv run --script tests/plugin-lint.py            # all plugins
@@ -34,9 +37,7 @@ from __future__ import annotations
 import json
 import os
 import re
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 # ── Repo name mapping (marketplace name → repo directory name) ────────
@@ -44,7 +45,7 @@ from pathlib import Path
 REPO_NAMES = {
     "mise": "mise-en-space",
     "todoist-gtd": "todoist-gtd",
-    "garde-manger": "garde-manger",
+    "batterie": "batterie-de-savoir",
 }
 
 REQUIRED_PLUGIN_FIELDS = {"name", "version", "description"}
@@ -70,39 +71,18 @@ def parse_frontmatter(path: Path) -> dict[str, str]:
     return fields
 
 
-def resolve_plugin_dir(
-    plugin: dict, repo_root: Path, tmp: Path, local_only: bool
-) -> Path | None:
-    """Resolve a marketplace plugin entry to a local directory."""
+def resolve_plugin_dir(plugin: dict, repo_root: Path) -> Path | None:
+    """Resolve a marketplace plugin entry to its local SOURCE repo.
+
+    Marketplace sources are ./plugins/<name> vendored paths; the lint
+    target is the source repo of the same name, expected as a sibling
+    of this repo (CI clones them there; locally it's the owner bucket).
+    """
     name = plugin["name"]
-    source = plugin.get("source", "")
-
-    # Self-referencing plugin
-    if source == "./":
-        return repo_root / ".claude-plugin"
-
-    # Try local repo first
     repo_name = REPO_NAMES.get(name, name)
     local = repo_root.parent / repo_name
     if (local / ".claude-plugin" / "plugin.json").exists():
         return local
-
-    if local_only:
-        return None
-
-    # Clone from URL
-    if isinstance(source, dict) and source.get("url"):
-        url = source["url"]
-        dest = tmp / name
-        result = subprocess.run(
-            ["git", "clone", "--depth=1", "--quiet", url, str(dest)],
-            capture_output=True,
-            text=True,
-        )
-        if result.returncode == 0:
-            return dest
-        print(f"  WARN {name}: clone failed: {result.stderr.strip()}")
-
     return None
 
 
@@ -290,17 +270,23 @@ def lint_plugin(name: str, plugin_dir: Path) -> list[str]:
 
 def main() -> int:
     args = sys.argv[1:]
-    local_only = "--local" in args
-    if local_only:
+    # --local is vestigial (everything resolves locally now) but the
+    # assemble workflow still passes it — tolerate, don't treat as a name.
+    if "--local" in args:
         args.remove("--local")
 
     repo_root = Path(__file__).resolve().parent.parent
-    marketplace_path = repo_root / ".claude-plugin" / "marketplace.json"
+    # The marketplace moved to spm1001/batterie (2026-06-10 cutover).
+    # It's a sibling of this repo in both CI (the assemble workflow's
+    # checkout layout) and local checkouts (~/repos/spm1001/).
+    marketplace_path = (
+        repo_root.parent / "batterie" / ".claude-plugin" / "marketplace.json"
+    )
 
     try:
         marketplace = json.loads(marketplace_path.read_text())
     except (json.JSONDecodeError, FileNotFoundError) as e:
-        print(f"FAIL: marketplace.json: {e}")
+        print(f"FAIL: marketplace.json (expected at {marketplace_path}): {e}")
         return 1
 
     plugins = marketplace.get("plugins", [])
@@ -319,26 +305,22 @@ def main() -> int:
     all_pass = 0
     all_skip = 0
 
-    with tempfile.TemporaryDirectory() as tmp:
-        tmp_path = Path(tmp)
-        for plugin in plugins:
-            name = plugin["name"]
-            plugin_dir = resolve_plugin_dir(
-                plugin, repo_root, tmp_path, local_only
-            )
-            if plugin_dir is None:
-                print(f"  SKIP {name} (not resolvable)")
-                all_skip += 1
-                continue
+    for plugin in plugins:
+        name = plugin["name"]
+        plugin_dir = resolve_plugin_dir(plugin, repo_root)
+        if plugin_dir is None:
+            print(f"  SKIP {name} (not resolvable)")
+            all_skip += 1
+            continue
 
-            fails = lint_plugin(name, plugin_dir)
-            if fails:
-                for f in fails:
-                    print(f"  FAIL {f}")
-                all_fails.extend(fails)
-            else:
-                print(f"  PASS {name}")
-                all_pass += 1
+        fails = lint_plugin(name, plugin_dir)
+        if fails:
+            for f in fails:
+                print(f"  FAIL {f}")
+            all_fails.extend(fails)
+        else:
+            print(f"  PASS {name}")
+            all_pass += 1
 
     print()
     print(f"=== {all_pass} pass, {len(all_fails)} fail, {all_skip} skip ===")

@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-06-10 — Marketplace cutover: this repo retires as a marketplace (batterie 0.2.0)
+
+The bds-bajibo convergence moment. `marketplace.json` removed —
+spm1001/batterie (the assembled, bot-maintained repo) is now the single
+marketplace for CLI, Desktop, and org. This repo remains the docs
+umbrella and the source of the suite-level `batterie` plugin. The
+`/batterie:update` skill now targets `@batterie` keys and the `batterie`
+marketplace name; garde-manger (decommissioned 2026-06-03) dropped from
+its CLI-tool table and from the instruction shard. Tafelmusik unvendored
+from spm1001/batterie the same evening — too experimental to distribute;
+the source repo lives on. Migration for old installs: add new
+marketplace + reinstall as `<name>@batterie` + remove old — keys change,
+repointing isn't enough.
+
 ## 2026-06-04 — Vendor-drift deploy + Desktop re-sync probe
 
 The 2026-05-31 diagnosis (Desktop stuck on mise 0.7.2) deployed today:

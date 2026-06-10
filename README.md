@@ -26,9 +26,11 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 **Via Claude Code plugin marketplace** (2.1+):
 
 ```
-/plugin marketplace add spm1001/batterie-de-savoir
-/plugin install bon@batterie-de-savoir
+/plugin marketplace add spm1001/batterie
+/plugin install bon@batterie
 ```
+
+(Installed from `spm1001/batterie-de-savoir` before June 2026? Migrate: add the new marketplace, reinstall each plugin as `<name>@batterie`, then remove the old marketplace — plugin keys change, so a plain repoint isn't enough.)
 
 **Manually** — each tool installs independently from its own repo. See [Getting Started](https://spm1001.github.io/batterie-de-savoir/getting-started) for the recommended adoption order.
 
