@@ -1,5 +1,7 @@
 # Changelog
 
+## 2026-06-11 — batterie 0.2.1: assembler vendors top-level scripts/ for skill plugins (restores bon close/open context scripts, trousse ardoise.sh); suite plugin ships its scripts/ for parity
+
 ## 2026-06-10 — Marketplace cutover: this repo retires as a marketplace (batterie 0.2.0)
 
 The bds-bajibo convergence moment. `marketplace.json` removed —
