@@ -19,6 +19,8 @@ Two safety properties worth knowing:
 - **Version ratchet, quarantine not abort.** If a plugin's content changed but its `plugin.json` version didn't bump, that laggard is *quarantined* (its vendored dir kept at the last-good version, recorded in a quarantine file) rather than aborting the whole run (bds-pujaki). One stale plugin no longer blocks the other five from shipping.
 - **`--checksum` rsync.** Same-size version bumps (e.g. `0.26.2→0.26.3`) would otherwise be silently skipped by rsync's size+mtime heuristic. The assemble uses `--checksum` to defeat that.
 
+**This repo is itself a source — and that's a recurring trap.** Its `CLAUDE.md`, `skills/`, `hooks/`, `instructions.md`, and `.claude-plugin/` are vendored into the **batterie** plugin. So editing the repo's `CLAUDE.md` during a "docs" task drifts the batterie plugin's vendored content, and if you don't bump `.claude-plugin/plugin.json`, the ratchet quarantines batterie on the next assemble. This has caught exactly that miss at least three times (CHANGELOG 0.2.2 on 2026-06-11, 1.1.2 on 2026-06-20). Rule of thumb: a `docs/` or `.bon/` edit here is free; a `CLAUDE.md`/`instructions.md`/skill/hook edit needs a `plugin.json` bump.
+
 **A commit landing in `spm1001/batterie` is what makes clients re-resolve plugins** — its commit stream *is* the suite's update bus. This is why publishing a change means getting a commit into that repo (via the bot), not editing anything by hand there.
 
 ## Distribution & Repo Visibility
