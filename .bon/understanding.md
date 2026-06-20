@@ -20,6 +20,10 @@ CLI-bearing plugins (bon, garde-manger, passe, todoist-gtd) keep version in one 
 
 `claude plugin update` checks against a cached marketplace index. The index must be refreshed first via `claude plugin marketplace update` — otherwise updates appear current when they're not. `/batterie-update` handles this by always refreshing first.
 
+## Publishing
+
+`/batterie:publish` (engine: `scripts/publish.py`, added bon-nagigu 2026-06-20) is the one-verb **push** side — mirror to `/batterie:update`'s pull. From a source repo's working tree it bumps `.claude-plugin/plugin.json`, commits, pushes, triggers `assemble.yml`, watches it green, then pulls this machine current. Crucially it **never runs `assemble.sh` locally** — assembling + marketplace re-sync is CI's job (daily 07:00 UTC + the dispatch publish triggers); a local assemble would fight it. Hezza-only (needs `~/repos` + `gh`). The skill resolves publish.py from the `~/repos` source tree, so the engine is editable/live without a re-publish; only the *skill* needs vendoring. Detail in CLAUDE.md "Marketplace Lives Elsewhere" + docs/MAINTAINING.md "Pushing Plugin Changes".
+
 ## Current Marketplace
 
 8 plugins in the CLI marketplace (guéridon removed — it's infrastructure, not a Claude capability).
