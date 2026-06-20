@@ -1,5 +1,7 @@
 # Fond Architecture — Session Memory Redesign
 
+> **Historical design brief — partly superseded.** Written 2026-04-04. **garde was decommissioned 2026-06-03**, so the garde-extraction database and the garde-native overnight ingest described below did **not** ship in this form. What *did* ship is the **fond-v1 handoff format** (the handoff as the primary single-session artifact, with Now/Compost zones). The live overnight-automation aspiration now lives in `bds-cokubi` and would reduce handoffs into understanding.md directly, not into garde. Read this for the durable conceptual framing (handoff-as-primary, understanding.md as the concentrated reduction); discount the garde-specific plumbing.
+
 Design brief from session 2026-04-04 (~/Repos, Mac). Spans bon, garde, and a new overnight composting process.
 
 ## Why "Fond"

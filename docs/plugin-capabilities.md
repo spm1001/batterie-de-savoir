@@ -7,19 +7,21 @@ title: Plugin Capabilities Reference
 
 *What the plugin system can do, what each batterie tool uses, and where the gaps are.*
 
-Last updated: 2026-03-19
+> **Snapshot note (matrix dated 2026-03-19; install + friction sections refreshed 2026-06-20).** The plugin-system mechanics below are evergreen CC reference. The **Current Usage Matrix** and **Friction Points** are a March 2026 snapshot kept for shape — counts and "resolved" status drift; treat them as illustrative, not authoritative. For canonical install steps see [getting-started](getting-started.html) and [for-agents](for-agents.html); for current versions run `/batterie:version`.
 
 ## How the Plugin System Works
 
 ### Installation and Cache
 
-When a plugin is installed from a marketplace, Claude Code clones the repo into:
+When a plugin is installed via the CLI from a marketplace, Claude Code clones the marketplace and stores plugin content under:
 
 ```
-~/.claude/plugins/<plugin-name>/
+~/.claude/plugins/cache/<marketplace>/<plugin>/<version>/
 ```
 
-The variable `${CLAUDE_PLUGIN_ROOT}` resolves to this path at runtime. All file references in plugin.json must use this variable — relative paths resolve to the user's cwd, not the plugin directory.
+(Claude **Desktop** is a separate codepath — it loads from Anthropic's server-side marketplace, not this local cache. See "Desktop vs CLI" in the repo's understanding.md.)
+
+The variable `${CLAUDE_PLUGIN_ROOT}` resolves to the plugin's cache path at runtime. All file references in plugin.json must use this variable — relative paths resolve to the user's cwd, not the plugin directory.
 
 Plugins are refreshed on install or update. `/reload-plugins` refreshes the cache within a session. Full exit + restart (`/exit` then `claude -c`) is needed for SessionStart hooks to fire.
 
@@ -197,7 +199,7 @@ Which plugin capabilities each batterie tool currently uses.
 
 | Plugin | Commands | Notes |
 |---|---|---|
-| **batterie** | 1 command (.md format) | batterie-update — cross-plugin updater with marketplace refresh, CLI drift detection, and auto-install |
+| **batterie** | now skills, not commands | `/batterie:update`, `/batterie:publish`, `/batterie:version` — were `/batterie-update` (.md command); migrated to the skills format |
 | **trousse** | 7 commands (.md format) | consomme, consomme-explore, consomme-ingest, consomme-profile, consomme-dashboard, consomme-sheets, consomme-validate |
 | All others | — | — |
 
@@ -209,13 +211,17 @@ Which plugin capabilities each batterie tool currently uses.
 
 ### CLI Tools (outside plugin system)
 
+Install from the **source repo**, not the plugin cache or a bare PyPI name. Post-cutover the cache holds no `pyproject.toml`, and none of these CLIs are on PyPI — so both old forms fail. Use a local `~/repos` tree if present, else `git+https` (PEP 508, extras before the `@`):
+
 | Plugin | CLI binary | Install method |
 |---|---|---|
-| **bon** | `bon` | `uv tool install "${CLAUDE_PLUGIN_ROOT}"` |
-| **passe** | `passe` | `uv tool install passe` |
-| **todoist-gtd** | `todoist` | `uv tool install todoist-gtd` |
+| **bon** | `bon` | `uv tool install 'bon[dolt] @ git+https://github.com/spm1001/bon'` |
+| **passe** | `passe` | `uv tool install 'passe @ git+https://github.com/spm1001/passe'` |
+| **todoist-gtd** | `todoist` | `uv tool install 'todoist-gtd @ git+https://github.com/spm1001/todoist-gtd'` |
 | **mise** | — | No CLI; MCP server only |
-| **trousse** | — | No CLI; skills + commands only |
+| **trousse** | — | No CLI; skills only |
+
+(On a machine with the source checkouts, `uv tool install ~/repos/spm1001/<repo>` is preferred — `/batterie:update` does this automatically.)
 
 ---
 
@@ -231,7 +237,7 @@ Which plugin capabilities each batterie tool currently uses.
 | **Hooks: SessionStart** | No fire on reload | Medium | all with hooks | [H4](#h4-sessionstart-doesnt-fire-on-reload-plugins) |
 | **Commands** | Skills used where commands fit better | Medium | bon, trousse | [C1](#c1-skills-that-should-be-commands) |
 | **Agents** | No custom agents defined | Low | trousse, bon | [A1](#a1-subagents-for-parallel-review) |
-| **CLI install** | No version drift detection | Medium | bon, passe, todoist-gtd | [T1](#t1-cli-version-drift) |
+| **CLI install** | ~~No version drift detection~~ **Resolved** | — | bon, passe, todoist-gtd | [T1](#t1-cli-version-drift) |
 | **CLI install** | uv tool install not editable | Low | all with CLIs | [T2](#t2-uv-editable-installs) |
 | **Prerequisites** | Silent failure without setup hooks | Medium | trousse (consomme skill) | [P1](#p1-plugins-missing-prerequisite-checks) |
 | **Cross-plugin** | No dependency declaration | Low | all | [X1](#x1-cross-plugin-dependencies) |
@@ -336,11 +342,11 @@ Similarly, bon's audit skill dispatches subagents to verify brief items against 
 
 ---
 
-### <a id="t1-cli-version-drift"></a>T1: CLI version drift
+### <a id="t1-cli-version-drift"></a>T1: CLI version drift — **RESOLVED**
 
-**What:** When a plugin updates (new version pulled into cache), the CLI binary installed via `uv tool install` remains at the old version. The plugin's skills and hooks update, but the CLI doesn't.
+**Was:** When a plugin updated, the CLI binary installed via `uv tool install` stayed at the old version while skills/hooks moved on.
 
-**Opportunity:** A SessionStart hook that compares the installed CLI version against the plugin version:
+**Now:** the `ensure-*.sh` SessionStart hooks compare installed CLI version against plugin version and inject a reinstall hint; `/batterie:update` reinstalls CLIs from source as part of its run; and `/batterie:version` reports suite + per-plugin + CLI versions on demand. The sketch below is the original opportunity, kept for context:
 
 ```bash
 INSTALLED=$(bon --version 2>/dev/null)
@@ -399,7 +405,7 @@ This is informational, not blocking. The description field remains the primary s
 
 ## Commands: The Consomme Pattern (now in Trousse)
 
-Consomme was the first batterie tool to use the **commands** feature (7 commands, now in trousse). The batterie plugin itself now also has a command (`/batterie-update`). The consomme commands give a clean sub-command UX:
+Consomme was the first batterie tool to use the **commands** feature (7 commands, now in trousse). The batterie plugin's own updater migrated the other way — from a `/batterie-update` command to the `/batterie:update` skill. The consomme commands give a clean sub-command UX:
 
 ```
 /consomme          → orient
