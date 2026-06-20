@@ -58,7 +58,7 @@ Jeton is **infrastructure** — it sits beneath the Google-facing tools and prov
 |------|----------------------|
 | **Mise** | Primary Python consumer — calls `authenticate()` and `load_credentials()` for Workspace access |
 | **Consommé** | Uses jeton credentials when connecting to BigQuery via Google APIs |
-| **Bon, Trousse, Passe, Garde-manger** | No dependency — these don't touch Google APIs |
+| **Bon, Trousse, Passe** | No dependency — these don't touch Google APIs |
 
 When you set up mise for the first time, jeton is the prerequisite. Run `jeton` to complete the OAuth flow, and mise picks up the resulting `token.json`.
 

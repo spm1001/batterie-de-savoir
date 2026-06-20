@@ -27,12 +27,6 @@ This is the most common first pick, because statelessness is the first pain you 
 
 📦 [spm1001/bon](https://github.com/spm1001/bon)
 
-### "I want to search what happened in past sessions"
-
-**Add [Garde-manger](tools/garde-manger).** It indexes your session transcripts and makes them searchable. When you're stuck on something you know you solved three weeks ago, garde-manger finds it. It benefits from having trousse handoffs as a source — more structured handoffs mean better search results.
-
-📦 [spm1001/garde-manger](https://github.com/spm1001/garde-manger)
-
 ### "I need Google Workspace access (Mise, Consommé, or anything with Google APIs)"
 
 **[Jeton](tools/jeton)** handles Google OAuth for the suite. It acquires, refreshes, and manages tokens so the Google-facing tools don't have to reinvent auth. If you're adopting Mise or Consommé, you'll need Jeton first — it's the plumbing that makes their Google access work.
@@ -73,15 +67,13 @@ The tools are independent but they're designed to work together. Here's what fee
 
 **Mise + Passe** complement each other. Mise fetches clean content from structured sources (Workspace, web articles). Passe automates the browser for everything else (interactive pages, form submissions, screenshots). Their skills even cross-reference each other — mise says "for DOM-faithful extraction, use passe"; passe says "for clean article extraction, use mise."
 
-**Garde-manger + Trousse** — garde-manger gets better when trousse is producing structured handoffs. The handoffs become a high-quality source for indexing. Without trousse, garde-manger still works (it indexes raw transcripts), but the signal-to-noise ratio improves with structured session boundaries.
-
 **Aboyeur** sits on top of everything. It uses bon for work items, trousse for session lifecycle, and handoff files for inter-session communication. It's the tool you reach for when the work exceeds a single context window and you need sustained, multi-session progress without degradation.
 
 ## Prerequisites
 
 **An AI coding agent.** The batterie is built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), but the filesystem-first design means most tools work with any agent that can read and write files.
 
-**Python and uv.** Several tools (bon, garde-manger, jeton, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (The consomme skill in trousse is a behavioural document, not a Python package. It has nothing to install via uv.)
+**Python and uv.** Several tools (bon, jeton, mise, passe) are Python-based and use [uv](https://docs.astral.sh/uv/) for installation. If you don't have uv, that's your actual first step. (The consomme skill in trousse is a behavioural document, not a Python package. It has nothing to install via uv.)
 
 **No monorepo.** Each tool installs independently from its own repo. There is no shared config and no dependency graph to resolve. You can adopt one tool without touching the rest.
 

@@ -53,7 +53,7 @@ If no Chrome debug instance is running, Passe starts one. No manual setup, no "r
 
 Passe and [Mise](mise) share the content-extraction space but referee each other. Passe's docs say "for clean articles, use mise." Mise's skill says "for DOM-faithful extraction, use passe read." The dividing line: if you need the structure of the page (tables, interactive elements, code blocks), use Passe. If you need the meaning of the text (article body, blog post), use Mise.
 
-[Bon](bon) may track work that requires browser interaction — Passe executes those actions but doesn't manage the work items. [Garde-manger](garde-manger) can later surface what a session discovered via Passe, since screenshots and extracted content land on disk where they're indexable.
+[Bon](bon) may track work that requires browser interaction — Passe executes those actions but doesn't manage the work items.
 
 Passe embodies the *filleting knives, not cleavers* principle most directly: ~20 verbs, tiny surface, the entire interface fits in working memory. The companion skill carries the judgement — the scout-then-act pattern, the verb vocabulary, the gotchas — so the tool itself stays small.
 

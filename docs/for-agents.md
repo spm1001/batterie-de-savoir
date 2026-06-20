@@ -14,7 +14,6 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 |------|---------|
 | **Bon** | Work tracker — outcomes, actions, tactical steps (GTD, not Agile) |
 | **Trousse** | Skills, hooks, data analysis, and session lifecycle for Claude Code |
-| **Garde-manger** | Persistent, searchable memory across sessions |
 | **Jeton** | Google OAuth token management — scopes, refresh, multi-mode auth |
 | **Mise (en Space)** | Content fetching from Google Workspace and the web (MCP server) |
 | **Passe** | Fast browser automation via Chrome DevTools Protocol (CDP) |
@@ -45,7 +44,6 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | Track work, outcomes, actions | **bon** | — |
 | Session lifecycle (/open → work → /close) | **trousse** | — |
 | BigQuery analysis | **trousse** | mise |
-| Search past sessions | **garde-manger** | — |
 | Google OAuth tokens (acquire, refresh, status) | **jeton** | — |
 | Fetch Google Workspace content | **mise** | passe |
 | Clean article / blog extraction | **mise** | passe |
@@ -69,7 +67,6 @@ What feeds what — arrows show data flow.
 | Jeton | → | mise (OAuth credentials for Google APIs) |
 | Bon | → | trousse (hooks inject tactical state) |
 | Trousse | → | bon (session open/close triggers draw-down/draw-up) |
-| Garde-manger | → | Any session (search retrieves past context) |
 | Aboyeur | → | Multiple sessions (spawns workers, collects results) |
 | Tafelmusik | → | Files on disk (flush_doc writes .md + git commits) |
 | All tools | → | Filesystem (files are the protocol — no IPC, no daemons) |
@@ -84,7 +81,6 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | **Tactical steps** | Within a single action | Session | Currently working on a drawn-down action |
 | **Bon items** | Project-level outcomes | Persistent | Planning, prioritising, reviewing work |
 | **Handoffs** | Session-to-session | Until next session | Starting a new session on the same project |
-| **Garde-manger** | All sessions, all projects | Permanent | Stuck, need past decisions, patterns, or context |
 | **MEMORY.md** | Cross-project patterns | Permanent | Recurring lessons learned over time |
 
 ## Key Repos
@@ -94,7 +90,6 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 |------|------|
 | Bon | [spm1001/bon](https://github.com/spm1001/bon) |
 | Trousse | [spm1001/trousse](https://github.com/spm1001/trousse) |
-| Garde-manger | [spm1001/garde-manger](https://github.com/spm1001/garde-manger) |
 | Jeton | [spm1001/jeton](https://github.com/spm1001/jeton) |
 | Mise en Space | [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space) |
 | Passe | [spm1001/passe](https://github.com/spm1001/passe) |

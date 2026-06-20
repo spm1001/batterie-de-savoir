@@ -49,21 +49,20 @@ Tools that "helpfully" inject their full output into the conversation. A web scr
 
 ## 3. Memory is layered, not monolithic
 
-**A good kitchen keeps its stock, its jus, and its reductions in different vessels for different purposes. The batterie has five memory layers, each with different durability, scope, and cost.**
+**A good kitchen keeps its stock, its jus, and its reductions in different vessels for different purposes. The batterie has four memory layers, each with different durability, scope, and cost.**
 
 Not all memory is created equal. The thing you need to remember for the next ten seconds is different from the thing you need to remember across projects for months. Treating all memory the same — shoving everything into one store — means either paying too much for ephemeral state or losing important patterns in a flood of tactical detail.
 
 ### In practice
 
-The five layers, from most ephemeral to most durable:
+The four layers, from most ephemeral to most durable:
 
 1. **Tactical steps** — within a single bon action. "Run the build, check for errors, fix the type mismatch." These exist only for the current work session and disappear when the action completes.
 2. **Bon items** — project-level outcomes and actions. "Ship the API redesign." These persist across sessions within a project, tracked in `.jsonl` files.
 3. **Handoffs** — session-to-session baton passes. Written at the end of one session, read at the start of the next. They carry the minimum context needed to resume: what was done, what's next, what's blocked.
-4. **Garde-manger** — searchable history across all sessions. Every session gets indexed. When you're stuck or disoriented, you search here: "have we solved this before? what did we decide about X?"
-5. **MEMORY.md** — cross-project patterns learned over time. "This user prefers X. This codebase has a quirk around Y." The most concentrated, most durable, most carefully curated layer.
+4. **MEMORY.md** — cross-project patterns learned over time. "This user prefers X. This codebase has a quirk around Y." The most concentrated, most durable, most carefully curated layer.
 
-A fresh session reaches for the handoff. A stuck session searches garde-manger. A recurring pattern gets distilled into MEMORY.md. Each layer is the right concentration for its purpose — you don't reduce your entire stock into demi-glace, and you don't use demi-glace to blanch vegetables.
+A fresh session reaches for the handoff. A recurring pattern gets distilled into MEMORY.md. Each layer is the right concentration for its purpose — you don't reduce your entire stock into demi-glace, and you don't use demi-glace to blanch vegetables.
 
 ### The anti-pattern
 

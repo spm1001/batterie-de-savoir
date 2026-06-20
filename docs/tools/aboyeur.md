@@ -61,7 +61,7 @@ Aboyeur is a **consumer** — it consumes [Bon](bon) (work tracking), [Trousse](
 | [**Trousse**](trousse) | The handoff format — worker and reflector communicate through Trousse's handoff files. The `/open` and `/close` lifecycle gives each session clean entry and exit. |
 | **Agent harness** | The Claude that does the work — Pi, Claude Code, or whatever adapter exists. Aboyeur starts sessions; the harness runs them. |
 
-Aboyeur doesn't interact directly with [Mise](mise), [Passe](passe), or [Garde-manger](garde-manger) — but the workers and reflectors it spawns may use any of them, depending on the project's trousse configuration.
+Aboyeur doesn't interact directly with [Mise](mise) or [Passe](passe) — but the workers and reflectors it spawns may use any of them, depending on the project's trousse configuration.
 
 ---
 

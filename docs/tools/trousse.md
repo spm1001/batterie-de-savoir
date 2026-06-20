@@ -62,10 +62,10 @@ Trousse installs by creating symlinks from `~/.claude/` into the trousse repo. A
 
 ## How It Relates to Other Tools
 
-Trousse is the connective tissue of the batterie. It doesn't fetch content (that's mise), track work (that's bon), or remember across projects (that's garde-manger) — but it's how all of those tools get their skills loaded into a session.
+Trousse is the connective tissue of the batterie. It doesn't fetch content (that's mise) or track work (that's bon) — but it's how all of those tools get their skills loaded into a session.
 
 - **Bon** — the `/open` command loads bon's skill, so each session knows how to read and update work items
-- **Mise, Passe, Garde-manger** — each has a companion skill that trousse distributes; the tool is the CLI or MCP server, the skill is the behavioural training
+- **Mise, Passe** — each has a companion skill that trousse distributes; the tool is the CLI or MCP server, the skill is the behavioural training
 - **Aboyeur** — orchestrates multiple sessions, and the handoff protocol that trousse maintains is the communication layer it coordinates across
 - **Consomme** — its BigQuery analysis skill is loaded through trousse when data work begins
 

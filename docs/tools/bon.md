@@ -53,7 +53,6 @@ Bon tracks *what* needs doing. The rest of the brigade handles the *how*:
 
 - **[Trousse](trousse)** — Trousse's hooks inject bon's tactical state into every prompt via `bon-tactical.sh`. This means every Claude session automatically knows what step it's on without anyone having to explain. The `/open` skill loads bon context at session start.
 - **[Aboyeur](aboyeur)** — The orchestrator reads `bon_hash` to detect whether sessions are making progress or stuck. Bon gives aboyeur the ground truth about work state.
-- **[Garde-manger](garde-manger)** — Indexes bon items as a searchable source type, so you can find past work ("did we already do something like this?") across sessions.
 - **[Mise](mise)**, **[Passe](passe)**, **[Consomme](consomme)** — These are the tools you reach for *while* working a bon action. Bon says what; they do the prep, the automation, the analysis.
 
 ## Design Principle

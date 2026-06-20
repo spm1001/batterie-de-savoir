@@ -56,7 +56,6 @@ Mandoline (`/mandoline`, also in trousse) is the upstream counterpart — it tra
 | [**Mise**](mise) | Mise handles Google Workspace content. Consommé handles structured data in BigQuery. The boundary is explicit — consommé's skill routes Workspace requests to Mise. |
 | **Mandoline** | Data prep (in trousse). Transforms raw data INTO BigQuery. Consommé analyses data already IN BigQuery. |
 | [**Bon**](bon) | An analysis task tracked as a bon outcome; consommé does the analytical work within that outcome. |
-| [**Garde-manger**](garde-manger) | Past analyses are searchable in garde-manger. |
 
 ## Source
 

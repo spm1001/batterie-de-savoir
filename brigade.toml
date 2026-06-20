@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "garde-manger", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur", "tafelmusik"]
+order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur", "tafelmusik"]
 
 [tool.bon]
 name = "Bon"
@@ -51,19 +51,6 @@ skill = "open"
 routing = [
   {need = "Session lifecycle (/open → work → /close)", not = ""},
   {need = "BigQuery analysis", not = "mise"},
-]
-
-[tool."garde-manger"]
-name = "Garde-manger"
-slug = "garde-manger"
-station = "The cold station"
-what = "Persistent, searchable memory across sessions"
-vocab_meaning = "Persistent, searchable memory across sessions"
-maturity = "stable"
-repo = "spm1001/garde-manger"
-skill = "garde"
-routing = [
-  {need = "Search past sessions", not = ""},
 ]
 
 [tool.jeton]
@@ -183,11 +170,6 @@ label = "hooks inject tactical state"
 from = ["trousse"]
 to = "bon"
 label = "session open/close triggers draw-down/draw-up"
-
-[[dependency]]
-from = ["garde-manger"]
-to = "Any session"
-label = "search retrieves past context"
 
 [[dependency]]
 from = ["aboyeur"]

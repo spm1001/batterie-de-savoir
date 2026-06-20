@@ -15,12 +15,10 @@ When a tool is **added, renamed, or removed** from the suite, update all of the 
 5. **docs/getting-started.md** — add a "When to use this" section (placed by adoption order, not alphabetical)
 6. **docs/getting-started.md** — add a paragraph to "How the Tools Compose" section showing how the new tool relates to others
 7. **docs/getting-started.md** — if Python-based, add to the Prerequisites paragraph listing Python tools
-8. **docs/assets/brigade.mmd** — add node, subgraph, edges, and class definition
-9. **docs/assets/brigade.png** — re-render the Mermaid diagram (use `mmdc` or Mermaid Live Editor)
-10. **docs/tools/<name>.md** — create the tool page following the pattern of existing pages (see Template below)
-11. **docs/principles.md** — if the tool exemplifies a principle, add it to the relevant "In practice" section
-12. **CLAUDE.md (global)** — add to "The Kitchen" table if not already there
-13. **Skill frontmatter** — if the tool has a skill, ensure the description mentions the kitchen name
+8. **docs/tools/<name>.md** — create the tool page following the pattern of existing pages (see Template below)
+9. **docs/principles.md** — if the tool exemplifies a principle, add it to the relevant "In practice" section
+10. **CLAUDE.md (global)** — add to "The Kitchen" table if not already there
+11. **Skill frontmatter** — if the tool has a skill, ensure the description mentions the kitchen name
 
 ## Checklist: Pushing Plugin Changes
 
@@ -31,13 +29,13 @@ Claude Code's plugin cache is **version-keyed**. If you push content changes wit
 1. Edit `.claude-plugin/plugin.json` — increment the patch version (e.g., `1.0.0` → `1.0.1`)
 2. Commit the version bump alongside the content changes (or as a follow-up if you forget)
 
-This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, garde-manger, todoist-gtd, plongeur, aboyeur.
+This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, todoist-gtd, plongeur, aboyeur.
 
 **What counts as a behaviour change:** hook scripts, skills, MCP server code, plugin.json fields (description, keywords, hooks). Does NOT include: README, CLAUDE.md, tests, docs, non-plugin scripts.
 
 ### Version source of truth
 
-For plugins that ship a CLI tool (bon, garde-manger, passe, todoist-gtd), the version lives in **one place only**: `.claude-plugin/plugin.json`. The `pyproject.toml` reads it dynamically via hatchling:
+For plugins that ship a CLI tool (bon, passe, todoist-gtd), the version lives in **one place only**: `.claude-plugin/plugin.json`. The `pyproject.toml` reads it dynamically via hatchling:
 
 ```toml
 [project]
@@ -137,7 +135,6 @@ The following checklist items are **not** generated and still require hand-editi
 - **`docs/getting-started.md`** — "When to use this" section and "How the Tools Compose" paragraph
 - **`docs/tools/<name>.md`** — tool page creation (follow the Template below)
 - **`docs/principles.md`** — "In practice" additions
-- **`docs/assets/brigade.mmd` / `brigade.png`** — diagram (re-render with `mmdc`)
 - **`CLAUDE.md` (global)** — "The Kitchen" table
 - **Skill frontmatter** — description mentioning the kitchen name
 

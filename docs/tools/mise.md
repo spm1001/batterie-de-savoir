@@ -55,7 +55,6 @@ Mise is the station that preps content from the outside world. It sits at the bo
 
 - **[Passe](passe)** — Mise and Passe share the web-fetching space but referee each other. Passe's own README says "for clean article/blog extraction, use mise." Mise's skill says "for DOM-faithful extraction (tables, code blocks, technical docs), use passe read." If you want the *text* of an article, Mise. If you want the *structure* of a page, Passe.
 - **[Consommé](consomme)** — The consomme skill (now in trousse) handles data in BigQuery; Mise handles documents in Workspace. The consomme skill explicitly routes Workspace content requests to Mise.
-- **[Garde-manger](garde-manger)** — Mise fetches content from the outside; Garde-manger retrieves context from past sessions. Different sources, same idea: get the right context to the agent without bloating the window.
 - **[Bon](bon)** — Mise deposits to the filesystem; Bon reads from it. A session might search Gmail via Mise, find actions to track, and file them with Bon. The filesystem is the shared protocol.
 
 Content deposited to disk by Mise is available to every other tool in the batterie — because [files are the protocol](../#design-principles).

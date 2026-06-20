@@ -24,7 +24,6 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 |------|---------|-------------|--------|
 | [**Bon**](tools/bon) | The ticket | GTD-flavoured work tracking — outcomes, actions, tactical steps | ⚡ Stable |
 | [**Trousse**](tools/trousse) | The knife roll | Skills, hooks, data analysis, and session lifecycle for Claude Code | ⚡ Stable |
-| [**Garde-manger**](tools/garde-manger) | The cold station | Persistent, searchable memory across sessions | ⚡ Stable |
 | [**Jeton**](tools/jeton) | The token | Google OAuth token management for the suite | ⚡ Stable |
 | [**Mise en Space**](tools/mise) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
 | [**Passe**](tools/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
@@ -34,9 +33,7 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Tafelmusik**](tools/tafelmusik) | Table music | Collaborative CRDT editing — co-edit markdown documents in real time (MCP) | 🔧 Beta |
 {% comment %}GENERATED:brigade-table:END{% endcomment %}
 
-![Brigade architecture](assets/brigade.png)
-
-Together they address knowledge work from different angles: bon tracks *what needs doing*, trousse gives each session *the right tools and memory of the last*, garde-manger provides *searchable ancestral memory*, jeton handles *OAuth tokens* so the Google-facing tools don't have to, mise preps *content from the outside world*, passe *automates the browser*, consommé *clarifies raw data*, aboyeur *coordinates multiple sessions* so no single context window has to hold everything, and guéridon *untethers a session from the desk*.
+Together they address knowledge work from different angles: bon tracks *what needs doing*, trousse gives each session *the right tools and memory of the last*, jeton handles *OAuth tokens* so the Google-facing tools don't have to, mise preps *content from the outside world*, passe *automates the browser*, consommé *clarifies raw data*, and aboyeur *coordinates multiple sessions* so no single context window has to hold everything.
 
 ## Design Principles
 
@@ -44,7 +41,7 @@ Together they address knowledge work from different angles: bon tracks *what nee
 
 **Token-efficiency is a first-class constraint.** Context is the kitchen's most precious ingredient — expensive, finite, and ruined by clutter. Mise deposits fetched content to disk rather than spraying it into context. Passe returns structured JSON summaries, not raw HTML. Bon's skill says "never run `bon list` via Bash — Read the file instead" because formatted terminal output bloats context. Every tool treats the context window like a clean station — only what's needed, prepped and portioned, nothing left out to spoil.
 
-**Memory is layered, not monolithic.** A good kitchen keeps its stock, its jus, and its reductions in different vessels for different purposes. The batterie has five memory layers: tactical steps (within a single action), bon items (project-level outcomes), handoffs (session-to-session baton), garde-manger (searchable history across all sessions), and MEMORY.md (cross-project patterns learned over time). Each layer has different durability, scope, and cost. A fresh session reaches for the handoff. A stuck session searches garde-manger. A recurring pattern gets distilled into MEMORY.md. The right context at the right concentration.
+**Memory is layered, not monolithic.** A good kitchen keeps its stock, its jus, and its reductions in different vessels for different purposes. The batterie has four memory layers: tactical steps (within a single action), bon items (project-level outcomes), handoffs (session-to-session baton), and MEMORY.md (cross-project patterns learned over time). Each layer has different durability, scope, and cost. A fresh session reaches for the handoff. A recurring pattern gets distilled into MEMORY.md. The right context at the right concentration.
 
 **Filleting knives, not cleavers.** Each tool has a tiny verb surface. Passe has ~20 verbs. Bon has 18 commands. Mise has 3 — search, fetch, create. The tools are narrow enough that an agent can hold the entire interface in working memory without re-reading the docs. This is the opposite of the "batteries-included framework" approach. It's a brigade of specialists, each with a single station.
 
