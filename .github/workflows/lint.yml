@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 7 * * 1'  # Weekly Monday 07:00 UTC — catches cross-repo drift
+    - cron: '0 7 * * 1'  # Weekly Monday 07:00 UTC — re-checks GENERATED drift
 
 jobs:
   lint:
@@ -18,5 +18,11 @@ jobs:
       - name: Check GENERATED sections are up to date
         run: uv run --script scripts/lint.py
 
-      - name: Lint plugin structure (all plugins)
-        run: uv run --script scripts/batterie-lint.py
+      # NOTE: the cross-repo plugin structural lint (scripts/batterie-lint.py)
+      # is NOT run here. Since the 2026-06-10 marketplace cutover it requires
+      # every source repo checked out as a SIBLING (it reads marketplace.json
+      # from the spm1001/batterie clone), which only the assemble workflow
+      # provides — it clones the siblings and runs `batterie-lint.py --local`
+      # against this repo's copy of the script. Re-adding it here just fails:
+      # this single-repo checkout has no siblings. The script lives here as the
+      # source of truth; the assemble bot is where it actually runs.
