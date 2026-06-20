@@ -127,11 +127,11 @@ Agents are model-delegated — Claude spawns them as subagents when it judges th
 
 ### What the Plugin System Does NOT Do
 
-- **Install CLI tools.** Python packages providing executables (bon, garde, passe, todoist) need `uv tool install` separately. The plugin handles skills/hooks/MCP but not PATH binaries.
+- **Install CLI tools.** Python packages providing executables (bon, passe, todoist) need `uv tool install` separately. The plugin handles skills/hooks/MCP but not PATH binaries.
 - **Show messages to users at install time.** No toast, no banner, no post-install script output.
 - **Hot-reload hooks.** SessionStart hooks require full exit + restart.
 - **Share state between plugins.** Each plugin is isolated. Cross-plugin coordination happens via the filesystem (e.g. `.bon/` directory) or via skills that reference each other by name.
-- **Declare dependencies on other plugins.** No `"requires"` field. Soft dependencies are documented in descriptions ("Best with: bon, garde-manger").
+- **Declare dependencies on other plugins.** No `"requires"` field. Soft dependencies are documented in descriptions ("Best with: bon").
 
 ### File Layout Summary
 
@@ -170,22 +170,21 @@ Which plugin capabilities each batterie tool currently uses.
 | **trousse** | 17 skills (titans, diagram, picture, consomme, mandoline, skill-forge, ...) | Utility/behavioural + data analysis skills |
 | **mise** | workspace | Google Workspace orchestration |
 | **todoist-gtd** | coaching | GTD coaching for Todoist |
-| **garde-manger** | memory | Persistent memory search |
 | **passe** | browser | Chrome automation |
 
 ### Hooks
 
-| Event | bon | trousse | mise | todoist-gtd | garde-manger | passe |
-|---|---|---|---|---|---|---|
-| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-garde | ensure-passe + session-start |
-| **SessionEnd** | session-end | — | — | — | session-end | — |
-| **UserPromptSubmit** | bon-tactical | — | — | — | — | — |
-| **PreToolUse** | — | — | — | — | — | — |
-| **PostToolUse** | — | — | — | — | — | — |
-| **Stop** | — | — | — | — | — | — |
-| **SubagentStop** | — | — | — | — | — | — |
-| **PreCompact** | — | — | — | — | — | — |
-| **Notification** | — | — | — | — | — | — |
+| Event | bon | trousse | mise | todoist-gtd | passe |
+|---|---|---|---|---|---|
+| **SessionStart** | ensure-bon + session-start | — | ensure-mise | ensure-todoist | ensure-passe + session-start |
+| **SessionEnd** | session-end | — | — | — | — |
+| **UserPromptSubmit** | bon-tactical | — | — | — | — |
+| **PreToolUse** | — | — | — | — | — |
+| **PostToolUse** | — | — | — | — | — |
+| **Stop** | — | — | — | — | — |
+| **SubagentStop** | — | — | — | — | — |
+| **PreCompact** | — | — | — | — | — |
+| **Notification** | — | — | — | — | — |
 
 ### MCP Servers
 
@@ -213,7 +212,6 @@ Which plugin capabilities each batterie tool currently uses.
 | Plugin | CLI binary | Install method |
 |---|---|---|
 | **bon** | `bon` | `uv tool install "${CLAUDE_PLUGIN_ROOT}"` |
-| **garde-manger** | `garde` | `uv tool install garde-manger` |
 | **passe** | `passe` | `uv tool install passe` |
 | **todoist-gtd** | `todoist` | `uv tool install todoist-gtd` |
 | **mise** | — | No CLI; MCP server only |
@@ -228,12 +226,12 @@ Which plugin capabilities each batterie tool currently uses.
 | Area | Issue | Severity | Plugins affected | Section |
 |---|---|---|---|---|
 | **Hooks: Stop** | No completion enforcement | High | bon, trousse | [H1](#h1-stop-hooks-for-session-discipline) |
-| **Hooks: PreCompact** | Context loss on compaction | High | bon, garde-manger | [H2](#h2-precompact-to-preserve-state) |
+| **Hooks: PreCompact** | Context loss on compaction | High | bon | [H2](#h2-precompact-to-preserve-state) |
 | **Hooks: PreToolUse** | No convention guardrails | Medium | trousse, bon | [H3](#h3-pretooluse-for-convention-enforcement) |
 | **Hooks: SessionStart** | No fire on reload | Medium | all with hooks | [H4](#h4-sessionstart-doesnt-fire-on-reload-plugins) |
 | **Commands** | Skills used where commands fit better | Medium | bon, trousse | [C1](#c1-skills-that-should-be-commands) |
 | **Agents** | No custom agents defined | Low | trousse, bon | [A1](#a1-subagents-for-parallel-review) |
-| **CLI install** | No version drift detection | Medium | bon, passe, todoist-gtd, garde-manger | [T1](#t1-cli-version-drift) |
+| **CLI install** | No version drift detection | Medium | bon, passe, todoist-gtd | [T1](#t1-cli-version-drift) |
 | **CLI install** | uv tool install not editable | Low | all with CLIs | [T2](#t2-uv-editable-installs) |
 | **Prerequisites** | Silent failure without setup hooks | Medium | trousse (consomme skill) | [P1](#p1-plugins-missing-prerequisite-checks) |
 | **Cross-plugin** | No dependency declaration | Low | all | [X1](#x1-cross-plugin-dependencies) |
@@ -269,7 +267,7 @@ This is currently handled by skill instructions (the close skill says "follow GO
 
 This would act as a "you are here" marker that survives compaction. Currently we rely on Claude remembering, and it often doesn't after compaction.
 
-**Belongs in:** bon (owns tactical state) and potentially garde-manger (could persist the summary).
+**Belongs in:** bon (owns tactical state).
 
 ---
 
@@ -352,7 +350,7 @@ if [ "$INSTALLED" != "$EXPECTED" ]; then
 fi
 ```
 
-**Belongs in:** Each plugin that has a CLI (bon, garde-manger, passe, todoist-gtd). Could be a shared pattern in ensure-*.sh hooks.
+**Belongs in:** Each plugin that has a CLI (bon, passe, todoist-gtd). Could be a shared pattern in ensure-*.sh hooks.
 
 ---
 
@@ -375,9 +373,9 @@ fi
 | **passe** | `passe` CLI + Chrome with CDP on port 9222 | Browser skill tells Claude to run passe commands |
 | **trousse** (consomme skill) | Google BQ MCP extension | Analysis skill references MCP tools that aren't available |
 
-**Resolved:** garde-manger added `ensure-garde.sh` in v0.3.0 (Mar 2026), including CLI version alignment check. Passe added `ensure-passe.sh` in v0.5.1 (Mar 2026).
+**Resolved:** Passe added `ensure-passe.sh` in v0.5.1 (Mar 2026), and the ensure-*.sh hooks include CLI version alignment checks.
 
-**Pattern to follow:** bon, mise, todoist-gtd, garde-manger, and passe all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. The consomme skill (now in trousse) still lacks a prerequisite check for the BQ MCP extension.
+**Pattern to follow:** bon, mise, todoist-gtd, and passe all have `ensure-*.sh` hooks that check prerequisites and inject guidance via `additionalContext`. The consomme skill (now in trousse) still lacks a prerequisite check for the BQ MCP extension.
 
 **Belongs in:** Each plugin, as `hooks/ensure-<name>.sh`.
 
@@ -385,7 +383,7 @@ fi
 
 ### <a id="x1-cross-plugin-dependencies"></a>X1: Cross-plugin dependencies
 
-**What:** The plugin system has no `"requires"` or `"recommends"` field. Soft dependencies are noted in description text ("Best with: bon, garde-manger") but nothing enforces or checks them.
+**What:** The plugin system has no `"requires"` or `"recommends"` field. Soft dependencies are noted in description text ("Best with: bon") but nothing enforces or checks them.
 
 **Practical impact:** Low. Our plugins fail gracefully when companions are missing — skills check for CLI availability, hooks exit silently. But a new user wouldn't know that trousse works better with bon until they read the description carefully.
 
@@ -426,8 +424,8 @@ Commands            ██             ██████████   (batteri
 Agents              ░              ████████████ (none)
 MCP Servers         █              ███████████  (only mise)
 
-SessionStart        █████          ███          (5/8 plugins)
-SessionEnd          ██             ██████████   (bon + garde-manger)
+SessionStart        ████           ███          (4/7 plugins)
+SessionEnd          █              ██████████   (bon only)
 UserPromptSubmit    █              ███████████  (only bon)
 PreToolUse          ░              ████████████ (none)
 PostToolUse         ░              ████████████ (none)

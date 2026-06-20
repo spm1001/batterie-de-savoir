@@ -38,7 +38,7 @@ Tool pages are hand-authored by design. The registry holds one-liners; tool page
 - To bump a version: edit the `"version"` field in `.claude-plugin/plugin.json` only
 - `/batterie-update` triggers when the installed plugin.json version is lower than the repo's — so bumping plugin.json is what drives updates
 
-Repos aligned on this pattern: bon, passe, garde-manger, mise-en-space, trousse. If you add a new tool with a pyproject.toml, follow the same pattern.
+Repos aligned on this pattern: bon, passe, mise-en-space, trousse. If you add a new tool with a pyproject.toml, follow the same pattern.
 
 ### Suite version (the human-facing number)
 
