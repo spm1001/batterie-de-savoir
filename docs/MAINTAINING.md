@@ -22,12 +22,15 @@ When a tool is **added, renamed, or removed** from the suite, update all of the 
 
 ## Checklist: Pushing Plugin Changes
 
+**The one-command way: `/batterie:publish`** (run from the source repo you edited). It bumps `plugin.json`, commits, pushes, triggers the `assemble.yml` CI, watches it green, then pulls this machine current. `--patch` (default), `--minor`, `--major`. The engine is `scripts/publish.py`; the rest of this section is what it does under the hood — read it to understand the moving parts, but reach for the verb.
+
 Claude Code's plugin cache is **version-keyed**. If you push content changes without bumping the version in `.claude-plugin/plugin.json`, users with the old version cached will never see the update — `/plugin install` says "already at latest."
 
 **Every push that changes plugin behaviour must bump the version:**
 
 1. Edit `.claude-plugin/plugin.json` — increment the patch version (e.g., `1.0.0` → `1.0.1`)
 2. Commit the version bump alongside the content changes (or as a follow-up if you forget)
+3. Push, then trigger assembly (`gh workflow run assemble.yml -R spm1001/batterie`) or wait for the daily 07:00 UTC bot. A green run means shipped; a red run is almost always a version-ratchet quarantine (content drifted without a bump).
 
 This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, todoist-gtd, plongeur, aboyeur.
 
