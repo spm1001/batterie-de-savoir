@@ -1,5 +1,7 @@
 # Changelog
 
+## 2026-06-20 — batterie 1.1.2: propagate the CLAUDE.md `/batterie-update` → `/batterie:update` staleness fix (committed 9acd892 without a bump) — clears the version-ratchet quarantine. CLAUDE.md is vendored into the batterie plugin, so a docs-sweep edit to it needs a plugin bump.
+
 ## 2026-06-12 — batterie 0.2.2: propagate the source/artifact-pair CLAUDE.md clarification (the "two jobs" verdict committed 2026-06-11 at 210a878 without a bump) — clears the batterie assemble version-ratchet that was failing every run
 
 ## 2026-06-11 — batterie 0.2.1: assembler vendors top-level scripts/ for skill plugins (restores bon close/open context scripts, trousse ardoise.sh); suite plugin ships its scripts/ for parity
