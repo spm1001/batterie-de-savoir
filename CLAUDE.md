@@ -40,6 +40,14 @@ Tool pages are hand-authored by design. The registry holds one-liners; tool page
 
 Repos aligned on this pattern: bon, passe, garde-manger, mise-en-space, trousse. If you add a new tool with a pyproject.toml, follow the same pattern.
 
+### Suite version (the human-facing number)
+
+The **`batterie` plugin's own version doubles as the suite version** — the single number a user quotes ("I'm on Batterie v1.0") or checks against ("you need ≥ v1.x"). It's the Debian model: one headline number on top of the independent per-plugin versions (`bon 0.26.5`, `passe 0.6.2`, …), which stay separate so each plugin's "update available" signal only fires when *that* plugin actually changes.
+
+- **Set it at milestones**, not every change — bump the `batterie` plugin.json to a round number when the suite reaches a meaningful state (set to `1.0.0` on 2026-06-20, the first real suite release). Patch ticks still happen when the batterie plugin itself changes; that's fine.
+- **Surfaced via `/batterie:version`** (reports suite version + per-plugin + CLI versions) and as a banner atop `/batterie:update`. The "build date" half is the clients' own "last updated" date — no extra machinery needed.
+- Distribution is **public CLI** (`claude plugin marketplace add spm1001/batterie`); the Teams/org Directory is unavailable (see "Repo visibility"). So `/batterie:version` is the canonical "what am I on?" surface.
+
 ## Deliberate quirks — do not "fix" these
 
 - **jeton has no public README** — it's the renamed `itv-google-auth` library. A 404 when fetching its README is expected.
