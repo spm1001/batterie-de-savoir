@@ -27,7 +27,9 @@ Two safety properties worth knowing:
 
 `spm1001/batterie` is **deliberately public** (decided 2026-06-20, bds-kanuve). Public serves the two paths everyone actually uses: the CLI (`claude plugin marketplace add spm1001/batterie`) and personal Desktop installs (Customize → Add marketplace).
 
-The cost, accepted knowingly: **org/Teams Directory marketplaces require a private or internal repo** (Anthropic policy — public is rejected on the org sync endpoint). "Internal" needs a GitHub Org/Enterprise; `spm1001` is a personal account, so it's unavailable. **Do not flip the repo private to "fix Teams"** — that breaks the CLI/personal path for everyone. Family-scale users are onboarded manually via the CLI. Full rationale in CLAUDE.md "Repo visibility".
+The trade-off, understood: **org/Teams Directory marketplaces require a private or internal repo** (Anthropic policy — public is rejected on the org sync endpoint: *"Only private and internal repositories can be used for marketplaces"*). "Internal" needs a GitHub Org/Enterprise, which `spm1001` (personal) isn't — **but a separate *private* repo works** (personal-private serving a Teams Directory is confirmed, done before). So the Directory is reachable via a *second, private* repo — **never by flipping the public one private** (that silently breaks the CLI + personal-Desktop path everyone, incl. ITV, depends on).
+
+Correction (2026-06-28): the family was **not** onboarded in June — the record briefly claimed "onboarded manually via the CLI", but that never happened. The real blocker was always the missing **planetmodha OAuth cred** for mise (the ITV client is Internal → non-itv.com accounts can't consent), not the distribution mechanics. Now being built as a private Directory flavour carrying a planetmodha-Internal client (mise + todoist-gtd + batterie + trousse; not passe) → **bds-niluga**. Full rationale in CLAUDE.md "Repo visibility".
 
 ## Versioning & the Suite Version
 
