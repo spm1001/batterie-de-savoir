@@ -80,31 +80,65 @@ check("keywords array untouched", '"keywords": [\n    "gtd",\n    "tracking"\n  
 check("only the version line changed", out, SRC.replace("0.26.5", "0.26.6"))
 check_raises("no version field", lambda: publish.replace_version('{"name":"x"}', "1.0.0"))
 
-# ---- dry-run integration: touches nothing ----
-with tempfile.TemporaryDirectory() as td:
-    repo = Path(td)
-    (repo / ".claude-plugin").mkdir()
-    pj = repo / ".claude-plugin" / "plugin.json"
-    original = '{\n  "name": "bon",\n  "version": "0.26.5"\n}'
-    pj.write_text(original)
-    # a git repo with one commit, so `git status` and a would-be commit are real
-    env = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
-           "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t", "PATH": "/usr/bin:/bin"}
+# ---- dry-run integration: touches nothing, bumps the SUITE version ----
+ENV = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+       "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t", "PATH": "/usr/bin:/bin"}
+
+
+def make_repo(path: Path, name: str, version: str) -> Path:
+    """A git repo with a plugin.json and one commit, so status/commit are real."""
+    (path / ".claude-plugin").mkdir(parents=True)
+    pj = path / ".claude-plugin" / "plugin.json"
+    pj.write_text(f'{{\n  "name": "{name}",\n  "version": "{version}"\n}}')
     for cmd in (["git", "init", "-q"], ["git", "add", "-A"],
                 ["git", "commit", "-qm", "init"]):
-        subprocess.run(cmd, cwd=repo, env=env, check=True)
+        subprocess.run(cmd, cwd=path, env=ENV, check=True)
+    return pj
 
+
+def commits(path: Path) -> int:
+    log = subprocess.run(["git", "log", "--oneline"], cwd=path, env=ENV,
+                         capture_output=True, text=True)
+    return log.stdout.count("\n")
+
+
+# Case A: cwd IS the suite repo — one commit carries content + the suite bump.
+with tempfile.TemporaryDirectory() as td:
+    suite = Path(td)
+    spj = make_repo(suite, "batterie", "1.2.1")
+    suite_orig = spj.read_text()
     cp = subprocess.run(
-        [sys.executable, str(PUBLISH), "--patch", "--dry-run",
-         "--no-pull", "--no-wait", "--repo", str(repo)],
+        [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
+         "--no-wait", "--repo", str(suite), "--suite-repo", str(suite)],
         capture_output=True, text=True,
     )
-    check("dry-run exits 0", cp.returncode, 0)
-    check("dry-run plans the bump", "0.26.5 -> 0.26.6" in cp.stdout, True)
-    check("dry-run did NOT write version", pj.read_text(), original)
-    log = subprocess.run(["git", "log", "--oneline"], cwd=repo, env=env,
-                         capture_output=True, text=True)
-    check("dry-run made NO commit", log.stdout.count("\n"), 1)  # only "init"
+    check("caseA exits 0", cp.returncode, 0)
+    check("caseA plans the suite bump", "suite 1.2.1 -> 1.2.2" in cp.stdout, True)
+    check("caseA is single-repo", "== suite repo" in cp.stdout, True)
+    check("caseA did NOT write version", spj.read_text(), suite_orig)
+    check("caseA made NO commit", commits(suite), 1)
+
+# Case B: content repo != suite repo — the bump target is the SUITE version
+# (1.2.1), NOT the content repo's own version (0.28.0). Neither is touched.
+with tempfile.TemporaryDirectory() as td:
+    base = Path(td)
+    content, suite = base / "bon", base / "bds"
+    cpj = make_repo(content, "bon", "0.28.0")
+    spj = make_repo(suite, "batterie", "1.2.1")
+    content_orig, suite_orig = cpj.read_text(), spj.read_text()
+    cp = subprocess.run(
+        [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
+         "--no-wait", "--repo", str(content), "--suite-repo", str(suite)],
+        capture_output=True, text=True,
+    )
+    check("caseB exits 0", cp.returncode, 0)
+    check("caseB bumps the SUITE, not content", "suite 1.2.1 -> 1.2.2" in cp.stdout, True)
+    check("caseB ignores content version", "0.28.0 ->" not in cp.stdout, True)
+    check("caseB is 2-repo push", "2-repo push" in cp.stdout, True)
+    check("caseB did NOT write content version", cpj.read_text(), content_orig)
+    check("caseB did NOT write suite version", spj.read_text(), suite_orig)
+    check("caseB made NO content commit", commits(content), 1)
+    check("caseB made NO suite commit", commits(suite), 1)
 
 print(f"\n{passed} passed, {failed} failed")
 sys.exit(1 if failed else 0)
