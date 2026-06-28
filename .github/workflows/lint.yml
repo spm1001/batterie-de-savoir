@@ -18,6 +18,12 @@ jobs:
       - name: Check GENERATED sections are up to date
         run: uv run --script scripts/lint.py
 
+      - name: Unit tests — publish.py (bump arithmetic, surgical version-write, dry-run contract)
+        run: uv run --script tests/test_publish.py
+
+      - name: Unit tests — marketplace-aware update/version discovery
+        run: uv run --script tests/test_marketplace_aware.py
+
       # NOTE: the cross-repo plugin structural lint (scripts/batterie-lint.py)
       # is NOT run here. Since the 2026-06-10 marketplace cutover it requires
       # every source repo checked out as a SIBLING (it reads marketplace.json
