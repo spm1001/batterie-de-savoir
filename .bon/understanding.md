@@ -31,7 +31,17 @@ The trade-off, understood: **org/Teams Directory marketplaces require a private 
 
 Correction (2026-06-28): the family was **not** onboarded in June — the record briefly claimed "onboarded manually via the CLI", but that never happened. The real blocker was always the missing **planetmodha OAuth cred** for mise (the ITV client is Internal → non-itv.com accounts can't consent), not the distribution mechanics. Now being built as a private Directory flavour carrying a planetmodha-Internal client (mise + todoist-gtd + batterie + trousse; not passe) → **bds-niluga**. Full rationale in CLAUDE.md "Repo visibility".
 
+## Family/Workspace OAuth Flavour — Design Lessons (bds-niluga, 2026-06-28)
+
+Two design lessons that generalise well beyond this one job:
+
+**A family/Workspace OAuth flavour is cheap *if* every user is in one Workspace org.** Make the OAuth client **Internal** in a GCP project under that org and Google's verification gauntlet vanishes: zero "unverified app" screen, no 100-user cap, and even *restricted* scopes (full Gmail) work with no CASA assessment. (The nightmare path is the opposite — consumer Gmail + sensitive scopes → External app → full verification.) Two gotchas bought with the work: (1) the project must be created **under the org** (`gcloud projects create … --organization=<id>`) or "Internal" isn't even offered as a User Type; (2) the OAuth **consent screen is per-project**, so a client added to a shared project inherits that project's app-name/branding — give a distinct tool its own project for a clean consent screen. The minted client for this job: project `planetmodha-workspace-mcp` (number 903554315162) under the planetmodha.com org, app "Planetmodha Workspace MCP", 9 APIs enabled. The installed-app client secret is **public by design** (it's an installed-app/PKCE flow) — so secrecy was never a reason to go private.
+
+**Minimal-private-repo beats a full-suite private flavour.** When distributing a suite across a public + a private marketplace, only the genuinely *estate-specific* tool needs duplicating — here just **mise** (bound to a specific Google estate). Collision only bites on *dual-install* (the same MCP-server name twice on one machine), and only the power user holds both estates; family members install the rest from public. So: keep the suite single-sourced from public, put ONLY the estate-specific plugin (renamed `mise-pm`) in the private repo, and make the *updater* marketplace-aware — keying off the marketplace's **source repo**, not its name or plugin-membership (survives renames and cherry-picked single-plugin installs). "Vendor one, rename one" beats forking the whole suite. This is exactly the asymmetry already built into `/batterie:update` (see "Publish (push) and Update (pull)").
+
 ## Versioning & the Suite Version
+
+> **SUPERSEDED 2026-06-28** — the Debian halfway-house below (per-plugin versions + a headline suite number) is being collapsed to a single version across all plugins. See **"The Single-Version Cutover"** below for the target model; this section describes the *outgoing* design (still live until the cutover ships).
 
 **`plugin.json` is the single source of truth for version numbers.** Each `pyproject.toml` uses `dynamic = ["version"]` reading `plugin.json` via a hatchling regex — never a hardcoded version, so no dual-maintenance drift. Repos on this pattern: bon, passe, mise-en-space, trousse. To bump, edit the `"version"` field in `.claude-plugin/plugin.json` only.
 
@@ -43,6 +53,30 @@ The two halves of keeping clients current:
 
 - **`/batterie:publish`** (engine: `scripts/publish.py`) — the **push** side. From a source repo's working tree it bumps `plugin.json`, commits, pushes, triggers `assemble.yml`, watches it green, then pulls this machine current. It **never runs `assemble.sh` locally** — assembling + re-sync is CI's job; a local assemble would fight it. Hezza-only (needs `~/repos` + `gh`). The skill resolves `publish.py` from the `~/repos` source tree, so the engine is editable without a re-publish; only the *skill* needs vendoring.
 - **`/batterie:update`** — the **pull** side, and **marketplace-aware** since bds-lodita. It no longer hardcodes `@batterie`: it discovers every *batterie-family* marketplace from CC's `known_marketplaces.json` (any whose `source.repo` is `spm1001/batterie` or `spm1001/batterie-*`), then refreshes each and updates each installed plugin from *its own* `@marketplace`. This is what lets a family member's cherry-picked private-flavour plugin (e.g. installed from a private Directory repo, with no `batterie` plugin from it) update alongside the public ones — matching by source repo, not plugin-membership, also survives plugin renames. Single-marketplace users (the overwhelming majority) see byte-identical behaviour; if the registry is unreadable it falls back to the public `batterie` name. `/batterie:version` shares the same discovery. **`publish.py` is deliberately NOT marketplace-aware** — it's the push side, pinned to the single public remote (`spm1001/batterie`) it triggers; the asymmetry is intentional (read/pull sees all local installs, push targets one remote). It still reinstalls CLI binaries from source (see below).
+
+## The Single-Version Cutover (planned 2026-06-28, bds-niluga family)
+
+**Decision: collapse the Debian halfway-house — one version number across all plugins.** Per-plugin versions (bon 0.28, passe 0.6, mise 0.7, …) earned their keep when plugins released independently, but the suite is now *operated as a unit* — the assemble re-vendors the whole suite daily, and bds-lodita's marketplace-aware updater pulls every plugin in one `/batterie:update`. The granularity is never consumed; it's pure confusion cost. The world changed under the earlier decision (above, now superseded).
+
+**Scope (decided with Sameer 2026-06-28): the single number covers PLUGINS, not CLIs.** Every published `plugin.json` carries the suite version; the CLIs (`bon`/`passe`/`todoist --version`) keep their own source-repo numbers, shown as a *footnote* in `/batterie:version`. Making CLIs share the number would mean bumping every source repo on each release — a multi-repo dance for a number users treat as a debug detail. Not worth it.
+
+**Mechanism:**
+- **Source of truth:** the `batterie` plugin's `plugin.json` version (this repo) *is* the suite version — continuity, it already "doubled as" it.
+- **`assemble.sh` stamps it:** after vendoring, every vendored `plugin.json` version is overwritten with the suite version, so all published plugins are identical-versioned. Source repos' own `plugin.json` versions become local-dev-only (their pyproject/hatchling reads them for the CLI footnote; irrelevant to publishing).
+- **Ratchet goes suite-level:** "any plugin's content changed without the *suite* version bumping" → quarantine/fail (was per-plugin). Compares against the last-published suite version.
+- **`publish.py` bumps the suite version** centrally (this repo's `plugin.json`) whichever repo you edited, then pushes the edited repo + triggers assemble. Editing a non-batterie repo makes publish a 2-repo push (content repo + the suite bump).
+- **Cutover is monotonic-up:** suite is 1.x, every per-plugin number is 0.x, so stamping all to 1.x only ever *increases* versions — clients update cleanly, nothing rolls backwards.
+
+**Shared plumbing — one assembler, both marketplaces.** The same `assemble.sh` run emits *both* the public suite AND the private `batterie-home` (mise-home via `make-mise-flavour.sh`), both stamped with the same suite version so they **cannot** drift. The private repo gets no parallel assemble of its own — that's the "same mechanism / linked plumbing" requirement.
+
+**Scope boundary — NOT fixing the Cowork/Desktop staleness (bds-hitoga, unsolved).** That's a server-side Anthropic marketplace cache, out of our control (a Cowork-assigned Claude tried and couldn't crack it, 2026-06-28). Single-version only makes it *diagnosable* — a version mismatch means "it's the cache, not us."
+
+**The release process must be discoverable from EVERY entry point (Sameer's requirement, 2026-06-28).** Single-version spreads "how to release" across repos, so a Claude landing in *any* of them must get the right instructions without re-deriving. The DRY rule: one canonical source + thin pointers (a copy in each repo would drift — ledger #15, in-file comments are spec).
+- **Canonical:** this repo's `CLAUDE.md` "Versioning" section + this understanding.md — the full picture.
+- **Each component source repo** (bon, passe, mise-en-space, trousse, todoist-gtd): a thin pointer + TL;DR in its `CLAUDE.md` — *"version is suite-managed; do NOT hand-bump plugin.json; release via `/batterie:publish` (bumps the suite centrally); your plugin.json version is local-dev-only and gets stamped at assemble."*
+- **`spm1001/batterie` (assembler):** its `CLAUDE.md` documents the stamp + suite-ratchet + multi-output.
+- **`/batterie:publish` skill** and **`assemble.sh` inline comments**: reflect the central bump + 2-repo push + stamp logic.
+- **CLIs:** covered by their component repos' CLAUDE.md (bon/passe/todoist) — note the footnote behaviour (CLI `--version` ≠ suite number, by design).
 
 ## The Registry and Generation
 
