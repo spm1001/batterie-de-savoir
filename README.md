@@ -13,7 +13,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Trousse**](https://github.com/spm1001/trousse) | The knife roll | Skills, hooks, data analysis, and session lifecycle for Claude Code | ⚡ Stable |
 | [**Jeton**](https://github.com/spm1001/jeton) | The token | Google OAuth token management for the suite | ⚡ Stable |
 | [**Mise en Space**](https://github.com/spm1001/mise-en-space) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
-| [**Passe**](https://github.com/spm1001/passe) | The pass | Fast browser automation via Chrome DevTools Protocol | 🔧 Beta |
+| [**Passe**](https://github.com/spm1001/passe) | The pass | Fast browser automation via Chrome DevTools Protocol — standalone infra, not a marketplace plugin | 🔧 Beta |
 | [**Plongeur**](https://github.com/spm1001/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Todoist GTD**](https://github.com/spm1001/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |

@@ -24,21 +24,23 @@ When a tool is **added, renamed, or removed** from the suite, update all of the 
 
 **The one-command way: `/batterie:publish`** (run from the source repo you edited). It bumps `plugin.json`, commits, pushes, triggers the `assemble.yml` CI, watches it green, then pulls this machine current. `--patch` (default), `--minor`, `--major`. The engine is `scripts/publish.py`; the rest of this section is what it does under the hood — read it to understand the moving parts, but reach for the verb.
 
-Claude Code's plugin cache is **version-keyed**. If you push content changes without bumping the version in `.claude-plugin/plugin.json`, users with the old version cached will never see the update — `/plugin install` says "already at latest."
+Claude Code's plugin cache is **version-keyed**. If you push content changes without a version bump, users with the old version cached will never see the update — `/plugin install` says "already at latest."
 
-**Every push that changes plugin behaviour must bump the version:**
+**Since 2026-06-28 the suite carries ONE version number** (the `batterie` plugin's `plugin.json` in this repo), and you never hand-bump anything to release:
 
-1. Edit `.claude-plugin/plugin.json` — increment the patch version (e.g., `1.0.0` → `1.0.1`)
-2. Commit the version bump alongside the content changes (or as a follow-up if you forget)
-3. Push, then trigger assembly (`gh workflow run assemble.yml -R spm1001/batterie`) or wait for the daily 07:00 UTC bot. A green run means shipped; a red run is almost always a version-ratchet quarantine (content drifted without a bump).
+1. Run `/batterie:publish` from the source repo you edited — it bumps the **suite** version centrally, commits, pushes (a 2-repo push when the edited repo isn't this one), triggers assembly, and watches it green.
+2. The assembler stamps every vendored `plugin.json` to the suite version. A source repo's own `plugin.json` version is local-dev-only — **do NOT hand-bump it to "release"; the stamp overwrites it.**
+3. A red assemble is almost always a suite-level version-ratchet quarantine: vendored content changed without a suite bump. Ship the change via `/batterie:publish` rather than editing versions by hand.
 
-This applies to all batterie repos that have a `.claude-plugin/plugin.json`: bon, trousse, mise, passe, todoist-gtd, plongeur, aboyeur.
+This applies to all suite source repos: batterie-de-savoir (this repo — the suite plugin), bon, trousse, mise-en-space, todoist-gtd. (passe left the suite 2026-07-07; plongeur and aboyeur were never published plugins.)
 
-**What counts as a behaviour change:** hook scripts, skills, MCP server code, plugin.json fields (description, keywords, hooks). Does NOT include: README, CLAUDE.md, tests, docs, non-plugin scripts.
+**What counts as vendored content (needs a suite bump):** `CLAUDE.md`, `instructions.md`, `skills/`, `hooks/`, `.claude-plugin/` — plus full source for MCP plugins (mise). Does NOT include: README, tests, `docs/`, `.bon/`, `.github/` — those are plain commit+push. The authoritative list is `assemble.sh`'s copy-list; read it rather than guessing.
+
+The full mechanics (stamp, ratchet, lazy CLI stamping) are canonically described in this repo's `CLAUDE.md` → **Versioning convention** — that section is the source of truth; this checklist is a pointer.
 
 ### Version source of truth
 
-For plugins that ship a CLI tool (bon, passe, todoist-gtd), the version lives in **one place only**: `.claude-plugin/plugin.json`. The `pyproject.toml` reads it dynamically via hatchling:
+For plugins that ship a CLI tool (bon, todoist-gtd), `pyproject.toml` reads the version dynamically from `.claude-plugin/plugin.json` via hatchling:
 
 ```toml
 [project]
@@ -49,9 +51,7 @@ path = ".claude-plugin/plugin.json"
 pattern = "\"version\":\\s*\"(?P<version>[^\"]+)\""
 ```
 
-**Never add a static `version = "X.Y.Z"` to pyproject.toml in these repos.** Bump plugin.json and both the marketplace and `<tool> --version` follow automatically.
-
-Plugins without CLIs (trousse, mise) only have plugin.json — no sync concern.
+**Never add a static `version = "X.Y.Z"` to pyproject.toml in these repos.** Post-cutover, a CLI's `--version` reports *the suite release that last changed that CLI* (`publish.py` lazy-stamps the source repo being published) — a CLI number below the suite number is expected, not drift.
 
 ## Checklist: Changing a Tool's Maturity
 

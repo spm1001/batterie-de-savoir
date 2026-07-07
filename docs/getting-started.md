@@ -41,7 +41,7 @@ This is the most common first pick, because statelessness is the first pain you 
 
 ### "I need to automate the browser"
 
-**[Passe](tools/passe)** drives Chrome via DevTools Protocol — fast, headless, no Selenium. It's fully standalone, no dependency on other tools. If your work involves scraping, form-filling, or testing, you can start here without touching anything else.
+**[Passe](tools/passe)** drives Chrome via DevTools Protocol — fast, headless, no Selenium. It's fully standalone, no dependency on other tools — and it's *distributed* standalone too (from its own repo, not the plugin marketplace; it's browser infrastructure rather than a knowledge plugin). If your work involves scraping, form-filling, or testing, you can start here without touching anything else.
 
 📦 [spm1001/passe](https://github.com/spm1001/passe)
 
@@ -98,7 +98,7 @@ Or browse the catalogue from within Claude Code:
 /plugin marketplace
 ```
 
-**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, passe, todoist). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed.
+**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, todoist). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed. (Passe isn't in the marketplace at all — install it standalone from its repo.)
 
 The manual symlink-based install path (via each tool's `install.sh` or README) continues to work and remains the right choice if you want short command names (`/close` instead of `/trousse:close`) or if you're not on Claude Code.
 

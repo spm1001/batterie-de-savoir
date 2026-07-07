@@ -21,6 +21,8 @@ Two safety properties worth knowing:
 
 **This repo is itself a source — and that's a recurring trap.** Its `CLAUDE.md`, `skills/`, `hooks/`, `instructions.md`, and `.claude-plugin/` are vendored into the **batterie** plugin. So editing the repo's `CLAUDE.md` during a "docs" task drifts the batterie plugin's vendored content, and if you don't bump `.claude-plugin/plugin.json`, the ratchet quarantines batterie on the next assemble. This has caught exactly that miss at least three times (CHANGELOG 0.2.2 on 2026-06-11, 1.1.2 on 2026-06-20). Rule of thumb: a `docs/` or `.bon/` edit here is free; a `CLAUDE.md`/`instructions.md`/skill/hook edit needs a `plugin.json` bump.
 
+**Which fixes need a suite publish is decided by the assembler's copy-list, not by feel** (generalises the trap above to every source repo). `assemble.sh` vendors each repo's `CLAUDE.md`, `instructions.md`, `skills/`, `hooks/`, `.claude-plugin/` — plus full source (incl. `uv.lock`) for MCP plugins like mise. Editing any of those is vendored content → must ride `/batterie:publish` or the ratchet quarantines the plugin. But `tests/`, `docs/`, `.bon/`, and `.github/` are **not** vendored — a CI test-mock fix or a new workflow is plain commit+push, no bump. When unsure, read the copy-list in `assemble.sh` rather than guessing.
+
 **A commit landing in `spm1001/batterie` is what makes clients re-resolve plugins** — its commit stream *is* the suite's update bus. This is why publishing a change means getting a commit into that repo (via the bot), not editing anything by hand there.
 
 ## Distribution & Repo Visibility
@@ -81,6 +83,16 @@ The two halves of keeping clients current:
 - **`spm1001/batterie` (assembler):** its `CLAUDE.md` documents the stamp + suite-ratchet + multi-output.
 - **`/batterie:publish` skill** and **`assemble.sh` inline comments**: reflect the central bump + 2-repo push + stamp logic.
 - **CLIs:** covered by their component repos' CLAUDE.md (bon/passe/todoist) — note the footnote behaviour (CLI `--version` ≠ suite number, by design).
+
+## CI Health Across the Suite (repaired 2026-07-07, bds-jizozo)
+
+**A repo whose CI is red on `main` turns every notification into indistinguishable noise.** Dependabot bump PRs run CI against a base that's already red, so they "fail" too — the human sees a stream of "CI failed" emails none of which mean what they appear to. "Emails I can't triage" is usually a **broken baseline**, not a dependency problem: get `main` green and a red email becomes real signal again. Diagnostic move: find a *content-neutral* commit (docs-only push) that also failed CI — if it did, the failure is the baseline, not the change.
+
+The 2026-07-07 repair fixed four distinct causes (mise test-mocks that fail-opened without a token; 13 transitive-dep security alerts via targeted `uv lock --upgrade`; trousse's peer-review skill under the ≥95 lint gate; a todoist email that was a one-off GitHub infra blip needing nothing). Standing state to know:
+
+- **Auto-merge-on-green** ships in bon/mise-en-space/trousse (`.github/workflows/dependabot-auto-merge.yml`): `workflow_run`-triggered on CI success, squash+delete, same-repo Dependabot branches only. Deliberately not GitHub-native auto-merge (that requires branch protection, which would break direct-push-to-main). **Untested as of 2026-07-07** — first real Dependabot cycle is the proof; failure mode is silent-no-merge (harmless) — watch it fire (bds-jizozo).
+- **mise-en-space's 11 integration tests fail locally by design** with `--all-extras` (they hit real Google APIs); CI deselects via `-m 'not integration'`. Local red on those is expected — don't chase.
+- todoist-gtd has no CI workflow at all (gap noted in bds-jizozo).
 
 ## The Registry and Generation
 

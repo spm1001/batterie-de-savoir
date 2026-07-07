@@ -107,7 +107,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 
 Two paths:
 
-**Plugin marketplace** (Claude Code 2.1+): `/plugin marketplace add spm1001/batterie` then `/plugin install <tool>@batterie`. Handles skills, hooks, and MCP config. CLI tools (bon, passe, todoist) still need `uv tool install` separately.
+**Plugin marketplace** (Claude Code 2.1+): `/plugin marketplace add spm1001/batterie` then `/plugin install <tool>@batterie`. Handles skills, hooks, and MCP config. CLI tools (bon, todoist) still need `uv tool install` separately. (Passe is not in the marketplace — it installs standalone from [spm1001/passe](https://github.com/spm1001/passe).)
 
 **Manual** (any agent): Clone repo → run `install.sh` or create symlinks per tool's README. Gives short command names (`/close` vs `/trousse:close`).
 

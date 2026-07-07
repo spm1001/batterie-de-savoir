@@ -61,4 +61,6 @@ Passe embodies the *filleting knives, not cleavers* principle most directly: ~20
 
 **Repo:** [spm1001/passe](https://github.com/spm1001/passe) — install, usage, and CLI reference.
 
+**Distribution note (July 2026):** Passe is part of the batterie family but *not* the plugin marketplace — it's browser infrastructure rather than a knowledge plugin, so it installs standalone (`uv tool install 'passe @ git+https://github.com/spm1001/passe'`).
+
 [← Back to the Brigade](../)
