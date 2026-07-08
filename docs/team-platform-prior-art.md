@@ -115,13 +115,31 @@ teammates get, day one, either:
    survives even without the marketplace pipe.
 3. **Use the CLI** — but that's exactly what "GUI-only" rules out.
 
-Parked options, named not chosen: ask ITV gh-owners to approve the Claude GitHub App
-for one repo (governance ask, low appetite); or mirror the commons to a *personal*
-private repo where the GitHub App can be granted without enterprise admin (splits the
-source of truth, awkward — probably not worth it). **The blueprint (bds-ronuho) must
-decide GUI parity honestly: the CLI half is solved, the GUI half is
-Upload-plugin-manual unless a governance door opens.** claude.ai web + Cowork still
-need their own spikes but likely hit the same App wall.
+**DECIDED 2026-07-08 (with Sameer):** stay on **`ITV/mit-commons`** — do NOT move to
+a personal `spm1001` repo to unblock Desktop. The spm1001 route *would* dodge the
+enterprise app-gate (Sameer can grant the Claude GitHub App to his own repos, and his
+spm1001 repos already appear in Desktop's picker), but it trades the enterprise wall
+for a worse cost on the axis the requirements cared about most — `spm1001/…` makes the
+commons structurally *Sameer's*, not the team's (collaborator-managed access, not
+ITV-employment access; walks out if he changes jobs), it introduces an *unproven*
+teammate-access question (does a personal-account app install cover a collaborator's
+Desktop?), and a later spm1001→ITV move costs every teammate an add-reinstall-remove.
+Day-one shape instead:
+
+- **CLI users → full live experience** (solved, cheap).
+- **GUI-only users → Upload-plugin** (file handout, manual, no auto-update). Fine
+  day one because the seeded kit is small and stable; the re-upload friction only
+  bites once content churns — don't pay a structural cost now for a need that isn't
+  acute yet.
+- **Unlock for GUI-live parity = the ITV Claude-GitHub-App approval** Sameer has
+  *applied for on the single mit-commons repo* (deemed unlikely). If it lands,
+  GUI-live switches on with zero repo move; if not, revisit when upload friction
+  actually hurts.
+
+Parked, not chosen: mirror to a personal private repo (splits source of truth). The
+spm1001-as-bridge option stays defensible ONLY if GUI-live turns out to be a day-one
+dealbreaker for the team — Sameer's read to make, not settled here. claude.ai web +
+Cowork still need their own spikes but likely hit the same app wall.
 
 ### Roadmap signals
 
