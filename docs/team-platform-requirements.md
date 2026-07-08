@@ -50,6 +50,17 @@ Status: draft pending Sameer's confirmation. Feeds bds-ronuho (blueprint synthes
   "this is as much for you as for us."** Every part of the platform (docs, board, checks,
   contribution flow) must be legible and operable by both kinds of reader.
 
+## Account & billing reality (constrains distribution)
+
+- **There is no Anthropic Team/org for MIT.** Everyone pays for their own Claude
+  (Sameer's Anthropic Team is his family's). Consequence: the org **Directory route does
+  not exist for the team case** — claude.ai/Desktop distribution is a per-individual-
+  account question, and the family-Directory precedent (bds-niluga) does not transfer.
+- **Vertex billing opened to the team 2026-07-07** — team members can run Claude Code on
+  ITV's Vertex billing (gcloud setup exists). Strengthens CC as a first-class surface;
+  note Vertex sessions have no WebSearch.
+- Everyone on the team is on **ITV GitHub**.
+
 ## Defaults assumed unless corrected
 
 - **Cadence: continuous** — merge = shipped (marketplace-is-the-repo topology makes
@@ -57,10 +68,19 @@ Status: draft pending Sameer's confirmation. Feeds bds-ronuho (blueprint synthes
 - Each person authenticates with their **own ITV Google identity** for Workspace-touching
   tools (the mise pattern), no shared credentials.
 
-## Open forks (not yet decided)
+## Decisions from the interview's final round
 
-1. **Repo home:** ITV GitHub org (governance-right, but SAML/SSO friction for every
-   machine and possibly for marketplace/Directory plumbing) vs `spm1001` private
-   (frictionless, wrong-shaped governance for a team asset). Verify the Teams Directory
-   private-repo rule's current form (bds-halonu) before deciding.
-2. **Naming process:** team chooses — mechanism TBD (a poll? a christening over tea?).
+1. **Repo home: ITV GitHub org, working assumption** (everyone's already there; there is
+   a GitHub Team). Pending: bds-halonu verifies the mechanics — can `claude plugin
+   marketplace add` consume a SAML-SSO private org repo (per-person, per-machine token
+   authorization — the mit-plongeur dance × 8 people), and what individual claude.ai
+   accounts can consume without an org Directory. gh-owners Slack channel is the venue
+   for org-side asks (friendly but busy).
+2. **Name: choose now, boring-durable over clever** (names bite; old names are hard to
+   expunge; avoid the French-kitchen register — that's batterie's, i.e. Sameer's).
+   Shortlist from the interview + notes/work register (plain working names):
+   **mit-commons** (recommended — "ours" is in the name, and a commons *is* the
+   governance model: protected core, open edges), **mit-toolkit** (the boring-safe
+   pick, sits beside mit-plongeur/mit-wiki/mit-trends-api in the org convention),
+   mit-kit, mit-workbench. Sameer may ping the team (Wednesdays are their quiet day);
+   his word decides.
