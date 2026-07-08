@@ -52,6 +52,16 @@ cache dir and the new content reached a fresh session. So merge=shipped requires
 date; guard it against triggering itself). The class being deleted is
 human-*remembered* versioning; version *metadata* is mechanically required.
 
+**SUPERSEDED same-day (2026-07-08, bds-halonu spike, live on mit-commons): version
+metadata is NOT mechanically required.** Docs surfaced an escape hatch — leave
+`version` unset and update detection keys on the **git commit SHA** — and two probes
+confirmed it: unversioned plugin.json → update installed to a SHA-named cache dir;
+a second content-only commit propagated SHA→SHA. The pozubo conclusion was true *of
+a versioned plugin*; the deeper deletion is to have no version at all. **No auto-stamp,
+no ceremony, nothing for CI to remember either.** mit-commons now runs unversioned
+(README guards against re-adding the field). Full detail:
+`team-platform-prior-art.md` §1a.
+
 ### Family 3: Release tooling as its own hazard
 
 | Incident | What happened | Invariant it bought |
@@ -123,11 +133,12 @@ Small classes, cheap proven guards — port them, don't rederive:
    to catch them. Proven live by the mit-commons spike. The cost (no multi-repo
    composition, no transforms) buys nothing the team case needs — batterie keeps its
    assembler because it federates five repos; the commons doesn't.
-2. **Merge = shipped — no human-remembered version ceremony.** Deletes Family 2's
-   missed-bump class and Family 3's publish machinery with it (sweep, flip, rot).
-   Verified (bds-pozubo): update propagation IS version-gated, so the blueprint
-   includes a CI auto-stamp of plugin.json on every merge — ceremony moves to
-   machinery, humans still never remember anything.
+2. **Merge = shipped — no version ceremony AT ALL.** Deletes Family 2's missed-bump
+   class and Family 3's publish machinery with it (sweep, flip, rot). Verified twice,
+   second probe deeper than the first: version-gating is real for versioned plugins
+   (bds-pozubo), but an **unversioned plugin updates by commit SHA** (bds-halonu,
+   same-day supersession above) — so the blueprint needs no CI auto-stamp either.
+   Ceremony doesn't move to machinery; it ceases to exist.
 3. **One repo, blast radius = one PR.** No bus for a laggard to wedge (the quarantine
    machinery becomes unnecessary), no cross-repo consumer archaeology when something
    moves (bon's Dolt-migration Phase-2 lesson: reliability lives in finding every
