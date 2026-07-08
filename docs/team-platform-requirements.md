@@ -78,9 +78,6 @@ Status: draft pending Sameer's confirmation. Feeds bds-ronuho (blueprint synthes
    for org-side asks (friendly but busy).
 2. **Name: choose now, boring-durable over clever** (names bite; old names are hard to
    expunge; avoid the French-kitchen register — that's batterie's, i.e. Sameer's).
-   Shortlist from the interview + notes/work register (plain working names):
-   **mit-commons** (recommended — "ours" is in the name, and a commons *is* the
-   governance model: protected core, open edges), **mit-toolkit** (the boring-safe
-   pick, sits beside mit-plongeur/mit-wiki/mit-trends-api in the org convention),
-   mit-kit, mit-workbench. Sameer may ping the team (Wednesdays are their quiet day);
-   his word decides.
+   **DECIDED 2026-07-08: `mit-commons`** (Sameer's pick from the shortlist — "ours" is
+   in the name, and a commons *is* the governance model: protected core, open edges).
+   Runners-up for the record: mit-toolkit, mit-kit, mit-workbench.
