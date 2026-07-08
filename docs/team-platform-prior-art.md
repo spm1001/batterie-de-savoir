@@ -74,20 +74,54 @@ mit-commons now runs unversioned; its README warns against re-adding the field.
 
 | Surface | Private-repo marketplace? | Notes |
 |---|---|---|
-| Claude Code CLI | **YES** | Ambient git credential helper; proven on ITV/mit-commons (bds-nupepe) |
-| Claude Desktop (personal tab) | **NO** | "Add marketplace by URL" not shipped — open request [#66184](https://github.com/anthropics/claude-code/issues/66184). Workaround: clone locally + hand-register in `known_marketplaces.json`. Can browse Anthropic's official/add-on marketplaces; can **upload a plugin file directly** |
-| Cowork | **NO** | Server-side sync uses an internal git library that ignores credential helpers — private repos fail ([#17201](https://github.com/anthropics/claude-code/issues/17201)); Cowork Directory is org-only |
-| claude.ai web | docs silent | No documented plugin upload or marketplace-add on the web surface |
+| Claude Code CLI | **YES** | Ambient **git credential helper** (personal `gh`/SSH). Rides the individual's existing private-repo access; **no GitHub App**. Proven on ITV/mit-commons (bds-nupepe) |
+| Claude Desktop | **affordance YES, but auth BLOCKED for enterprise** | The Add-marketplace dialog + repo picker exist (screenshot-confirmed), but its "Authorize SSO on GitHub" is **the Claude GitHub App**, which must be installed + granted repo access. On ITV enterprise GitHub that's org-admin-gated → blocked (verified live 2026-07-08: picking a private repo returns *"Repository not accessible… the Claude GitHub App needs access"*). **Upload plugin** (file handout) still works with no app |
+| Cowork | unverified | Docs/issue-tracker suggested private-repo sync fails ([#17201](https://github.com/anthropics/claude-code/issues/17201)); needs its own spike, likely the same GitHub-App wall |
+| claude.ai web | unverified | No confirmation either way; spike before promising |
 
 Pro vs Max: identical plugin capabilities, different usage headroom.
 
-**Design consequence for mit-commons:** the requirements' "genuine parity" between the
-terminal half and the GUI half cannot come from marketplace machinery today. The
-marketplace serves the CLI half; the GUI half needs a different vehicle (plugin-file
-handout, local-path registration, or waiting on #66184) — or the parity requirement is
-met at the *content* level (skills as portable prose) rather than the *pipe* level.
-This needs its own spike before the blueprint promises any GUI surface (design-lessons
-Family 5: verify each promised surface empirically).
+**THE LOAD-BEARING DISTINCTION — CLI and Desktop use DIFFERENT auth (verified live
+2026-07-08, Sameer's click-through):**
+
+- **CLI marketplace-add → ambient git credential helper.** It uses the individual's
+  own `gh`/SSH credentials, so it rides the private-repo access every ITV dev already
+  has (login + SSO-authorize once). **No GitHub App, no org-admin involvement.** This
+  is why the CLI path is proven and cheap.
+- **Desktop marketplace-add → the Claude GitHub App.** The "Authorize SSO on GitHub"
+  link is *not* a personal-SSO grant like the CLI's — it installs a **third-party
+  GitHub App** that needs access granted to the repo. On enterprise GitHub, installing
+  a third-party App is **org-owner-gated** (and rightly not granted lightly — it's a
+  supply-chain/governance decision). Sameer hit the wall directly: *"Repository not
+  accessible. If it's private, the Claude GitHub App needs access to this
+  repository."* → **effectively blocked for a private ITV-org repo.**
+
+**Two corrections in one spike** (why we spike instead of reasoning from docs): the
+subagent's "NO" was right in *conclusion* but wrong in *mechanism* (it blamed a
+missing URL-add feature; the feature is there, the GitHub-App gate is the wall). My
+re-correction was right that the affordance exists but wrong to imply the
+SSO-authorize would just work — it's a GitHub App install, not a personal grant. The
+live click-through settled it in thirty seconds.
+
+**Revised design consequence for mit-commons — a real dent in GUI parity:** for a
+*private* commons, the live-updating **marketplace** path on Desktop is blocked
+without an ITV GitHub-App approval nobody wants to pursue. So genuinely GUI-only
+teammates get, day one, either:
+1. **Upload plugin** — hand them the plugin file, they upload it in Desktop. Works
+   today, no app, no admin. Cost: **manual, no auto-update** (each new version =
+   re-hand-out). The versionless/SHA design doesn't help here — there's no live
+   pipe.
+2. **Content-level portability** — skills authored as portable prose so the value
+   survives even without the marketplace pipe.
+3. **Use the CLI** — but that's exactly what "GUI-only" rules out.
+
+Parked options, named not chosen: ask ITV gh-owners to approve the Claude GitHub App
+for one repo (governance ask, low appetite); or mirror the commons to a *personal*
+private repo where the GitHub App can be granted without enterprise admin (splits the
+source of truth, awkward — probably not worth it). **The blueprint (bds-ronuho) must
+decide GUI parity honestly: the CLI half is solved, the GUI half is
+Upload-plugin-manual unless a governance door opens.** claude.ai web + Cowork still
+need their own spikes but likely hit the same App wall.
 
 ### Roadmap signals
 
