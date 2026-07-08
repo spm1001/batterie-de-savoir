@@ -42,14 +42,15 @@ Every incident here is a human (or Claude) forgetting ceremony that exists only 
 mediate between "content changed" and "clients update." The requirements record
 already calls releases an anti-concept for the team repo.
 
-**⚠ One recorded behaviour tempers this and needs a live re-test before the blueprint
-banks it:** CC's `claude plugin update` was observed (2026-06) comparing *versions,
-not content* — same version means "already up to date" even when files changed. If
-still true, merge=shipped needs an **auto-stamp** (CI bumps plugin.json on every merge
-— date or commit-serial, zero human ceremony) or update propagation silently dies.
-This is the natural follow-up spike in ITV/mit-commons: edit the hello skill, merge
-*without* a bump, run `claude plugin update`, observe (filed: bds-pozubo). The class being deleted is
-human-*remembered* versioning; version *metadata* may still be mechanically required.
+**VERIFIED 2026-07-08 (bds-pozubo, live on mit-commons): update propagation is
+version-gated on current CC.** A content change merged *without* a bump reaches the
+marketplace clone on refresh, but `claude plugin update` reports "already at the
+latest version" and the installed cache — which is version-keyed — keeps serving the
+old content. A version bump is necessary and sufficient: 0.0.2 installed to a fresh
+cache dir and the new content reached a fresh session. So merge=shipped requires an
+**auto-stamp**: a CI step that bumps plugin.json on every merge (commit-serial or
+date; guard it against triggering itself). The class being deleted is
+human-*remembered* versioning; version *metadata* is mechanically required.
 
 ### Family 3: Release tooling as its own hazard
 
@@ -124,9 +125,9 @@ Small classes, cheap proven guards — port them, don't rederive:
    assembler because it federates five repos; the commons doesn't.
 2. **Merge = shipped — no human-remembered version ceremony.** Deletes Family 2's
    missed-bump class and Family 3's publish machinery with it (sweep, flip, rot).
-   Carries ONE open verification: whether `claude plugin update` propagates content
-   without a version change. If not, auto-stamp in CI — ceremony moves to machinery,
-   humans still never remember anything. **Run this spike before the blueprint.**
+   Verified (bds-pozubo): update propagation IS version-gated, so the blueprint
+   includes a CI auto-stamp of plugin.json on every merge — ceremony moves to
+   machinery, humans still never remember anything.
 3. **One repo, blast radius = one PR.** No bus for a laggard to wedge (the quarantine
    machinery becomes unnecessary), no cross-repo consumer archaeology when something
    moves (bon's Dolt-migration Phase-2 lesson: reliability lives in finding every
