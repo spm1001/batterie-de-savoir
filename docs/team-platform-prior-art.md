@@ -75,9 +75,9 @@ mit-commons now runs unversioned; its README warns against re-adding the field.
 | Surface | Private-repo marketplace? | Notes |
 |---|---|---|
 | Claude Code CLI | **YES** | Ambient **git credential helper** (personal `gh`/SSH). Rides the individual's existing private-repo access; **no GitHub App**. Proven on ITV/mit-commons (bds-nupepe) |
-| Claude Desktop | **affordance YES, but auth BLOCKED for enterprise** | The Add-marketplace dialog + repo picker exist (screenshot-confirmed), but its "Authorize SSO on GitHub" is **the Claude GitHub App**, which must be installed + granted repo access. On ITV enterprise GitHub that's org-admin-gated → blocked (verified live 2026-07-08: picking a private repo returns *"Repository not accessible… the Claude GitHub App needs access"*). **Upload plugin** (file handout) still works with no app |
-| Cowork | unverified | Docs/issue-tracker suggested private-repo sync fails ([#17201](https://github.com/anthropics/claude-code/issues/17201)); needs its own spike, likely the same GitHub-App wall |
-| claude.ai web | unverified | No confirmation either way; spike before promising |
+| Claude Desktop | **marketplace BLOCKED; Upload-plugin PROVEN** | Add-marketplace's "Authorize SSO" is **the Claude GitHub App** (org-admin-gated on ITV enterprise → blocked: *"Repository not accessible… the Claude GitHub App needs access"*). But **Add → Upload plugin** works end-to-end (verified live 2026-07-08): a `git archive` `.zip` installs, both skills appear + run, source shows "Uploaded from file" (frozen — re-upload to update). No app, no admin |
+| Cowork | **skills run; CLI blind to host plugins** | Uploaded/installed skills run in Cowork (verified: `/hello` executed). BUT the sandbox `claude` CLI reports "No plugins installed" even when they are, and can't touch the host — so plugin-CLI troubleshooting is unreliable from inside Cowork; fixes belong on the host/Desktop UI |
+| claude.ai web | unverified | No plugin CLI; spike before promising |
 
 Pro vs Max: identical plugin capabilities, different usage headroom.
 
@@ -114,6 +114,18 @@ teammates get, day one, either:
 2. **Content-level portability** — skills authored as portable prose so the value
    survives even without the marketplace pipe.
 3. **Use the CLI** — but that's exactly what "GUI-only" rules out.
+
+**VERIFIED 2026-07-08 (Sameer's live Desktop + Cowork test): the GUI-upload path
+works, softening the "dent" below.** `mit-commons.zip` (built by `git archive`)
+uploaded via Desktop's **Add → Upload plugin**, installed cleanly, and both `/hello`
+and `/self-help` appeared and ran — including in a Cowork session. So the day-one
+GUI story is solid: GUI-only teammates get a *working* install via file upload; the
+*only* gap versus the CLI is auto-update (uploaded plugins are frozen — re-upload to
+refresh). New platform finding banked the same test: **inside Cowork the sandbox
+`claude` CLI is blind to host plugins** (reports "No plugins installed" even when they
+are), so any skill that shells to `claude plugin …` must be surface-aware — mit-commons'
+skills now are. The "real dent" framing below stands as written but is now bounded to
+*auto-update only*, not *access*.
 
 **DECIDED 2026-07-08 (with Sameer):** stay on **`ITV/mit-commons`** — do NOT move to
 a personal `spm1001` repo to unblock Desktop. The spm1001 route *would* dodge the
