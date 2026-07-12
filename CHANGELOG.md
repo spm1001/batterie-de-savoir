@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.8.3] - 2026-07-12
+
+Docs: document the suite-changelog mechanism in the versioning guide (bds-defeci); ships pending mise CLAUDE.md doc updates
+
 ## [1.8.2] - 2026-07-12
 
 Suite changelog automation (bds-mawitu): one canonical CHANGELOG maintained by publish.py at release time; per-plugin shipped changelogs are now generated stubs pointing here, so no plugin can ship a stale changelog.
