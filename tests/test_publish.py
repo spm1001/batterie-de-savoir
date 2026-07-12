@@ -80,6 +80,28 @@ check("keywords array untouched", '"keywords": [\n    "gtd",\n    "tracking"\n  
 check("only the version line changed", out, SRC.replace("0.26.5", "0.26.6"))
 check_raises("no version field", lambda: publish.replace_version('{"name":"x"}', "1.0.0"))
 
+# ---- prepend_changelog: entry goes above newest, header preserved ----
+CL = """# Changelog
+
+> A header blockquote that must survive.
+
+## [1.8.1] - 2026-07-12
+
+Old top entry.
+"""
+out = publish.prepend_changelog(CL, "1.8.2", "2026-07-13", "The new thing.")
+check("new entry present", "## [1.8.2] - 2026-07-13" in out, True)
+check("new message present", "The new thing." in out, True)
+check("header survives", out.startswith("# Changelog\n\n> A header blockquote"), True)
+check("new entry is above the old", out.index("[1.8.2]") < out.index("[1.8.1]"), True)
+check("old entry preserved", "## [1.8.1] - 2026-07-12" in out and "Old top entry." in out, True)
+check("header sits above new entry", out.index("blockquote") < out.index("[1.8.2]"), True)
+check_raises("duplicate version refused",
+             lambda: publish.prepend_changelog(CL, "1.8.1", "2026-07-13", "dup"))
+# Degenerate: no `## ` heading yet — append rather than lose the entry.
+out2 = publish.prepend_changelog("# Changelog\n", "1.0.0", "2026-01-01", "First.")
+check("degenerate appends entry", "## [1.0.0] - 2026-01-01" in out2 and "First." in out2, True)
+
 # ---- dry-run integration: touches nothing, bumps the SUITE version ----
 ENV = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
        "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t", "PATH": "/usr/bin:/bin"}
@@ -102,11 +124,15 @@ def commits(path: Path) -> int:
     return log.stdout.count("\n")
 
 
+CL_FIXTURE = "# Changelog\n\n## [1.2.1] - 2026-06-27\n\nOld entry.\n"
+
 # Case A: cwd IS the suite repo — one commit carries content + the suite bump.
 with tempfile.TemporaryDirectory() as td:
     suite = Path(td)
     spj = make_repo(suite, "batterie", "1.2.1")
-    suite_orig = spj.read_text()
+    scl = suite / "CHANGELOG.md"
+    scl.write_text(CL_FIXTURE)
+    suite_orig, cl_orig = spj.read_text(), scl.read_text()
     cp = subprocess.run(
         [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
          "--no-wait", "--repo", str(suite), "--suite-repo", str(suite)],
@@ -115,7 +141,9 @@ with tempfile.TemporaryDirectory() as td:
     check("caseA exits 0", cp.returncode, 0)
     check("caseA plans the suite bump", "suite 1.2.1 -> 1.2.2" in cp.stdout, True)
     check("caseA is single-repo", "== suite repo" in cp.stdout, True)
+    check("caseA plans the changelog", "changelog: [1.2.2]" in cp.stdout, True)
     check("caseA did NOT write version", spj.read_text(), suite_orig)
+    check("caseA did NOT write changelog", scl.read_text(), cl_orig)
     check("caseA made NO commit", commits(suite), 1)
 
 # Case B: content repo != suite repo — the bump target is the SUITE version
@@ -125,7 +153,9 @@ with tempfile.TemporaryDirectory() as td:
     content, suite = base / "bon", base / "bds"
     cpj = make_repo(content, "bon", "0.28.0")
     spj = make_repo(suite, "batterie", "1.2.1")
-    content_orig, suite_orig = cpj.read_text(), spj.read_text()
+    scl = suite / "CHANGELOG.md"
+    scl.write_text(CL_FIXTURE)
+    content_orig, suite_orig, cl_orig = cpj.read_text(), spj.read_text(), scl.read_text()
     cp = subprocess.run(
         [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
          "--no-wait", "--repo", str(content), "--suite-repo", str(suite)],
@@ -137,6 +167,7 @@ with tempfile.TemporaryDirectory() as td:
     check("caseB is 2-repo push", "2-repo push" in cp.stdout, True)
     check("caseB did NOT write content version", cpj.read_text(), content_orig)
     check("caseB did NOT write suite version", spj.read_text(), suite_orig)
+    check("caseB did NOT write changelog", scl.read_text(), cl_orig)
     check("caseB made NO content commit", commits(content), 1)
     check("caseB made NO suite commit", commits(suite), 1)
 
