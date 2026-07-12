@@ -132,6 +132,10 @@ with tempfile.TemporaryDirectory() as td:
     spj = make_repo(suite, "batterie", "1.2.1")
     scl = suite / "CHANGELOG.md"
     scl.write_text(CL_FIXTURE)
+    # Track the changelog (as it is in reality) so the fifuko untracked-guard
+    # doesn't refuse; fold it into the single init commit to keep counts at 1.
+    subprocess.run(["git", "add", "-A"], cwd=suite, env=ENV, check=True)
+    subprocess.run(["git", "commit", "--amend", "--no-edit", "-q"], cwd=suite, env=ENV, check=True)
     suite_orig, cl_orig = spj.read_text(), scl.read_text()
     cp = subprocess.run(
         [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
@@ -155,6 +159,9 @@ with tempfile.TemporaryDirectory() as td:
     spj = make_repo(suite, "batterie", "1.2.1")
     scl = suite / "CHANGELOG.md"
     scl.write_text(CL_FIXTURE)
+    # Track the changelog (see Case A) — the content repo (bon) has none.
+    subprocess.run(["git", "add", "-A"], cwd=suite, env=ENV, check=True)
+    subprocess.run(["git", "commit", "--amend", "--no-edit", "-q"], cwd=suite, env=ENV, check=True)
     content_orig, suite_orig, cl_orig = cpj.read_text(), spj.read_text(), scl.read_text()
     cp = subprocess.run(
         [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
@@ -170,6 +177,49 @@ with tempfile.TemporaryDirectory() as td:
     check("caseB did NOT write changelog", scl.read_text(), cl_orig)
     check("caseB made NO content commit", commits(content), 1)
     check("caseB made NO suite commit", commits(suite), 1)
+
+# ---- fifuko: untracked WIP cannot be silently swept into a release ----
+# The guard is a precondition (before the assemble trigger), so a DRY-RUN
+# exercises it fully — no CI is fired, nothing is committed.
+def dry_publish(repo, suite, *extra):
+    return subprocess.run(
+        [sys.executable, str(PUBLISH), "--patch", "--dry-run", "--no-pull",
+         "--no-wait", "--repo", str(repo), "--suite-repo", str(suite), *extra],
+        capture_output=True, text=True,
+    )
+
+
+with tempfile.TemporaryDirectory() as td:
+    suite = Path(td)
+    make_repo(suite, "batterie", "1.2.1")
+    (suite / "CHANGELOG.md").write_text(CL_FIXTURE)
+    # Commit the changelog so the tree is clean apart from what each case adds.
+    subprocess.run(["git", "add", "-A"], cwd=suite, env=ENV, check=True)
+    subprocess.run(["git", "commit", "-qm", "cl"], cwd=suite, env=ENV, check=True)
+
+    # (1) clean tree → default proceeds, and stages with -u (not -A).
+    cp = dry_publish(suite, suite)
+    check("fifuko clean tree ok", cp.returncode, 0)
+    check("fifuko default stages -u", "git add -u in content repo" in cp.stdout, True)
+
+    # (2) untracked WIP present → default REFUSES (loud), names the file, no --all.
+    (suite / "scratch-wip.txt").write_text("stray")
+    cp = dry_publish(suite, suite)
+    check("fifuko refuses untracked", cp.returncode, 1)
+    check("fifuko names the stray file", "scratch-wip.txt" in cp.stderr, True)
+
+    # (3) same untracked file + --all → allowed, and plans -A.
+    cp = dry_publish(suite, suite, "--all")
+    check("fifuko --all allows untracked", cp.returncode, 0)
+    check("fifuko --all stages -A", "git add -A in content repo" in cp.stdout, True)
+
+    # (4) a tracked modification is still staged by default (no regression):
+    #     the skill relies on this — staged-only would ship a bump with no content.
+    (suite / "scratch-wip.txt").unlink()  # clear the untracked file from (2)/(3)
+    (suite / "CHANGELOG.md").write_text(CL_FIXTURE + "\ntracked edit\n")
+    cp = dry_publish(suite, suite)
+    check("fifuko tracked mod ok by default", cp.returncode, 0)
+
 
 print(f"\n{passed} passed, {failed} failed")
 sys.exit(1 if failed else 0)
