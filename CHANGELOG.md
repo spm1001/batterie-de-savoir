@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.8.4] - 2026-07-12
+
+Hardening: stale-ref sweep (retired Taildrive paths, passe-orphan note, stale footer) + registry-drop guard in /batterie:update
+
 ## [1.8.3] - 2026-07-12
 
 Docs: document the suite-changelog mechanism in the versioning guide (bds-defeci); ships pending mise CLAUDE.md doc updates
