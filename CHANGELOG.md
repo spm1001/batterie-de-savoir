@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.8.5] - 2026-07-12
+
+Carrying mise: the work and personal flavours now name which Workspace they act on — an unauthed personal mise no longer reads as the work one being broken (SessionStart + setup_oauth honesty).
+
 ## [1.8.4] - 2026-07-12
 
 Hardening: stale-ref sweep (retired Taildrive paths, passe-orphan note, stale footer) + registry-drop guard in /batterie:update
