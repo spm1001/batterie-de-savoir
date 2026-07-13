@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.8.7] - 2026-07-13
+
+Carrying mise-home: the personal-flavour skill now names its Workspace in the picker and calls its own mcp__mise-home__ tools (was mis-wired to the work server).
+
 ## [1.8.6] - 2026-07-12
 
 publish.py hardening: refuse untracked files unless --all (bds-fifuko); reinstall CLIs from git+https not the working tree (bds-zelobu)
