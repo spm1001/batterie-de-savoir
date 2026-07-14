@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.9.2] - 2026-07-14
+
+Carrying mise: dev-deps group bump (pytest 9.1) with call-logging tests hardened against pytest's per-phase capture-handler injection (mise-sogelo)
+
 ## [1.9.1] - 2026-07-14
 
 bon: session dashboard tolerates a non-numeric context-window sidecar — a statusline field-shift leaking the effort level (xhigh) no longer crashes /open
