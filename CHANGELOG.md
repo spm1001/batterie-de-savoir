@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.8.8] - 2026-07-14
+
+Carrying mise: catastrophic signature strips revert instead of eating the email body (mise-rejula)
+
 ## [1.8.7] - 2026-07-13
 
 Carrying mise-home: the personal-flavour skill now names its Workspace in the picker and calls its own mcp__mise-home__ tools (was mis-wired to the work server).
