@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.9.1] - 2026-07-14
+
+bon: session dashboard tolerates a non-numeric context-window sidecar — a statusline field-shift leaking the effort level (xhigh) no longer crashes /open
+
 ## [1.9.0] - 2026-07-14
 
 Carrying mise: invitation emails disclose live Calendar state — cancelled/rescheduled meetings no longer read as live (mise-pinodi)
