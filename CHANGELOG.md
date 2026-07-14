@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.9.0] - 2026-07-14
+
+Carrying mise: invitation emails disclose live Calendar state — cancelled/rescheduled meetings no longer read as live (mise-pinodi)
+
 ## [1.8.8] - 2026-07-14
 
 Carrying mise: catastrophic signature strips revert instead of eating the email body (mise-rejula)
