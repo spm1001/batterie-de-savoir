@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.9.3] - 2026-07-14
+
+Carrying mise: configure_call_logging keys on its own handler (robust to pytest 9.1 capture injection); CLAUDE.md documents pinodi invite-state
+
 ## [1.9.2] - 2026-07-14
 
 Carrying mise: dev-deps group bump (pytest 9.1) with call-logging tests hardened against pytest's per-phase capture-handler injection (mise-sogelo)
