@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.10.2] - 2026-07-15
+
+bon-read.sh lists standalone actions — an all-standalone board no longer reads empty to a no-CLI (Cowork) reader
+
 ## [1.10.1] - 2026-07-15
 
 Carrying mise: apps-script extractor — ongoing Doc-link capture + setupTriggers footgun fix
