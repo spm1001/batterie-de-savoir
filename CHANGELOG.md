@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.10.1] - 2026-07-15
+
+Carrying mise: apps-script extractor — ongoing Doc-link capture + setupTriggers footgun fix
+
 ## [1.10.0] - 2026-07-14
 
 Rite gains candidate mode (no-writer/Cowork sessions file mintable candidates) and route-and-read-in for multi-room repos
