@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.11.0] - 2026-07-17
+
+Adding trousse: snowflake-devdocs — fetches current Snowflake docs as Markdown, curated for the Lantern exposure-lake decision
+
 ## [1.10.2] - 2026-07-15
 
 bon-read.sh lists standalone actions — an all-standalone board no longer reads empty to a no-CLI (Cowork) reader
