@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.12.0] - 2026-07-19
+
+trousse pared to its public core of 4 (skill-forge, titans, deglacer, ardoise); data/docs skills rehomed to mit-commons, stack-wired ones to trousse-personal, diagram to dragram, dead weight retired
+
 ## [1.11.1] - 2026-07-17
 
 trousse: snowflake-devdocs broadened — general Snowflake index (SQL/Cortex) + CoCo (Cortex Code) coverage
