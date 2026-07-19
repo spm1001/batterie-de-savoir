@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.15.1] - 2026-07-19
+
+Marketplace discovery in /batterie:update + /batterie:version now recognises URL-added marketplaces; false-empty snapshots fail loudly (bds-mifubu)
+
 ## [1.15.0] - 2026-07-19
 
 Carrying mise: auth self-heals (keyed PKCE, live token reload, wrong-account browser steering) and the create-edit-cleanup loop closes — Forms and drafts now edit in place, and the new trash op clears strays
