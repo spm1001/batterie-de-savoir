@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.16.1] - 2026-07-19
+
+Sonnette: fix the same-id double-server supersession war (aby-suwawo) — a younger duplicate now yields permanently to a live older sibling
+
 ## [1.16.0] - 2026-07-19
 
 Sonnette joins the suite: conductor mesh connectivity as an installable plugin — peer-to-peer channels between Claude sessions (requires bun on the host)
