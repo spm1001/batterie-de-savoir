@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.13.0] - 2026-07-19
+
+Carrying mise: draft/reply_draft auto-append your Gmail signature, links intact
+
 ## [1.12.1] - 2026-07-19
 
 ardoise fixed & hardened: reads the right config path (no more onboarding wizard on tube-like setups), gains --home/--keep for multi-step plugin tests, and now works on (and bills to) Vertex setups instead of silently falling back
