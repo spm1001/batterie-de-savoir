@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.12.1] - 2026-07-19
+
+ardoise fixed & hardened: reads the right config path (no more onboarding wizard on tube-like setups), gains --home/--keep for multi-step plugin tests, and now works on (and bills to) Vertex setups instead of silently falling back
+
 ## [1.12.0] - 2026-07-19
 
 trousse pared to its public core of 4 (skill-forge, titans, deglacer, ardoise); data/docs skills rehomed to mit-commons, stack-wired ones to trousse-personal, diagram to dragram, dead weight retired
