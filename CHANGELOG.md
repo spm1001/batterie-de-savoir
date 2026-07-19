@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.15.0] - 2026-07-19
+
+Carrying mise: auth self-heals (keyed PKCE, live token reload, wrong-account browser steering) and the create-edit-cleanup loop closes — Forms and drafts now edit in place, and the new trash op clears strays
+
 ## [1.14.0] - 2026-07-19
 
 Carrying mise: Sheets cell editing (overwrite/replace_text), file_path freed for /tmp and ~/scratch, Cowork uv-detection fix, security dep bumps
