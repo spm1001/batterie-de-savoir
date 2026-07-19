@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.14.0] - 2026-07-19
+
+Carrying mise: Sheets cell editing (overwrite/replace_text), file_path freed for /tmp and ~/scratch, Cowork uv-detection fix, security dep bumps
+
 ## [1.13.0] - 2026-07-19
 
 Carrying mise: draft/reply_draft auto-append your Gmail signature, links intact
