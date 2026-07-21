@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.17.0] - 2026-07-21
+
+Bon: every board now carries a message-in-a-bottle README for tool-less agents (init writes it, estate backfilled), and session orientation no longer hides standalone-only boards
+
 ## [1.16.2] - 2026-07-20
 
 bon /close: self.md filing now follows the journal's hot/warm routing (the temperature split)
