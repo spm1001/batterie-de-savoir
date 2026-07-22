@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.20.0] - 2026-07-22
+
+Carrying mise: every Google Doc edit now leaves a restore point — pre-edit revision anchor in cues, plus a Version-history-pointing comment on overwrite
+
 ## [1.19.0] - 2026-07-22
 
 Carrying mise: fetch now handles Google Docs suggested edits — accepted (default) / original / markup views with cues, ending the silent loss of suggested deletions
