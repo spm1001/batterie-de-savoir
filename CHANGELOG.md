@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.18.0] - 2026-07-22
+
+Passe: canonical-markdown probe (Mintlify link tags + llms.txt lookup), ax-tree --flat-refs with eN click/type/hover targeting, fast-path escalation reasons, scheme-less --cdp — and the suite goes green on Python 3.14
+
 ## [1.17.0] - 2026-07-21
 
 Bon: every board now carries a message-in-a-bottle README for tool-less agents (init writes it, estate backfilled), and session orientation no longer hides standalone-only boards
