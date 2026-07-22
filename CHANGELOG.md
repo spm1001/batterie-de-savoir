@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.19.0] - 2026-07-22
+
+Carrying mise: fetch now handles Google Docs suggested edits — accepted (default) / original / markup views with cues, ending the silent loss of suggested deletions
+
 ## [1.18.0] - 2026-07-22
 
 Passe: canonical-markdown probe (Mintlify link tags + llms.txt lookup), ax-tree --flat-refs with eN click/type/hover targeting, fast-path escalation reasons, scheme-less --cdp — and the suite goes green on Python 3.14
