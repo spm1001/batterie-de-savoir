@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.21.1] - 2026-07-23
+
+Carrying mise: doc polish — the overwrite gotcha now points at the automatic restore point
+
 ## [1.21.0] - 2026-07-22
 
 Carrying mise: reply_draft now guards against superseded drafts — it refuses when a thread already carries one (naming it), with supersede=True to replace deliberately
