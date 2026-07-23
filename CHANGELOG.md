@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.21.2] - 2026-07-23
+
+Carrying mise: fenced code blocks in do(create)/do(overwrite) now import as clean monospace lines — no more per-word pills
+
 ## [1.21.1] - 2026-07-23
 
 Carrying mise: doc polish — the overwrite gotcha now points at the automatic restore point
