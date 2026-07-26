@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.22.0] - 2026-07-26
+
+Bon: the bottle self-heals — every save refreshes a stale .bon/README.md, and bon doctor --fix repairs dormant boards
+
 ## [1.21.8] - 2026-07-26
 
 CLAUDE.md now states the assembler's full copy-list — scripts/ is vendored, so script edits ride a bump
