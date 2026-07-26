@@ -20,7 +20,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Plongeur** | Streamlit data exploration UI powered by Vertex AI and BigQuery |
 | **Todoist GTD** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
-| **Tafelmusik** | Collaborative CRDT editing — Yjs Y.Text + CodeMirror for real-time co-authoring |
+| **Sonnette** | Inter-session messaging — the mesh (`mesh_peers`, `send_message`). Sending works in any session; *receiving* only if launched with the channels flag — otherwise send-only |
 {% comment %}GENERATED:vocabulary:END{% endcomment %}
 
 ### GTD & Brigade Terms
@@ -52,8 +52,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | Non-technical data exploration UI | **plongeur** | trousse |
 | Track human-owned tasks and deadlines | **todoist-gtd** | bon |
 | Multi-session orchestration | **aboyeur** | — |
-| Co-edit a document with Sameer in real time | **tafelmusik** | — |
-| Comment on specific text passages inline | **tafelmusik** | — |
+| Message another live Claude session, or see who's on the mesh | **sonnette** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
 
 ## Dependency Direction
@@ -68,7 +67,7 @@ What feeds what — arrows show data flow.
 | Bon | → | trousse (hooks inject tactical state) |
 | Trousse | → | bon (session open/close triggers draw-down/draw-up) |
 | Aboyeur | → | Multiple sessions (spawns workers, collects results) |
-| Tafelmusik | → | Files on disk (flush_doc writes .md + git commits) |
+| Sonnette | → | Peer sessions (mesh messages — inbound arrives only in sessions launched with the channels flag) |
 | All tools | → | Filesystem (files are the protocol — no IPC, no daemons) |
 {% comment %}GENERATED:dependency-direction:END{% endcomment %}
 
@@ -96,7 +95,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Plongeur | [spm1001/plongeur](https://github.com/spm1001/plongeur) |
 | Todoist GTD | [spm1001/todoist-gtd](https://github.com/spm1001/todoist-gtd) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
-| Tafelmusik | [spm1001/tafelmusik](https://github.com/spm1001/tafelmusik) |
+| Sonnette | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 {% comment %}GENERATED:key-repos:END{% endcomment %}
 
 | Tool | Repo |

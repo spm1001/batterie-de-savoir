@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur", "tafelmusik"]
+order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur", "sonnette"]
 
 [tool.bon]
 name = "Bon"
@@ -134,18 +134,16 @@ routing = [
   {need = "Track human-owned tasks and deadlines", not = "bon"},
 ]
 
-[tool.tafelmusik]
-name = "Tafelmusik"
-slug = "tafelmusik"
-station = "Table music"
-what = "Collaborative CRDT editing — co-edit markdown documents in real time (MCP)"
-vocab_meaning = "Collaborative CRDT editing — Yjs Y.Text + CodeMirror for real-time co-authoring"
-maturity = "beta"
-repo = "spm1001/tafelmusik"
-skill = "collaborate"
+[tool.sonnette]
+name = "Sonnette"
+slug = "sonnette"
+station = "The bell"
+what = "Inter-session messaging — Claude-to-Claude over the conductor mesh (MCP)"
+vocab_meaning = "Inter-session messaging — the mesh (`mesh_peers`, `send_message`). Sending works in any session; *receiving* only if launched with the channels flag — otherwise send-only"
+maturity = "alpha"
+repo = "spm1001/aboyeur"
 routing = [
-  {need = "Co-edit a document with Sameer in real time", not = ""},
-  {need = "Comment on specific text passages inline", not = ""},
+  {need = "Message another live Claude session, or see who's on the mesh", not = ""},
 ]
 
 # Dependency direction — relational, rendered as the Dependency Direction table
@@ -177,9 +175,9 @@ to = "Multiple sessions"
 label = "spawns workers, collects results"
 
 [[dependency]]
-from = ["tafelmusik"]
-to = "Files on disk"
-label = "flush_doc writes .md + git commits"
+from = ["sonnette"]
+to = "Peer sessions"
+label = "mesh messages — inbound arrives only in sessions launched with the channels flag"
 
 [[dependency]]
 from = ["all"]
