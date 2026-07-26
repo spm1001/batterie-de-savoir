@@ -15,7 +15,7 @@
 
 ## [1.21.6] - 2026-07-26
 
-batterie-lint now catches backtick-truncated dynamic-context blocks; Kitchen table refreshed (sonnette in with send-only caveat, tafelmusik out); publish skill states preconditions, not hosts
+batterie-lint now catches backtick-truncated dynamic-context blocks; Kitchen table refreshed (sonnette in with send-only caveat, tafelmusik out); publish skill states preconditions, not hosts. Also carried bon's pending drift: /review survey sees the ~/.claude carte board; /close capture routing off retired self.md
 
 ## [1.21.5] - 2026-07-26
 

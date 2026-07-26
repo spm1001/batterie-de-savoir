@@ -53,6 +53,18 @@ def check_raises(name: str, fn):
         print(f"FAIL {name}: expected ValueError, none raised")
 
 
+# ---- plugin_update_disposition (bds-dicalu) ----
+# The skip fixture is the REAL error from the 2026-07-22 incident (publishing
+# passe from tube), not a hand-made string.
+check("pull ok", publish.plugin_update_disposition(0, ""), "ok")
+check("pull skip on real not-found",
+      publish.plugin_update_disposition(1, "Plugin passe not found"), "skip")
+check("pull skip case-insensitive",
+      publish.plugin_update_disposition(1, "Error: plugin Not Found"), "skip")
+check("pull fail on other error",
+      publish.plugin_update_disposition(1, "network unreachable"), "fail")
+check("pull fail on empty output", publish.plugin_update_disposition(1, ""), "fail")
+
 # ---- bump_version ----
 check("patch", publish.bump_version("0.26.5", "patch"), "0.26.6")
 check("minor", publish.bump_version("0.26.5", "minor"), "0.27.0")
