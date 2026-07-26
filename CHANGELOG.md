@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.21.4] - 2026-07-26
+
+Mise's CLAUDE.md records that the rules shard is regenerated every session start — hand-edits there are silent no-ops
+
 ## [1.21.3] - 2026-07-26
 
 Mise's rules shard states a routing rule, not an identity — no session is told it is two Mises at once
