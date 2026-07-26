@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.22.2] - 2026-07-26
+
+Sonnette: MCP instructions now tell send-only sessions the truth — sending works anywhere, inbound needs the channels flag, don't wait on replies you can't hear
+
 ## [1.22.1] - 2026-07-26
 
 Passe cookbook catches up with the burst + launch-and-tab model: passe login, flat-refs scout-then-act, deterministic --reuse-tab/--tab, fast-path triage, honest tab lifecycle
