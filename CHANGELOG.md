@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.22.5] - 2026-07-26
+
+Doc surfaces drift-resistant (bds-naceje): generated README skill tables + registry-to-tool-page lint, plongeur & todoist-gtd pages; rides: todoist-gtd first CI + packaging fixes, mise wheel-closure fix, CLAUDE.md notes in four repos
+
 ## [1.22.4] - 2026-07-26
 
 Sonnette: quiet roster — peer join/leave no longer interrupts sessions as channel tags; presence is pulled via mesh_peers, only real messages ring through
