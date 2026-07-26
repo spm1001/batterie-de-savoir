@@ -18,6 +18,9 @@ jobs:
       - name: Check GENERATED sections are up to date
         run: uv run --script scripts/lint.py
 
+      - name: README skill table matches skills/
+        run: uv run --script scripts/render-skills.py . --check
+
       - name: Unit tests — publish.py (bump arithmetic, surgical version-write, dry-run contract)
         run: uv run --script tests/test_publish.py
 

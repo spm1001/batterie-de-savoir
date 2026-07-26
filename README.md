@@ -14,7 +14,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Jeton**](https://github.com/spm1001/jeton) | The token | Google OAuth token management for the suite | ⚡ Stable |
 | [**Mise en Space**](https://github.com/spm1001/mise-en-space) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
 | [**Passe**](https://github.com/spm1001/passe) | The pass | Fast browser automation via Chrome DevTools Protocol — plugin auto-installs the CLI | 🔧 Beta |
-| [**Plongeur**](https://github.com/spm1001/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
+| [**Plongeur**](https://github.com/ITV/mit-plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Todoist GTD**](https://github.com/spm1001/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
 | [**Sonnette**](https://github.com/spm1001/aboyeur) | The bell | Inter-session messaging — Claude-to-Claude over the conductor mesh (MCP) | 🧪 Alpha |
@@ -32,6 +32,21 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 (Installed from `spm1001/batterie-de-savoir` before June 2026? Migrate: add the new marketplace, reinstall each plugin as `<name>@batterie`, then remove the old marketplace — plugin keys change, so a plain repoint isn't enough.)
 
 **Manually** — each tool installs independently from its own repo. See [Getting Started](https://spm1001.github.io/batterie-de-savoir/getting-started) for the recommended adoption order.
+
+## Skills
+
+The suite-level `batterie` plugin ships from this repo:
+
+<!-- GENERATED:SKILLS:START -->
+3 skills, tabled from `skills/*/SKILL.md` frontmatter by [render-skills.py](https://github.com/spm1001/batterie-de-savoir/blob/main/scripts/render-skills.py) — regenerate from this repo's root with
+`uv run --script ../batterie-de-savoir/scripts/render-skills.py .`
+
+| Skill | What it does |
+|-------|--------------|
+| `/publish` | Ship a Batterie shard or CLI change end-to-end in one verb — bump plugin.json, commit, push, trigger the assemble CI, watch it green, then pull this machine current |
+| `/update` | Update all installed batterie plugins in one go |
+| `/version` | Show the Batterie suite version and every installed plugin/CLI version |
+<!-- GENERATED:SKILLS:END -->
 
 ## Documentation
 

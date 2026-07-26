@@ -92,7 +92,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Jeton | [spm1001/jeton](https://github.com/spm1001/jeton) |
 | Mise en Space | [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space) |
 | Passe | [spm1001/passe](https://github.com/spm1001/passe) |
-| Plongeur | [spm1001/plongeur](https://github.com/spm1001/plongeur) |
+| Plongeur | [ITV/mit-plongeur](https://github.com/ITV/mit-plongeur) |
 | Todoist GTD | [spm1001/todoist-gtd](https://github.com/spm1001/todoist-gtd) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Sonnette | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |

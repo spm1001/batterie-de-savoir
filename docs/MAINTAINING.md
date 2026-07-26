@@ -151,3 +151,30 @@ Some rows sit **outside** the GENERATED markers by design:
 ### Tool pages are hand-authored, not generated
 
 `docs/tools/*.md` pages will never be generated from `brigade.toml`. The registry holds metadata (one-liners, stations, routing hints) — tool pages hold judgement (key concepts, design decisions, how tools relate). That richness can't be templated without losing what makes the pages useful.
+
+But their *existence* is linted: `scripts/lint.py` fails if any registry slug lacks a `docs/tools/<slug>.md` page, because the generated brigade table in `docs/index.md` links every slug — a missing page is a dead link on the live site. Extra pages with no registry row (e.g. `consomme.md`, a vocabulary station rather than a plugin) are fine and reported as info only.
+
+## Per-Repo README Skill Tables (generated, 2026-07-26)
+
+Every source repo's README carries a skill table generated from its `skills/*/SKILL.md` frontmatter, fenced with `<!-- GENERATED:SKILLS:START/END -->` markers. The canonical script is **`scripts/render-skills.py` in this repo** — component repos carry no copy; their CI fetches it from raw main and runs `--check` (drift fails the build). This exists because hand counts rot: trousse's README claimed 18 skills when it had 5, twice caught only by manual sweeps (bds-naceje).
+
+To regenerate after adding/removing/renaming a skill, from the component repo's root:
+
+```
+uv run --script ../batterie-de-savoir/scripts/render-skills.py .
+```
+
+The table's one-liner is the description's first sentence — if it reads badly in the README, improve the SKILL.md description (via skill-forge); don't hand-edit the table.
+
+## Multi-Surface Facts — the hand-sync register
+
+Some facts are deliberately stated at several surfaces because each surface faces a different reader at a different moment. They can't be generated (different registers, different repos), so they're registered here: **if the underlying fact changes, update every listed surface in the same sitting.**
+
+**Sonnette send/receive asymmetry** (sending works in any session with the plugin enabled; receiving only with `--dangerously-load-development-channels`; channels impossible on third-party billing):
+
+1. `brigade.toml` — sonnette `vocab_meaning`
+2. batterie plugin `instructions.md` — the send-only footnote under The Kitchen
+3. `docs/tools/sonnette.md` — the asymmetry section + all-or-nothing pattern
+4. aboyeur `src/conductor-channel.ts` — the user-role MCP instructions string (vendored: ships via `/batterie:publish`)
+
+If the flag name, the third-party restriction, or the all-or-nothing estate pattern changes, all four rot independently — walk the list.

@@ -115,7 +115,7 @@ station = "The dishwasher"
 what = "Streamlit data exploration UI — makes consommé accessible to non-technical users"
 vocab_meaning = "Streamlit data exploration UI powered by Vertex AI and BigQuery"
 maturity = "beta"
-repo = "spm1001/plongeur"
+repo = "ITV/mit-plongeur"
 routing = [
   {need = "Non-technical data exploration UI", not = "trousse"},
 ]
