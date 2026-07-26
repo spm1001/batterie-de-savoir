@@ -1,6 +1,14 @@
 # MIT Commons — The Blueprint
 
-Drafted: 2026-07-09 (bds-ronuho). Status: **awaiting Sameer's endorsement**.
+Drafted: 2026-07-09 (bds-ronuho). Status: **ENDORSED — Sameer, 2026-07-26** (estate
+review), with three implementation riders: (1) build the whole-tree lint **before**
+flipping branch protection — a required check that doesn't exist blocks every merge;
+(2) the end of direct push binds Sameer too, accepted knowingly — his estate-wide
+"push freely to main" gets a carve-out for this repo; (3) §7's seed inventory is a
+period piece (nine `mit-*` skills ship today) and the §10 proof-of-flow spike is
+still owed — clean-room landed 2026-07-17 as a direct commit, outside the flow, so
+CODEOWNERS paths must use the live `mit-*` directory names and one real PR must run
+the gate end-to-end. Implementation tracked under `mc-zotoze`.
 Synthesizes: `team-platform-requirements.md` (who/what/surfaces),
 `team-platform-design-lessons.md` (batterie's scars → class-deletions),
 `team-platform-prior-art.md` (Anthropic state + six-ecosystem survey + steal-list),
