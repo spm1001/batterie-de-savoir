@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.23.0] - 2026-07-26
+
+Trousse gains hublot — a Claude can now drive and watch a real interactive Claude Code session, so TUI-only behaviour (mesh tags, dialogs, statusline) can be tested instead of approximated headlessly
+
 ## [1.22.6] - 2026-07-26
 
 Two publishes raced to this number and both shipped: Sonnette's channel server now detects whether its session can actually receive (send-only vs bidirectional, published for statusline and peer-facing honesty), and the suite-anchor docs stopped teaching passe's 7–26 July delisting gap (prose surfaces caught up with the 1.22.3 relist)
