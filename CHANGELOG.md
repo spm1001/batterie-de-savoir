@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.21.3] - 2026-07-26
+
+Mise's rules shard states a routing rule, not an identity — no session is told it is two Mises at once
+
 ## [1.21.2] - 2026-07-23
 
 Carrying mise: fenced code blocks in do(create)/do(overwrite) now import as clean monospace lines — no more per-word pills
