@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.21.7] - 2026-07-26
+
+Sonnette's MCP instructions now tell send-only sessions they are send-only; publish.py pull step tolerates hosts without the published plugin
+
 ## [1.21.6] - 2026-07-26
 
 batterie-lint now catches backtick-truncated dynamic-context blocks; Kitchen table refreshed (sonnette in with send-only caveat, tafelmusik out); publish skill states preconditions, not hosts. Also carried bon's pending drift: /review survey sees the ~/.claude carte board; /close capture routing off retired self.md
