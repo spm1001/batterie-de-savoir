@@ -15,7 +15,7 @@
 
 ## [1.22.6] - 2026-07-26
 
-Sonnette: the channel server now detects whether its session can actually receive — send-only vs bidirectional, published for statusline and peer-facing honesty
+Two publishes raced to this number and both shipped: Sonnette's channel server now detects whether its session can actually receive (send-only vs bidirectional, published for statusline and peer-facing honesty), and the suite-anchor docs stopped teaching passe's 7–26 July delisting gap (prose surfaces caught up with the 1.22.3 relist)
 
 ## [1.22.5] - 2026-07-26
 
