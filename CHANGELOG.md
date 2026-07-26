@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.22.1] - 2026-07-26
+
+Passe cookbook catches up with the burst + launch-and-tab model: passe login, flat-refs scout-then-act, deterministic --reuse-tab/--tab, fast-path triage, honest tab lifecycle
+
 ## [1.22.0] - 2026-07-26
 
 Bon: the bottle self-heals — every save refreshes a stale .bon/README.md, and bon doctor --fix repairs dormant boards
