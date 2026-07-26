@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.22.4] - 2026-07-26
+
+Sonnette: quiet roster — peer join/leave no longer interrupts sessions as channel tags; presence is pulled via mesh_peers, only real messages ring through
+
 ## [1.22.3] - 2026-07-26
 
 Passe joins the public marketplace — plugin install replaces the symlink-rot route; its hook now writes the shard as a regular file
