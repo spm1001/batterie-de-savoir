@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.22.3] - 2026-07-26
+
+Passe joins the public marketplace — plugin install replaces the symlink-rot route; its hook now writes the shard as a regular file
+
 ## [1.22.2] - 2026-07-26
 
 Sonnette: MCP instructions now tell send-only sessions the truth — sending works anywhere, inbound needs the channels flag, don't wait on replies you can't hear
