@@ -15,7 +15,7 @@
 
 ## [1.22.6] - 2026-07-26
 
-passe relist reflected across suite-anchor docs — prose surfaces stopped teaching the 7-26 July delisting gap
+Sonnette: the channel server now detects whether its session can actually receive — send-only vs bidirectional, published for statusline and peer-facing honesty
 
 ## [1.22.5] - 2026-07-26
 
