@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.21.6] - 2026-07-26
+
+batterie-lint now catches backtick-truncated dynamic-context blocks; Kitchen table refreshed (sonnette in with send-only caveat, tafelmusik out); publish skill states preconditions, not hosts
+
 ## [1.21.5] - 2026-07-26
 
 Fix /batterie:update: a stray backtick in its frontmatter snippet had broken the skill since 1.15.1
