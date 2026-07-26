@@ -61,6 +61,6 @@ Passe embodies the *filleting knives, not cleavers* principle most directly: ~20
 
 **Repo:** [spm1001/passe](https://github.com/spm1001/passe) — install, usage, and CLI reference.
 
-**Distribution note (July 2026):** Passe is part of the batterie family but *not* the plugin marketplace — it's browser infrastructure rather than a knowledge plugin, so it installs standalone (`uv tool install 'passe @ git+https://github.com/spm1001/passe'`).
+**Distribution note:** Passe ships from the plugin marketplace like the rest of the suite — `claude plugin install passe@batterie` (the plugin auto-installs the CLI). It spent 7–26 July 2026 delisted as "browser infrastructure, not a knowledge plugin" before rejoining, so July-dated notes elsewhere may still say standalone-only. The standalone route still works if you want just the CLI: `uv tool install 'passe @ git+https://github.com/spm1001/passe'`.
 
 [← Back to the Brigade](../)

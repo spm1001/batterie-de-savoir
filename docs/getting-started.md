@@ -41,7 +41,7 @@ This is the most common first pick, because statelessness is the first pain you 
 
 ### "I need to automate the browser"
 
-**[Passe](tools/passe)** drives Chrome via DevTools Protocol — fast, headless, no Selenium. It's fully standalone, no dependency on other tools — and it's *distributed* standalone too (from its own repo, not the plugin marketplace; it's browser infrastructure rather than a knowledge plugin). If your work involves scraping, form-filling, or testing, you can start here without touching anything else.
+**[Passe](tools/passe)** drives Chrome via DevTools Protocol — fast, headless, no Selenium. It's fully standalone, no dependency on other tools — install it from the marketplace (`passe@batterie`) like the rest of the suite, or grab just the CLI from its repo. If your work involves scraping, form-filling, or testing, you can start here without touching anything else.
 
 📦 [spm1001/passe](https://github.com/spm1001/passe)
 

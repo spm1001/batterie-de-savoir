@@ -129,7 +129,7 @@ Agents are model-delegated — Claude spawns them as subagents when it judges th
 
 ### What the Plugin System Does NOT Do
 
-- **Install CLI tools.** Python packages providing executables (bon, todoist) need `uv tool install` separately — the suite's session hooks do this install-if-missing. The plugin handles skills/hooks/MCP but not PATH binaries.
+- **Install CLI tools.** Python packages providing executables (bon, passe, todoist) need `uv tool install` separately — the suite's session hooks do this install-if-missing. The plugin handles skills/hooks/MCP but not PATH binaries.
 - **Show messages to users at install time.** No toast, no banner, no post-install script output.
 - **Hot-reload hooks.** SessionStart hooks require full exit + restart.
 - **Share state between plugins.** Each plugin is isolated. Cross-plugin coordination happens via the filesystem (e.g. `.bon/` directory) or via skills that reference each other by name.
