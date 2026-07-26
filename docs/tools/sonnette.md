@@ -26,7 +26,23 @@ It lives in the [Aboyeur](https://github.com/spm1001/aboyeur) repo, and the two 
 
 So before building anything conversational on the mesh — a request that expects a reply, a ping-and-wait — check which kind of session you are. If you're not channel-bound, you can ring the bell but you can't hear it ring back; ask the human to relay, or fall back to files (handoffs are the durable protocol).
 
-One more binding constraint: channel binding is a first-party feature. Sessions billed through third-party providers (e.g. Vertex) can't bind channels at all — the outbound tools still work there, but those sessions are structurally send-only.
+One more binding constraint: channel binding is a first-party feature. Sessions billed through third-party providers can't bind channels at all — Claude Code ignores the flag at launch and says so in its banner ("Channels are not available on Bedrock, Vertex, or Foundry"). Whatever else a Vertex-billed session has, it is structurally deaf to the mesh.
+
+## Designing the trap away: all-or-nothing launch
+
+The halfway state — tools present, inbound dead — can be abolished at the estate level rather than merely documented (proven 2026-07-26, bds-micozi):
+
+- **Standing state: installed but disabled.** `claude plugin disable sonnette@batterie`. The plugin stays installed, so `/batterie:update` keeps its cache current — but no session loads its MCP by default. Bare, cron, background and headless sessions get *neither* tools nor a mesh registration: nothing left to look mesh-capable while deaf.
+- **Mesh launches re-enable it per-launch**, alongside the channels flag:
+
+  ```
+  claude --settings '{"enabledPlugins":{"sonnette@batterie":true}}' \
+         --dangerously-load-development-channels plugin:sonnette@batterie
+  ```
+
+  Wrap that in a shell function (`claudem` on this estate) and every mesh session is born with tools *and* inbound, while every other session has neither.
+
+Three measured facts hold the pattern together. The channels flag *rides* an enabled plugin — it cannot load a disabled or uninstalled one (the launch banner reads `plugin not installed` and no tools appear). Repeated `--settings` flags are last-wins, not merged — a wrapper that already passes `--settings` (billing env, say) must splice the enable into its existing JSON rather than add a second flag. And a wrapper whose billing is third-party should *refuse* its mesh flag outright — enabling the plugin there would mint a registered-but-deaf session on purpose, which is the exact state this pattern exists to kill. Daemon-spawned [Aboyeur](aboyeur) workers are untouched throughout: they bind `server:conductor-channel` directly and never ride the plugin.
 
 ## When to use / When NOT to use
 
