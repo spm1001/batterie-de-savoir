@@ -17,6 +17,8 @@
 
 Passe cookbook catches up with the burst + launch-and-tab model: passe login, flat-refs scout-then-act, deterministic --reuse-tab/--tab, fast-path triage, honest tab lifecycle
 
+Also carried (drift flushed by this bump, named after the fact per the push-and-publish note in `.bon/understanding.md`): the batterie instruction shard drops the `~/iCloud/Work Inbox` capture zone — the path exists on no machine (`b88f6f0`, bds-judiza fact 2). Verified in the emitted shard at `spm1001/batterie` `80463e7`, not just at source.
+
 ## [1.22.0] - 2026-07-26
 
 Bon: the bottle self-heals — every save refreshes a stale .bon/README.md, and bon doctor --fix repairs dormant boards
