@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.26.1] - 2026-07-27
+
+Carrying mise: raw_query reaches remote mode instead of evaporating, and CLAUDE.md catches up with the day
+
 ## [1.26.0] - 2026-07-27
 
 Carrying mise: do(copy) and fetch(raw=True) — gather scattered Drive files and Gmail-only attachments into one folder without leaving mise
