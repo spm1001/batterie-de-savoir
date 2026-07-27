@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.25.0] - 2026-07-27
+
+Carrying mise: search gains raw_query — Drive's own or/not/name-contains/date operators, with a guard that stops Drive syntax being silently keyword-searched
+
 ## [1.24.0] - 2026-07-27
 
 Carrying mise: Drive search stops silently capping at 100, and a no-op replace_text stops reading as success
