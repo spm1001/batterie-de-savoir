@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.24.0] - 2026-07-27
+
+Carrying mise: Drive search stops silently capping at 100, and a no-op replace_text stops reading as success
+
 ## [1.23.0] - 2026-07-26
 
 Trousse gains hublot — a Claude can now drive and watch a real interactive Claude Code session, so TUI-only behaviour (mesh tags, dialogs, statusline) can be tested instead of approximated headlessly
