@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.26.3] - 2026-07-28
+
+Bon: session-start orientation fits the preview budget, and no two sessions share a temp path
+
 ## [1.26.2] - 2026-07-28
 
 Carrying mise: design decisions and their consequences in CLAUDE.md, an op-list parity test, and a pyasn1 security bump
