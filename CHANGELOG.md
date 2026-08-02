@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.27.1] - 2026-08-02
+
+Carrying todoist-gtd: coaching examples recast as pungent-but-imaginary (Australian market) instead of bloodless-generic
+
 ## [1.27.0] - 2026-08-02
 
 Carrying todoist-gtd: flatten un-broken after 4 months, --no-section/--order/reorder verbs for queue work, discovery-first coaching skill, token store finally version-stable
