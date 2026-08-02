@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.30.0] - 2026-08-02
+
+Carrying mise: Gmail search and label URLs now resolve to their thread, and refusals name the next move
+
 ## [1.29.0] - 2026-08-02
 
 bon: /review opens at the pyramid — survey carries recent wins, git signal and the repos.job grouping seam; bon register --job curates it
