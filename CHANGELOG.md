@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.27.0] - 2026-08-02
+
+Carrying todoist-gtd: flatten un-broken after 4 months, --no-section/--order/reorder verbs for queue work, discovery-first coaching skill, token store finally version-stable
+
 ## [1.26.3] - 2026-07-28
 
 Bon: session-start orientation fits the preview budget, and no two sessions share a temp path
