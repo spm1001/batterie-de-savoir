@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.31.1] - 2026-08-02
+
+bon: docs trued after tonight's three releases — CLAUDE.md counts, understanding.md baton relabel + someday record; session handoff
+
 ## [1.31.0] - 2026-08-02
 
 bon: Someday/Maybe is first-class — someday/unsomeday verbs with required revisit conditions, parked subtrees leave default views with an honest tail line
