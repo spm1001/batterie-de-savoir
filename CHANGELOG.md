@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.30.1] - 2026-08-02
+
+bon: /open orientation tells the truth — header-date ages, live-only suggestions, bounded honest-labelled Opportunities
+
 ## [1.30.0] - 2026-08-02
 
 Carrying mise: Gmail search and label URLs now resolve to their thread, and refusals name the next move
