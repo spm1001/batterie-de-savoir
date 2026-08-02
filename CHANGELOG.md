@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.27.2] - 2026-08-02
+
+Carrying todoist-gtd: weekly review flipped to Allen's canonical phase labels, matching Sameer's induction doc edit
+
 ## [1.27.1] - 2026-08-02
 
 Carrying todoist-gtd: coaching examples recast as pungent-but-imaginary (Australian market) instead of bloodless-generic
