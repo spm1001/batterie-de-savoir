@@ -107,14 +107,14 @@ MKT_WEIRD = {"batterie": {"source": {"source": "hypothetical", "id": "42"}},
 # ---- installed sets ----
 SIX_PUBLIC = {f"{n}@batterie": entry(v) for n, v in {
     "batterie": "1.1.2", "bon": "0.28.0", "trousse": "0.5.12",
-    "mise": "0.7.12", "passe": "0.6.5", "todoist-gtd": "0.4.8"}.items()}
+    "mise": "0.7.12", "passe": "0.6.5", "accomplis": "0.4.8"}.items()}
 CHERRY_PICK = {  # the brief's case: a private-flavour plugin with NO batterie@batterie-pm
     "mise@batterie": entry("0.7.12"), "trousse@batterie": entry("0.5.12"),
     "batterie@batterie": entry("1.1.2"), "mise-pm@batterie-pm": entry("0.7.12")}
 WITH_IMPOSTER = {"batterie@batterie": entry("1.1.2"), "mise@batterie": entry("0.7.12"),
                  "evilthing@imposter": entry("9.9.9")}
 FIVE_TUBE = {f"{n}@batterie": entry("1.15.0") for n in
-             ["batterie", "bon", "mise", "todoist-gtd", "trousse"]}
+             ["batterie", "bon", "mise", "accomplis", "trousse"]}
 FIVE_TUBE["commons@mit"] = entry("1.0.0")  # non-family bystander, as on tube
 
 update_block = extract_block(REPO / "skills/update/SKILL.md")

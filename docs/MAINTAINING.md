@@ -32,7 +32,7 @@ Claude Code's plugin cache is **version-keyed**. If you push content changes wit
 2. The assembler stamps every vendored `plugin.json` to the suite version. A source repo's own `plugin.json` version is local-dev-only — **do NOT hand-bump it to "release"; the stamp overwrites it.**
 3. A red assemble is almost always a suite-level version-ratchet quarantine: vendored content changed without a suite bump. Ship the change via `/batterie:publish` rather than editing versions by hand.
 
-This applies to all suite source repos: batterie-de-savoir (this repo — the suite plugin), bon, trousse, mise-en-space, todoist-gtd. (passe left the suite 2026-07-07; plongeur and aboyeur were never published plugins.)
+This applies to all suite source repos: batterie-de-savoir (this repo — the suite plugin), bon, trousse, mise-en-space, accomplis. (passe left the suite 2026-07-07; plongeur and aboyeur were never published plugins.)
 
 **What counts as vendored content (needs a suite bump):** `CLAUDE.md`, `instructions.md`, `skills/`, `hooks/`, `.claude-plugin/` — plus full source for MCP plugins (mise). Does NOT include: README, tests, `docs/`, `.bon/`, `.github/` — those are plain commit+push. The authoritative list is `assemble.sh`'s copy-list; read it rather than guessing.
 
@@ -40,7 +40,7 @@ The full mechanics (stamp, ratchet, lazy CLI stamping) are canonically described
 
 ### Version source of truth
 
-For plugins that ship a CLI tool (bon, todoist-gtd), `pyproject.toml` reads the version dynamically from `.claude-plugin/plugin.json` via hatchling:
+For plugins that ship a CLI tool (bon, accomplis), `pyproject.toml` reads the version dynamically from `.claude-plugin/plugin.json` via hatchling:
 
 ```toml
 [project]

@@ -98,7 +98,7 @@ Or browse the catalogue from within Claude Code:
 /plugin marketplace
 ```
 
-**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, todoist). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed. (Passe isn't in the marketplace at all — install it standalone from its repo.)
+**What you still need to do yourself:** Plugin install handles skills, hooks, and MCP server config. It does *not* install CLI tools (bon, accomplis). For those, you still need `uv tool install` per tool. Each plugin's description tells you what's needed. (Passe isn't in the marketplace at all — install it standalone from its repo.)
 
 The manual symlink-based install path (via each tool's `install.sh` or README) continues to work and remains the right choice if you want short command names (`/close` instead of `/trousse:close`) or if you're not on Claude Code.
 

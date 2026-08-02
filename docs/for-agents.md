@@ -18,7 +18,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Mise (en Space)** | Content fetching from Google Workspace and the web (MCP server) |
 | **Passe** | Fast browser automation via Chrome DevTools Protocol (CDP) |
 | **Plongeur** | Streamlit data exploration UI powered by Vertex AI and BigQuery |
-| **Todoist GTD** | Todoist integration — human-owned tasks, weekly review, pattern detection |
+| **Accomplis** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
 | **Sonnette** | Inter-session messaging — the mesh (`mesh_peers`, `send_message`). Sending works in any session; *receiving* only if launched with the channels flag — otherwise send-only |
 {% comment %}GENERATED:vocabulary:END{% endcomment %}
@@ -50,7 +50,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | DOM-faithful extraction (tables, code blocks) | **passe** | mise |
 | Screenshots, browser interaction, form filling | **passe** | — |
 | Non-technical data exploration UI | **plongeur** | trousse |
-| Track human-owned tasks and deadlines | **todoist-gtd** | bon |
+| Track human-owned tasks and deadlines | **accomplis** | bon |
 | Multi-session orchestration | **aboyeur** | — |
 | Message another live Claude session, or see who's on the mesh | **sonnette** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
@@ -93,7 +93,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Mise en Space | [spm1001/mise-en-space](https://github.com/spm1001/mise-en-space) |
 | Passe | [spm1001/passe](https://github.com/spm1001/passe) |
 | Plongeur | [ITV/mit-plongeur](https://github.com/ITV/mit-plongeur) |
-| Todoist GTD | [spm1001/todoist-gtd](https://github.com/spm1001/todoist-gtd) |
+| Accomplis | [spm1001/accomplis](https://github.com/spm1001/accomplis) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Sonnette | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 {% comment %}GENERATED:key-repos:END{% endcomment %}
@@ -106,7 +106,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 
 Two paths:
 
-**Plugin marketplace** (Claude Code 2.1+): `/plugin marketplace add spm1001/batterie` then `/plugin install <tool>@batterie`. Handles skills, hooks, and MCP config. CLI tools (bon, todoist) still need `uv tool install` separately. (Passe is not in the marketplace — it installs standalone from [spm1001/passe](https://github.com/spm1001/passe).)
+**Plugin marketplace** (Claude Code 2.1+): `/plugin marketplace add spm1001/batterie` then `/plugin install <tool>@batterie`. Handles skills, hooks, and MCP config. CLI tools (bon, accomplis) still need `uv tool install` separately. (Passe is not in the marketplace — it installs standalone from [spm1001/passe](https://github.com/spm1001/passe).)
 
 **Manual** (any agent): Clone repo → run `install.sh` or create symlinks per tool's README. Gives short command names (`/close` vs `/trousse:close`).
 

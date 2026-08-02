@@ -9,7 +9,7 @@ How the batterie uses Claude Code hooks. Updated 2026-03-30.
 | **bon** | `ensure-bon.sh` | `bon-tactical.sh` | `session-end.sh` | Health-checks `bon` CLI. Emits bon state + handoff summary for Claude on startup. Injects active tactical step into every prompt. Auto-writes handoff on exit if `/close` didn't run. |
 | **bon** | `session-start.sh` | | | Runs `open-context.sh` (bon hierarchy, ready work, last handoff). Kicks off `update-all.sh` in background. Warns about incomplete `/close`. |
 | **mise** | `ensure-mise.sh` | | | Health-checks uv, .venv, OAuth token. Auto-syncs deps if missing. |
-| **todoist-gtd** | `ensure-todoist.sh` | | | Health-checks `todoist` CLI and API token (env var, Keychain, or file). |
+| **accomplis** | `ensure-accomplis.sh` | | | Health-checks `accomplis` CLI and API token (env var, Keychain, or file). |
 | **global** | | `context-budget-hook.sh` | | Tiered context window usage warnings at 30/75/90%. Lives in `~/.claude/`, registered in `~/.claude/settings.json`. |
 
 **Repos with no hooks:** trousse (empty `hooks.json` placeholder), aboyeur,
@@ -27,7 +27,7 @@ scripts from its own `hooks/` directory. No cross-repo ownership mismatches.
 |--------|-------|-----|-------|
 | bon | 0.8.2 | 0.8.2 | |
 | mise | 0.5.2 | 0.5.2 | |
-| todoist-gtd | 0.4.5 | 0.4.5 | |
+| accomplis | 0.4.5 | 0.4.5 | |
 | trousse | 0.4.0 | 0.4.0 | |
 | compound-engineering | 2.56.1 | **not installed** | Not in Mac's `enabledPlugins` either — intentional per-machine difference. |
 

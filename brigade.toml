@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "todoist-gtd", "aboyeur", "sonnette"]
+order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "accomplis", "aboyeur", "sonnette"]
 
 [tool.bon]
 name = "Bon"
@@ -120,16 +120,16 @@ routing = [
   {need = "Non-technical data exploration UI", not = "trousse"},
 ]
 
-[tool.todoist-gtd]
-name = "Todoist GTD"
-slug = "todoist-gtd"
+[tool.accomplis]
+name = "Accomplis"
+slug = "accomplis"
 station = "The commis"
 what = "Todoist integration with GTD coaching — human-owned tasks and deadlines"
-vocab_term = "Todoist GTD"
+vocab_term = "Accomplis"
 vocab_meaning = "Todoist integration — human-owned tasks, weekly review, pattern detection"
 maturity = "stable"
-repo = "spm1001/todoist-gtd"
-skill = "todoist-gtd"
+repo = "spm1001/accomplis"
+skill = "accomplis"
 routing = [
   {need = "Track human-owned tasks and deadlines", not = "bon"},
 ]

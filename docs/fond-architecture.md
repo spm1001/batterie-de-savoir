@@ -266,7 +266,7 @@ This workstream depends on workstreams 1-3 being stable. It's additive — the t
 
 #### Build notes
 
-- The tree walker is a read-only process: Todoist API (via todoist-gtd CLI) + filesystem walk + diff logic. No writes except the review brief.
+- The tree walker is a read-only process: Todoist API (via accomplis CLI) + filesystem walk + diff logic. No writes except the review brief.
 - The sediment routing is a write process but only appends to existing files. Low blast radius.
 - The Todoist→folder mapping table lives in `~/Repos/work/CLAUDE.md` (the area routing table already exists). Outcome→folder mapping is by convention: slugified outcome name as directory name.
 - Cross-cutting outcomes ("Learning", "Telling" per-person) may not need folders. The walker should have an exclusion list for meta-outcomes that live in Todoist only.

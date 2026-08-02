@@ -15,7 +15,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Mise en Space**](https://github.com/spm1001/mise-en-space) | Mise en place | Content fetching and prep from Google Workspace and the web (MCP) | 🔧 Beta |
 | [**Passe**](https://github.com/spm1001/passe) | The pass | Fast browser automation via Chrome DevTools Protocol — plugin auto-installs the CLI | 🔧 Beta |
 | [**Plongeur**](https://github.com/ITV/mit-plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
-| [**Todoist GTD**](https://github.com/spm1001/todoist-gtd) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
+| [**Accomplis**](https://github.com/spm1001/accomplis) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
 | [**Sonnette**](https://github.com/spm1001/aboyeur) | The bell | Inter-session messaging — Claude-to-Claude over the conductor mesh (MCP) | 🧪 Alpha |
 <!-- GENERATED:brigade-table:END -->
