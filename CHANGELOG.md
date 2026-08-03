@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.32.2] - 2026-08-03
+
+Handoff filenames carry the session's own id, not whichever session wrote last
+
 ## [1.32.1] - 2026-08-03
 
 Carrying mise: CLAUDE.md corrects a false claim — a working-tree edit is unreachable from the MCP envelope and restarting does not help; scripts/smoke_stdio.py is the way round it
