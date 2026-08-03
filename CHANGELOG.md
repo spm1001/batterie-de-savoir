@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.32.1] - 2026-08-03
+
+Carrying mise: CLAUDE.md corrects a false claim — a working-tree edit is unreachable from the MCP envelope and restarting does not help; scripts/smoke_stdio.py is the way round it
+
 ## [1.32.0] - 2026-08-02
 
 Carrying mise: a fetch 404 now names the likely id type and the next move, and a mid-thread Gmail message id resolves to its own thread instead of dead-ending
