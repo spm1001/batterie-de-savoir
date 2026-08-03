@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.33.0] - 2026-08-03
+
+bon edit takes JSON on stdin, and a tactical can be released without losing its progress
+
 ## [1.32.3] - 2026-08-03
 
 Carrying mise: the skill and rules shard now name the MCP tool prefix the harness actually exposes
