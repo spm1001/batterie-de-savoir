@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.34.3] - 2026-08-04
+
+Carrying bon: /open's briefing arrives whole — the handoff body is addressed, not inlined
+
 ## [1.34.2] - 2026-08-04
 
 The review survey carries the falsifier field, so /review's falsifier pass actually sees it
