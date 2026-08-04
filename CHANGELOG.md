@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.33.2] - 2026-08-04
+
+Carrying mise: fixture guidance tells the truth — bulk-capture script deleted, hand-built fixtures documented
+
 ## [1.33.1] - 2026-08-03
 
 Carrying mise: module size is policed repo-wide as a ratchet, not just on server.py
