@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.34.1] - 2026-08-04
+
+Carrying mise: correct the test count and record that -q cancels -v, so an empty probe result is not a green
+
 ## [1.34.0] - 2026-08-04
 
 Outcome briefs can carry a pre-registered falsifier: what would show this went wrong, written by whoever wants the answer
