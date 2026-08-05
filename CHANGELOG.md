@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.35.0] - 2026-08-05
+
+Carrying accomplis: coaching skill learns the live-review moves (review order, two-axis test, structural detectors) and gains an always-loaded routing shard; CLI adds done --note, --assignee id round-trip, and token errors that name the paths they checked
+
 ## [1.34.4] - 2026-08-05
 
 Carrying bon: /plan treats an unanswered falsifier question as unasked, not declined
