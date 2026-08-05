@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.35.1] - 2026-08-05
+
+Coaching: eval-measured fixes — 'should I take this on?' now grounds in the whole system (Inbox first), and complete-never-delete governs prose recommendations too
+
 ## [1.35.0] - 2026-08-05
 
 Carrying accomplis: coaching skill learns the live-review moves (review order, two-axis test, structural detectors) and gains an always-loaded routing shard; CLI adds done --note, --assignee id round-trip, and token errors that name the paths they checked
