@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.35.4] - 2026-08-06
+
+Coaching skill: API/UI priority inversion named (UI P1 = --priority 4) — plus the eval convention cell that caught the ambiguity
+
 ## [1.35.3] - 2026-08-06
 
 accomplis CLI: transient Todoist 429/5xx retried at the transport layer — one wobble no longer fails the run
