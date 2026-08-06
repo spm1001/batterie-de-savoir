@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.35.2] - 2026-08-06
+
+Ardoise: --env and --path-prepend punch named context holes through the isolation wall for eval harnesses; print-mode prompt guarded against variadic claude flags
+
 ## [1.35.1] - 2026-08-05
 
 Coaching: eval-measured fixes — 'should I take this on?' now grounds in the whole system (Inbox first), and complete-never-delete governs prose recommendations too
