@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.35.3] - 2026-08-06
+
+accomplis CLI: transient Todoist 429/5xx retried at the transport layer — one wobble no longer fails the run
+
 ## [1.35.2] - 2026-08-06
 
 Ardoise: --env and --path-prepend punch named context holes through the isolation wall for eval harnesses; print-mode prompt guarded against variadic claude flags
