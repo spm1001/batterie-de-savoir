@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.36.0] - 2026-08-07
+
+Carrying mise: fetch resolves Message-IDs and Show-original URLs; self-sent refusals attach recent-sent candidates
+
 ## [1.35.4] - 2026-08-06
 
 Coaching skill: API/UI priority inversion named (UI P1 = --priority 4) — plus the eval convention cell that caught the ambiguity
