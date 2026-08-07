@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.37.1] - 2026-08-07
+
+Carrying mise: self-sent Gmail URL refusals now teach browser-equipped sessions (Claude in Chrome) to harvest the thread id themselves
+
 ## [1.37.0] - 2026-08-07
 
 Carrying mise: self-sent Gmail URLs now resolve zero-click via a logged-in browser (fail-open fallback)
