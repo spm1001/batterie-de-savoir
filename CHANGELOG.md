@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.40.0] - 2026-08-08
+
+Carrying mise: Sheets overwrite takes range= (A1) — write one tab or a cell range without touching the rest; multi-tab sheets now refuse an un-aimed overwrite
+
 ## [1.39.5] - 2026-08-08
 
 Carrying mise: the PDF stripped-table signal, recalibrated against the real FY2025 annual report — nil-tailed and prose-bled table rows now caught, address directories stay clean
