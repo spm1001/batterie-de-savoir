@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.39.4] - 2026-08-08
+
+Carrying mise: PDF fetches now catch delimiter-stripped tables — rows reading as prose made of numbers trigger the Drive fallback instead of landing silently
+
 ## [1.39.3] - 2026-08-08
 
 Carrying mise: parallel same-query searches no longer clobber each other's deposit — filenames now carry the searched sources plus a collision suffix
