@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.39.3] - 2026-08-08
+
+Carrying mise: parallel same-query searches no longer clobber each other's deposit — filenames now carry the searched sources plus a collision suffix
+
 ## [1.39.2] - 2026-08-08
 
 Carrying mise: the HTML-body swap now fires only on genuine flat text grids — notification and newsletter mail keeps its clean plain-text part (measured 0/35 false positives, was 31/40)
