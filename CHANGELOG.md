@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.37.2] - 2026-08-08
+
+Carrying mise: Outlook email tables now survive fetch as tables — body comes from the HTML part when it holds a data grid (disclosed), and empty cells no longer shift columns
+
 ## [1.37.1] - 2026-08-07
 
 Carrying mise: self-sent Gmail URL refusals now teach browser-equipped sessions (Claude in Chrome) to harvest the thread id themselves
