@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.39.0] - 2026-08-08
+
+Bon: bon step --expect CAS guard refuses writes when the board moved; doctor reports stale tactical claims (visibility, never auto-reclaim)
+
 ## [1.38.0] - 2026-08-08
 
 Bon: commits cite their bon — (bon-ID) convention, draw-up provenance nudge, and a review-time orphans cross-check
