@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.8] - 2026-08-09
+
+Carrying mise: include= links in drafts now render as real Gmail Drive chips for recipients
+
 ## [1.46.7] - 2026-08-09
 
 Bon docs: falsifier asking has two venues now — /plan at creation, /review at the apex
