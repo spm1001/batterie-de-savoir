@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.47.3] - 2026-08-09
+
+publish.py recomputes the suite version when a twin publish wins the push race — changelog entries can no longer be lost; the assembler re-seats its tree instead of redding on the dist push race (bds-zofino)
+
 ## [1.47.2] - 2026-08-09
 
 publish.py pull phase self-heals the shared-plugins config-dir refusal, and the update skill teaches the same move (bds-nawidu)
