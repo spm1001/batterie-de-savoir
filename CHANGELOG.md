@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.3] - 2026-08-09
+
+Carrying trousse: deglacer schema reference gains two corpus-verified dragons - compact JSONL serialization (spaced greps are false zeros) and version-drifting tool-rejection strings
+
 ## [1.46.2] - 2026-08-09
 
 Carrying mise: docs current — test-count line matches the tree after the morning's three feature releases
