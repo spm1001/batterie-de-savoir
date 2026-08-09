@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.45.0] - 2026-08-09
+
+Bon review: verifier repricings now write back to briefs behind the Phase 4 gate — the audit's main product lands instead of archiving (bon-zewake)
+
 ## [1.44.0] - 2026-08-09
 
 Carrying mise: fetch reads the draft URL mise itself writes, and Gmail search/label provenance rides as cues
