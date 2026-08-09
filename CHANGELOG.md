@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.44.0] - 2026-08-09
+
+Carrying mise: fetch reads the draft URL mise itself writes, and Gmail search/label provenance rides as cues
+
 ## [1.43.0] - 2026-08-09
 
 Carrying trousse: deglacer now routes 'find when we discussed X' to deja ranked all-history search (with its non-exhaustive top-K caveat)
