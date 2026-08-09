@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.2] - 2026-08-09
+
+Carrying mise: docs current — test-count line matches the tree after the morning's three feature releases
+
 ## [1.46.1] - 2026-08-09
 
 Carrying mise: chip hardening — fenced @url lines stay literal, and a failed image embed no longer leaves placeholder residue
