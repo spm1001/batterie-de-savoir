@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.43.0] - 2026-08-09
+
+Carrying trousse: deglacer now routes 'find when we discussed X' to deja ranked all-history search (with its non-exhaustive top-K caveat)
+
 ## [1.42.0] - 2026-08-08
 
 Carrying mise: decorated Drive URLs (?gid, ?tab, #heading, #slide, ?disco) resolve to a pointer cue naming the deposited artefact — dangling pointers reported stale, deposits unchanged
