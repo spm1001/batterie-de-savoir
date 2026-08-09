@@ -114,6 +114,42 @@ check_raises("duplicate version refused",
 out2 = publish.prepend_changelog("# Changelog\n", "1.0.0", "2026-01-01", "First.")
 check("degenerate appends entry", "## [1.0.0] - 2026-01-01" in out2 and "First." in out2, True)
 
+# ---- pick_dispatched_run / find_run_id (bds-gebaza) ----
+# Fixture = the REAL 2026-08-03 incident: our dispatch at 21:52:02 registered
+# run 30856400891, while a stranger's run 30856370894 (created 21:51:36, 26s
+# earlier) already existed. The old 30s-grace timestamp fence watched the
+# stranger to a green it never earned; the baseline fence must pick ours.
+INCIDENT_OURS = {"databaseId": 30856400891,
+                 "createdAt": "2026-08-03T21:52:02Z", "status": "in_progress"}
+INCIDENT_STRANGER = {"databaseId": 30856370894,
+                     "createdAt": "2026-08-03T21:51:36Z", "status": "completed"}
+BASELINE = {"30856370894"}
+
+check("gebaza incident: picks ours, not the baseline stranger",
+      publish.pick_dispatched_run([INCIDENT_OURS, INCIDENT_STRANGER], BASELINE),
+      "30856400891")
+check("gebaza pre-existing completed run does NOT satisfy",
+      publish.pick_dispatched_run([INCIDENT_STRANGER], BASELINE), None)
+check("gebaza empty listing", publish.pick_dispatched_run([], set()), None)
+check("gebaza two fresh runs -> earliest (ours registered first)",
+      publish.pick_dispatched_run(
+          [{"databaseId": 2, "createdAt": "2026-08-03T21:52:30Z", "status": "queued"},
+           {"databaseId": 1, "createdAt": "2026-08-03T21:52:02Z", "status": "in_progress"}],
+          set()),
+      "1")
+
+# find_run_id polls: a baseline-only listing must never satisfy the wait, and
+# the wait resolves the moment our run registers.
+listings = iter([[INCIDENT_STRANGER], [INCIDENT_STRANGER, INCIDENT_OURS]])
+check("gebaza find_run_id waits past a baseline-only listing",
+      publish.find_run_id(BASELINE, attempts=3, delay=0,
+                          list_runs=lambda: next(listings)),
+      "30856400891")
+check("gebaza find_run_id gives up if only baseline runs ever appear",
+      publish.find_run_id(BASELINE, attempts=3, delay=0,
+                          list_runs=lambda: [INCIDENT_STRANGER]),
+      None)
+
 # ---- dry-run integration: touches nothing, bumps the SUITE version ----
 ENV = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
        "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t", "PATH": "/usr/bin:/bin"}
