@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.0] - 2026-08-09
+
+Carrying mise: Google Docs take smart chips — a whole line of @url becomes a live-titled chip in create and overwrite
+
 ## [1.45.1] - 2026-08-09
 
 Carrying trousse: deglacer's deja guidance corrected (AND-matching, real flag surface) and gains the measured session-search routing verdict from the banc bench
