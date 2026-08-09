@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.4] - 2026-08-09
+
+Review rite: ceremony asks for falsifiers on apex outcomes (bon-hipapu verdict); jobs-carve mapping documented
+
 ## [1.46.3] - 2026-08-09
 
 Carrying trousse: deglacer schema reference gains two corpus-verified dragons - compact JSONL serialization (spaced greps are false zeros) and version-drifting tool-rejection strings
