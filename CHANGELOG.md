@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.9] - 2026-08-09
+
+publish.py CI-watch baseline fence — only our own run satisfies the wait (bds-gebaza); passe shard tube-only kube-tunnel topology after hezza teardown (bds-nahova)
+
 ## [1.46.8] - 2026-08-09
 
 Carrying mise: include= links in drafts now render as real Gmail Drive chips for recipients
