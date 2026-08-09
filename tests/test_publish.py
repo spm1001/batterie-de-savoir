@@ -288,5 +288,67 @@ with tempfile.TemporaryDirectory() as td:
     check("fifuko tracked mod ok by default", cp.returncode, 0)
 
 
+# ---- twin-publish race recovery (bds-zofino) ----
+# The REAL race, offline: a bare origin; twin clone A publishes 1.2.2 by hand
+# and pushes first; clone B — still reading 1.2.1 — runs the actual engine
+# (fake `gh` shim, --no-wait --no-pull) and must recover: recompute to 1.2.3,
+# keep BOTH changelog entries, and ship its own content change intact.
+with tempfile.TemporaryDirectory() as td:
+    base = Path(td)
+    seed = base / "seed"
+    make_repo(seed, "batterie", "1.2.1")
+    (seed / "CHANGELOG.md").write_text(CL_FIXTURE)
+    (seed / "content.txt").write_text("v1\n")
+    subprocess.run(["git", "add", "-A"], cwd=seed, env=ENV, check=True)
+    subprocess.run(["git", "commit", "--amend", "--no-edit", "-q"], cwd=seed,
+                   env=ENV, check=True)
+    origin = base / "origin.git"
+    subprocess.run(["git", "clone", "-q", "--bare", str(seed), str(origin)],
+                   env=ENV, check=True)
+    A, B = base / "A", base / "B"
+    for c in (A, B):
+        subprocess.run(["git", "clone", "-q", str(origin), str(c)], env=ENV, check=True)
+
+    # Twin publish from A: 1.2.2 plus its changelog entry, pushed FIRST.
+    apj = A / ".claude-plugin" / "plugin.json"
+    apj.write_text(apj.read_text().replace("1.2.1", "1.2.2"))
+    (A / "CHANGELOG.md").write_text(
+        "# Changelog\n\n## [1.2.2] - 2026-08-09\n\nTwin payload.\n\n"
+        "## [1.2.1] - 2026-06-27\n\nOld entry.\n")
+    subprocess.run(["git", "add", "-A"], cwd=A, env=ENV, check=True)
+    subprocess.run(["git", "commit", "-qm", "twin: 1.2.2"], cwd=A, env=ENV, check=True)
+    subprocess.run(["git", "push", "-q"], cwd=A, env=ENV, check=True)
+
+    # B: a content edit, then the real engine. The fake gh makes the assemble
+    # dispatch a no-op; --no-wait skips watch AND pull, so no network at all.
+    (B / "content.txt").write_text("v2\n")
+    gh_dir = base / "bin"
+    gh_dir.mkdir()
+    (gh_dir / "gh").write_text("#!/bin/sh\nexit 0\n")
+    (gh_dir / "gh").chmod(0o755)
+    env2 = {**ENV, "PATH": f"{gh_dir}:/usr/bin:/bin"}
+    cp = subprocess.run(
+        [sys.executable, str(PUBLISH), "--patch", "--no-wait", "--no-pull",
+         "--repo", str(B), "--suite-repo", str(B)],
+        capture_output=True, text=True, env=env2,
+    )
+    check("zofino race exits 0", cp.returncode, 0)
+    check("zofino race note printed", "raced a twin publish" in cp.stdout, True)
+    check("zofino recomputed to 1.2.3", "recomputed: suite -> 1.2.3" in cp.stdout, True)
+    check("zofino shipped-as note", "(shipped as suite 1.2.3 — a twin publish took 1.2.2)"
+          in cp.stdout, True)
+
+    def origin_file(path):
+        return subprocess.run(["git", "-C", str(origin), "show", f"HEAD:{path}"],
+                              capture_output=True, text=True, env=ENV).stdout
+
+    cl = origin_file("CHANGELOG.md")
+    check("zofino twin entry SURVIVES", "Twin payload." in cl and "[1.2.2]" in cl, True)
+    check("zofino own entry present", "[1.2.3]" in cl, True)
+    check("zofino own entry above twin", cl.index("[1.2.3]") < cl.index("[1.2.2]"), True)
+    check("zofino origin version is 1.2.3",
+          '"version": "1.2.3"' in origin_file(".claude-plugin/plugin.json"), True)
+    check("zofino content change shipped", origin_file("content.txt"), "v2\n")
+
 print(f"\n{passed} passed, {failed} failed")
 sys.exit(1 if failed else 0)
