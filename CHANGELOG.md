@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.47.1] - 2026-08-09
+
+Carrying mise: respond resolves the newest invite in a thread — cancel-and-recreate threads RSVP the live meeting
+
 ## [1.47.0] - 2026-08-09
 
 Carrying mise: do(respond) accepts/declines/tentatives calendar invites from the triage loop — calendar.events scope replaces calendar.readonly (re-auth needed for the new op only)
