@@ -114,6 +114,25 @@ check_raises("duplicate version refused",
 out2 = publish.prepend_changelog("# Changelog\n", "1.0.0", "2026-01-01", "First.")
 check("degenerate appends entry", "## [1.0.0] - 2026-01-01" in out2 and "First." in out2, True)
 
+# ---- owning_config_dir (bds-nawidu) ----
+# Fixture = the REAL refusal from 2026-08-09 (tube, CC 2.1.226, commis session):
+# the registry's recorded path is correct — the active config dir just isn't
+# the one the string sits inside. The parser must hand back the owner.
+CORRUPTED = (
+    "✘ Failed to update marketplace(s): Failed to refresh marketplace "
+    "'batterie': Marketplace 'batterie' has a corrupted installLocation "
+    "(/home/modha/.claude/plugins/marketplaces/batterie) — expected a path "
+    "inside /home/modha/.claude-commis/plugins/marketplaces. This can happen "
+    "after cross-platform path writes or manual edits to "
+    "known_marketplaces.json. Run `claude plugin marketplace remove batterie` "
+    "and re-add it."
+)
+check("nawidu parses the owning dir from the real refusal",
+      publish.owning_config_dir(CORRUPTED), "/home/modha/.claude")
+check("nawidu ignores unrelated errors",
+      publish.owning_config_dir("network unreachable"), None)
+check("nawidu ignores empty output", publish.owning_config_dir(""), None)
+
 # ---- pick_dispatched_run / find_run_id (bds-gebaza) ----
 # Fixture = the REAL 2026-08-03 incident: our dispatch at 21:52:02 registered
 # run 30856400891, while a stranger's run 30856370894 (created 21:51:36, 26s
