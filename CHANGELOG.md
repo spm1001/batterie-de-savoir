@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.46.6] - 2026-08-09
+
+Carrying mise: single-tab sheet round-trips no longer upload the '=== Sheet: X ===' banner as a data row
+
 ## [1.46.5] - 2026-08-09
 
 Bon rite: Toolmaking compass at /open and tell-after tap at /close — Sameer's guide at session boundaries (bon-leturo)
