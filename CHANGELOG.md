@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.47.0] - 2026-08-09
+
+Carrying mise: do(respond) accepts/declines/tentatives calendar invites from the triage loop — calendar.events scope replaces calendar.readonly (re-auth needed for the new op only)
+
 ## [1.46.9] - 2026-08-09
 
 publish.py CI-watch baseline fence — only our own run satisfies the wait (bds-gebaza); passe shard tube-only kube-tunnel topology after hezza teardown (bds-nahova)
