@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.52.1] - 2026-08-10
+
+Carrying mise: mypy debt is now baselined and ratcheted in CI — CLAUDE.md stops hand-carrying a count it got wrong three times
+
 ## [1.52.0] - 2026-08-10
 
 Carrying mise: a Gmail fetch now places its participants — directory profiles, reporting lines across the thread (yours included), and honest absences, all in the cues
