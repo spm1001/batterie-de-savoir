@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.50.0] - 2026-08-10
+
+Carrying mise: an unfamiliar name in the inbox arrives already placed — Gmail senders carry their role, department and reporting line
+
 ## [1.49.0] - 2026-08-10
 
 Carrying mise: the staff directory becomes a fourth search source — who a colleague is, what they do, and who they report to
