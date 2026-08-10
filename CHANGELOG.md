@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.51.1] - 2026-08-10
+
+Carrying mise: folder creation documented as a first-class do() operation, and search's people source reaches the cold-start docs
+
 ## [1.51.0] - 2026-08-10
 
 Carrying mise: Gmail senders carry a coarse division — Commercial, Studios, Legal — from a small hand-maintained org map
