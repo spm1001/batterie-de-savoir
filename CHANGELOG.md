@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.51.0] - 2026-08-10
+
+Carrying mise: Gmail senders carry a coarse division — Commercial, Studios, Legal — from a small hand-maintained org map
+
 ## [1.50.1] - 2026-08-10
 
 Carrying mise: leaner sender line in Gmail triage, and group addresses read as groups rather than errors
