@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.49.0] - 2026-08-10
+
+Carrying mise: the staff directory becomes a fourth search source — who a colleague is, what they do, and who they report to
+
 ## [1.48.1] - 2026-08-09
 
 Carrying trousse: deglacer's deja section warns that a non-default CLAUDE_CONFIG_DIR blinds deja and wipes the shared index — DEJA_CLAUDE_ROOT is the override
