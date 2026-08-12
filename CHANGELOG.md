@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.54.0] - 2026-08-12
+
+Carrying mise: the library door opens — import mise_en_space in-process with constructor-selected credentials (ambient/token-file/injected), worked example included
+
 ## [1.53.0] - 2026-08-12
 
 Carrying mise: service accounts can be mise's identity now (MISE_CREDENTIALS=ambient, per-deployment scopes), and an SA's My-Drive write refusal teaches the Shared Drive remedy
