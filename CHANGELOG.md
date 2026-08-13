@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.55.0] - 2026-08-13
+
+Carrying mise: fetch gains thumbnails=False for fast text-only hydration (154s to 59s on a 256-page PDF), and every PDF deposit now measures page-citation fidelity — page_markers + pdf_pages with a loud warning when citations cannot be derived
+
 ## [1.54.0] - 2026-08-12
 
 Carrying mise: the library door opens — import mise_en_space in-process with constructor-selected credentials (ambient/token-file/injected), worked example included
