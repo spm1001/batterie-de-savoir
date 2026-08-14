@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.55.1] - 2026-08-14
+
+Carrying mise: the fetch resource doc's parameter table catches up with its own signature (recursive, raw, and the new thumbnails all documented)
+
 ## [1.55.0] - 2026-08-13
 
 Carrying mise: fetch gains thumbnails=False for fast text-only hydration (154s to 59s on a 256-page PDF), and every PDF deposit now measures page-citation fidelity — page_markers + pdf_pages with a loud warning when citations cannot be derived
