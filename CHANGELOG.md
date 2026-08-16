@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.64.0] - 2026-08-16
+
+Carrying mise: calendar time windows — ask the diary for any date range, historical included, no query term needed (mise-riduka)
+
 ## [1.63.1] - 2026-08-16
 
 Bon: session-end capture now runs glaneur's glean-code CLI — converter consolidated into glaneur (glan-kohadu)
