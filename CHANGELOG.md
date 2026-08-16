@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.61.0] - 2026-08-16
+
+Bon: handoff filenames now carry HHMM (v4 scheme) so same-day siblings sort chronologically; /open breaks same-day ties by filename time, not flattened mtimes
+
 ## [1.60.0] - 2026-08-16
 
 Bon learns the caller-mistake ladder: --append-how annotation, species announcements, convert none/-q — doctrine in CONTRACT.md
