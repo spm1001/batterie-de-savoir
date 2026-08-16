@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.56.0] - 2026-08-16
+
+Bon: JSON stdin can create born-blocked items and refuses unknown keys; bon wait prints the resulting blocker list and gains --replace
+
 ## [1.55.1] - 2026-08-14
 
 Carrying mise: the fetch resource doc's parameter table catches up with its own signature (recursive, raw, and the new thumbnails all documented)
