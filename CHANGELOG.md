@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.57.0] - 2026-08-16
+
+Bon: unwait --note records why a block lifted (released_note); doctor stops flagging free-text wait rationales as dangling ids; a re-closed item's note reflects the last close, never the first
+
 ## [1.56.1] - 2026-08-16
 
 Bon: /close from an owner bucket refuses to guess among sibling repos — candidates listed, placement stays work-based; CLAUDE.md gains the public-repo warning and drops hand-maintained counts
