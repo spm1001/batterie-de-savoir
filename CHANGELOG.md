@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.63.1] - 2026-08-16
+
+Bon: session-end capture now runs glaneur's glean-code CLI — converter consolidated into glaneur (glan-kohadu)
+
 ## [1.63.0] - 2026-08-16
 
 Bon: the review survey now warns when two boards mint the same id-space, and the last two prefix squatters were re-prefixed (piano-, mas-)
