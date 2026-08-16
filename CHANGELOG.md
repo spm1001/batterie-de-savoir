@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.65.1] - 2026-08-16
+
+Bon: CLAUDE.md points at the paired cohabiting-codebases notes room (docs ride-along, clearing vendored drift before the daily assemble)
+
 ## [1.65.0] - 2026-08-16
 
 gen-rooms emits each room's paired repo from its own **Repo:** line, and refuses to overwrite a hand-authored rooms.md
