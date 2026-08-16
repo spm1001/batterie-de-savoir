@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.62.0] - 2026-08-16
+
+gen-rooms now flags git-ignored rooms inline in rooms.md, naming the culprit ignore line — a room git cannot see can no longer hide
+
 ## [1.61.0] - 2026-08-16
 
 Bon: handoff filenames now carry HHMM (v4 scheme) so same-day siblings sort chronologically; /open breaks same-day ties by filename time, not flattened mtimes
