@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.57.1] - 2026-08-16
+
+Bon: doctor stops flagging waiting outcomes — a delegated outcome is GTD's textbook Waiting For; wait/new/display already agreed
+
 ## [1.57.0] - 2026-08-16
 
 Bon: unwait --note records why a block lifted (released_note); doctor stops flagging free-text wait rationales as dangling ids; a re-closed item's note reflects the last close, never the first
