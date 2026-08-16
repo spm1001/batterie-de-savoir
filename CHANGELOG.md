@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.60.0] - 2026-08-16
+
+Bon learns the caller-mistake ladder: --append-how annotation, species announcements, convert none/-q — doctrine in CONTRACT.md
+
 ## [1.59.0] - 2026-08-16
 
 Bon clears its defect pile: doctor --fix repairs duplicate orders, lookup misses name their board, the session dashboard unfreezes
