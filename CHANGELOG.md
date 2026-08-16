@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.58.0] - 2026-08-16
+
+Bon speaks Areas of Focus: area field, bon list --group-by area and --area filters
+
 ## [1.57.1] - 2026-08-16
 
 Bon: doctor stops flagging waiting outcomes — a delegated outcome is GTD's textbook Waiting For; wait/new/display already agreed
