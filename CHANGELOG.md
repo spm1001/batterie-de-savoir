@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.56.1] - 2026-08-16
+
+Bon: /close from an owner bucket refuses to guess among sibling repos — candidates listed, placement stays work-based; CLAUDE.md gains the public-repo warning and drops hand-maintained counts
+
 ## [1.56.0] - 2026-08-16
 
 Bon: JSON stdin can create born-blocked items and refuses unknown keys; bon wait prints the resulting blocker list and gains --replace
