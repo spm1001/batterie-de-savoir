@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.66.3] - 2026-08-17
+
+trousse: hublot stop() clears composer ghost-text before /exit, keys settles before submitting, and the SKILL.md learns the key verb + TUI-menu recipe
+
 ## [1.66.2] - 2026-08-17
 
 trousse: skill-forge checklist gains two bench-measured writing rules — rules carry their why; reference skills end with a non-exhaustiveness license
