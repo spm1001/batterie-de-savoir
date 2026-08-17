@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.66.5] - 2026-08-17
+
+trousse: sharing scanner arms its config layer — auto-loads ~/.claude/sharing-scan.json, warns on inert categories, gains regression tests
+
 ## [1.66.4] - 2026-08-17
 
 trousse: skill-forge sharing scanner no longer passes vacuously (relative excludes, file args, loud zero); checklist gains attention-narrowing (P9), per-claim provenance and curation-discriminator rows; cowork-cloud environment reference lands
