@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.66.4] - 2026-08-17
+
+trousse: skill-forge sharing scanner no longer passes vacuously (relative excludes, file args, loud zero); checklist gains attention-narrowing (P9), per-claim provenance and curation-discriminator rows; cowork-cloud environment reference lands
+
 ## [1.66.3] - 2026-08-17
 
 trousse: hublot stop() clears composer ghost-text before /exit, keys settles before submitting, and the SKILL.md learns the key verb + TUI-menu recipe
