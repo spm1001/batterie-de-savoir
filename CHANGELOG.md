@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.66.2] - 2026-08-17
+
+trousse: skill-forge checklist gains two bench-measured writing rules — rules carry their why; reference skills end with a non-exhaustiveness license
+
 ## [1.66.1] - 2026-08-17
 
 trousse: ardoise cache fallback is version-aware (sort -rV picks 1.66.0 over 1.8.7) and print mode gains --cwd to run probes inside a chosen repo
