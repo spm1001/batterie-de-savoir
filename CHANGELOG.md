@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.67.0] - 2026-08-18
+
+mise: pdftotext -layout becomes the PDF text primary (census verdict, 55x faster, best table fidelity), and PDF/slides deposits grow exhibit crops + grep-able anchors so chart-only values are reachable by vision
+
 ## [1.66.6] - 2026-08-18
 
 Carrying mise: dependency patch after Dependabot #29 (orjson 3.12, mypy 2.3.1, ruff 0.16.3) — the deposit-format policy and its 918-run bench land alongside in docs/ and tests/
