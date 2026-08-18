@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.66.6] - 2026-08-18
+
+Carrying mise: dependency patch after Dependabot #29 (orjson 3.12, mypy 2.3.1, ruff 0.16.3) — the deposit-format policy and its 918-run bench land alongside in docs/ and tests/
+
 ## [1.66.5] - 2026-08-17
 
 trousse: sharing scanner arms its config layer — auto-loads ~/.claude/sharing-scan.json, warns on inert categories, gains regression tests
