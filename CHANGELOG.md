@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.68.3] - 2026-08-19
+
+Carrying mise: freebusy renders every timestamp in the user's timezone — mixed-offset slots read as zero-length before
+
 ## [1.68.2] - 2026-08-19
 
 Coaching: four live-review lessons — mirror-at-create check, verify moves by re-fetch, hidden-unassigned tasks, the chase protocol
