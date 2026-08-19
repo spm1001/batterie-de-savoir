@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.68.0] - 2026-08-19
+
+Carrying mise: calendar writes land — create_event, update_event and freebusy in do(), invite-first confirm gates, office-day-aware slot finding (freebusy wants one re-auth)
+
 ## [1.67.0] - 2026-08-18
 
 mise: pdftotext -layout becomes the PDF text primary (census verdict, 55x faster, best table fidelity), and PDF/slides deposits grow exhibit crops + grep-able anchors so chart-only values are reachable by vision
