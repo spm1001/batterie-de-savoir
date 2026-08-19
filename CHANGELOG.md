@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.68.1] - 2026-08-19
+
+Bon: /open compass + /close tap jq-filter their Todoist reads — no more output-cap overflow
+
 ## [1.68.0] - 2026-08-19
 
 Carrying mise: calendar writes land — create_event, update_event and freebusy in do(), invite-first confirm gates, office-day-aware slot finding (freebusy wants one re-auth)
