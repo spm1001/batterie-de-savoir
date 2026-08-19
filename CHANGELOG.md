@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.68.2] - 2026-08-19
+
+Coaching: four live-review lessons — mirror-at-create check, verify moves by re-fetch, hidden-unassigned tasks, the chase protocol
+
 ## [1.68.1] - 2026-08-19
 
 Bon: /open compass + /close tap jq-filter their Todoist reads — no more output-cap overflow
