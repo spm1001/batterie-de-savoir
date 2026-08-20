@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.70.0] - 2026-08-20
+
+Carrying mise: visibility= and transparency=(busy/free) on both calendar event ops, from a systematic sweep of the events reference's 70 writable fields
+
 ## [1.69.0] - 2026-08-19
 
 Carrying mise: calendar events now carry provenance stamps + queryable properties= and color= on both write ops (labels probed and declined)
