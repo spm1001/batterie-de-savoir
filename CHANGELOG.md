@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.70.5] - 2026-08-22
+
+trousse: deglacer schema reference gains attachment entries — hook output shape, echo-proof jq recipe, resume-fire caution
+
 ## [1.70.4] - 2026-08-22
 
 bon: JSONL boards refresh their truth — /open fetches once per session, bon new warns when the board file is behind the fetched origin
