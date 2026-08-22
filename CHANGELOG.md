@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.70.1] - 2026-08-22
+
+Carrying trousse: deglacer's session-JSONL schema names six more entry types, and stops calling itself complete
+
 ## [1.70.0] - 2026-08-20
 
 Carrying mise: visibility= and transparency=(busy/free) on both calendar event ops, from a systematic sweep of the events reference's 70 writable fields
