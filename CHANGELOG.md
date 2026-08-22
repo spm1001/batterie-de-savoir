@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.70.2] - 2026-08-22
+
+bon: move-guard counts open children only, doctor flags gitignored .bon durables, close skill resolves scripts by loaded version not mtime
+
 ## [1.70.1] - 2026-08-22
 
 Carrying trousse: deglacer's session-JSONL schema names six more entry types, and stops calling itself complete
