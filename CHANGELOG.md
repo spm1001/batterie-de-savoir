@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.72.0] - 2026-08-23
+
+Carrying mise: search(calendar_id=) reads a colleague's visible diary — titles, transparency, room-holds — where their sharing allows (mise-wavotu)
+
 ## [1.71.4] - 2026-08-23
 
 bon: Dolt writes are item-grain and loads read committed state — the two-writer silent row loss (42/60 reproduced) is eliminated; same-row collisions now refuse loudly
