@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.71.4] - 2026-08-23
+
+bon: Dolt writes are item-grain and loads read committed state — the two-writer silent row loss (42/60 reproduced) is eliminated; same-row collisions now refuse loudly
+
 ## [1.71.3] - 2026-08-23
 
 bon: /review Phase 4 re-checks items at the moment of action — audits no longer act on verdicts the board outran
