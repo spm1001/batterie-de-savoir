@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.71.3] - 2026-08-23
+
+bon: /review Phase 4 re-checks items at the moment of action — audits no longer act on verdicts the board outran
+
 ## [1.71.2] - 2026-08-23
 
 Carrying mise: session handoffs no longer ship to the marketplace — assembler now excludes /handoffs and /HANDOFF.md and sweeps previously vendored copies from every plugin
