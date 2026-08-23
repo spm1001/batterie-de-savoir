@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.71.2] - 2026-08-23
+
+Carrying mise: session handoffs no longer ship to the marketplace — assembler now excludes /handoffs and /HANDOFF.md and sweeps previously vendored copies from every plugin
+
 ## [1.71.1] - 2026-08-23
 
 Carrying mise: fallbacks now say why they fired — the browser route's refusal names its reason, undesigned failures reach the log, and asyncio-from-sync has one safe door
