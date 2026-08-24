@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.74.0] - 2026-08-24
+
+Carrying mise: tool bodies run concurrently — parallel 3-fetch 5.1s → 2.4s; the interim serializer lock is gone, with per-resource guards where the state lives
+
 ## [1.73.0] - 2026-08-24
 
 Ringing sonner: repo-addressed peer messaging joins the suite
