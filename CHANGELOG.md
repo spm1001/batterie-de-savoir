@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.75.4] - 2026-08-24
+
+Carrying mise: docx figures now survive fetch as viewable sidecar files, and markdown footnotes become real Docs footnotes — supersedes 1.75.3's first-cut footnote pass, which could corrupt emoji- or code-bearing docs
+
 ## [1.75.3] - 2026-08-24
 
 Carrying mise: serverInfo reports the suite version and tool docs ride the public API (mise-vubeku); publish itself now pulls flavour siblings so mise-home can't fall silently stale
