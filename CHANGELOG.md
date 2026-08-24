@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.73.0] - 2026-08-24
+
+Ringing sonner: repo-addressed peer messaging joins the suite
+
 ## [1.72.0] - 2026-08-23
 
 Carrying mise: search(calendar_id=) reads a colleague's visible diary — titles, transparency, room-holds — where their sharing allows (mise-wavotu)
