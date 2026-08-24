@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.76.0] - 2026-08-24
+
+Carrying mise: append tab= places a redraft in its own Google Doc tab; overwrite now refuses multi-tab destruction instead of silently flattening
+
 ## [1.75.5] - 2026-08-24
 
 peer-messaging: cross-machine still works via ssh — correcting an overstatement
