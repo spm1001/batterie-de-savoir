@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.77.0] - 2026-08-24
+
+Carrying mise: crops= opt-out makes text-only PDF corpus walks 10x faster; page counts work on core installs; search and manifests carry the last-modifier (the only author signal on Shared Drives)
+
 ## [1.76.0] - 2026-08-24
 
 Carrying mise: append tab= places a redraft in its own Google Doc tab; overwrite now refuses multi-tab destruction instead of silently flattening
