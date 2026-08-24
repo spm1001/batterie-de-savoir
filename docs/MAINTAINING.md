@@ -170,11 +170,14 @@ The table's one-liner is the description's first sentence — if it reads badly 
 
 Some facts are deliberately stated at several surfaces because each surface faces a different reader at a different moment. They can't be generated (different registers, different repos), so they're registered here: **if the underlying fact changes, update every listed surface in the same sitting.**
 
-**Sonnette send/receive asymmetry** (sending works in any session with the plugin enabled; receiving only with `--dangerously-load-development-channels`; channels impossible on third-party billing):
+**Sonner's "delivered is not heard" caveats** (a provider-billed session registers with no inbox socket and is reachable by nothing; Claude Code silently drops a byte-identical repeat while reporting success to the sender):
 
-1. `brigade.toml` — sonnette `vocab_meaning`
-2. batterie plugin `instructions.md` — the send-only footnote under The Kitchen
-3. `docs/tools/sonnette.md` — the asymmetry section + all-or-nothing pattern
-4. aboyeur `src/conductor-channel.ts` — the user-role MCP instructions string (vendored: ships via `/batterie:publish`)
+1. `brigade.toml` — sonner `vocab_meaning`
+2. batterie plugin `instructions.md` — the footnote under The Kitchen
+3. `docs/tools/sonner.md` — the "delivery is not the same as being heard" section
+4. sonner `instructions.md` — the always-on shard (ships via `/batterie:publish`)
+5. sonner `skills/peer-messaging/SKILL.md` — the wake-or-file test and the silent drop
 
-If the flag name, the third-party restriction, or the all-or-nothing estate pattern changes, all four rot independently — walk the list.
+If the drop behaviour changes upstream, or deaf sessions start advertising themselves, all five rot independently — walk the list.
+
+*Retired 2026-08-24 (son-pilalu): the previous entry here tracked **Sonnette's** send/receive asymmetry across four surfaces. Sonnette was delisted from the suite that day and sonner supersedes it, so surfaces 1–3 of that entry are gone. The fourth — aboyeur `src/conductor-channel.ts`, the user-role MCP instructions string — still exists in the aboyeur repo, which keeps the code; it is out of the suite's reach now and tracked on aboyeur's own board.*

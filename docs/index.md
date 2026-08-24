@@ -30,7 +30,7 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Plongeur**](tools/plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Accomplis**](tools/accomplis) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
-| [**Sonnette**](tools/sonnette) | The bell | Inter-session messaging — Claude-to-Claude over the conductor mesh (MCP) | 🧪 Alpha |
+| [**Sonner**](tools/sonner) | The bell | Inter-session messaging — ring a repo and a Claude answers, spawning one if nobody's home | 🧪 Alpha |
 {% comment %}GENERATED:brigade-table:END{% endcomment %}
 
 Together they address knowledge work from different angles: bon tracks *what needs doing*, trousse gives each session *the right tools and memory of the last*, jeton handles *OAuth tokens* so the Google-facing tools don't have to, mise preps *content from the outside world*, passe *automates the browser*, consommé *clarifies raw data*, and aboyeur *coordinates multiple sessions* so no single context window has to hold everything.

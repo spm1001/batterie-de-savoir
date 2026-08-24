@@ -17,7 +17,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Plongeur**](https://github.com/ITV/mit-plongeur) | The dishwasher | Streamlit data exploration UI — makes consommé accessible to non-technical users | 🔧 Beta |
 | [**Accomplis**](https://github.com/spm1001/accomplis) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
-| [**Sonnette**](https://github.com/spm1001/aboyeur) | The bell | Inter-session messaging — Claude-to-Claude over the conductor mesh (MCP) | 🧪 Alpha |
+| [**Sonner**](https://github.com/spm1001/sonner) | The bell | Inter-session messaging — ring a repo and a Claude answers, spawning one if nobody's home | 🧪 Alpha |
 <!-- GENERATED:brigade-table:END -->
 
 ## Install

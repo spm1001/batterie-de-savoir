@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "accomplis", "aboyeur", "sonnette"]
+order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "accomplis", "aboyeur", "sonner"]
 
 [tool.bon]
 name = "Bon"
@@ -134,16 +134,22 @@ routing = [
   {need = "Track human-owned tasks and deadlines", not = "bon"},
 ]
 
-[tool.sonnette]
-name = "Sonnette"
-slug = "sonnette"
+# sonnette delisted 2026-08-24 (son-pilalu): superseded by sonner. Its
+# conductor-channel traffic stopped 2026-07-19, and the send-only trap it
+# existed to document is gone with it — sonner rings a repo over a unix socket
+# and needs no launch flag. The aboyeur source repo keeps the code.
+
+[tool.sonner]
+name = "Sonner"
+slug = "sonner"
 station = "The bell"
-what = "Inter-session messaging — Claude-to-Claude over the conductor mesh (MCP)"
-vocab_meaning = "Inter-session messaging — the mesh (`mesh_peers`, `send_message`). Sending works in any session; *receiving* only if launched with the channels flag — otherwise send-only"
+what = "Inter-session messaging — ring a repo and a Claude answers, spawning one if nobody's home"
+vocab_meaning = "Inter-session messaging — `sonner <repo> \"message\"` rings a repo rather than a session id. A live session there gets it on its inbox socket; an empty repo gets one spawned first, so the message still arrives as a peer message rather than a user prompt"
 maturity = "alpha"
-repo = "spm1001/aboyeur"
+repo = "spm1001/sonner"
+skill = "peer-messaging"
 routing = [
-  {need = "Message another live Claude session, or see who's on the mesh", not = ""},
+  {need = "Message another live Claude session, or see who's running where", not = ""},
 ]
 
 # Dependency direction — relational, rendered as the Dependency Direction table
@@ -175,9 +181,9 @@ to = "Multiple sessions"
 label = "spawns workers, collects results"
 
 [[dependency]]
-from = ["sonnette"]
+from = ["sonner"]
 to = "Peer sessions"
-label = "mesh messages — inbound arrives only in sessions launched with the channels flag"
+label = "rings a repo — delivers to a live session's inbox socket, or spawns one and then delivers"
 
 [[dependency]]
 from = ["all"]

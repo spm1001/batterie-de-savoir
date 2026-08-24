@@ -20,7 +20,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Plongeur** | Streamlit data exploration UI powered by Vertex AI and BigQuery |
 | **Accomplis** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
-| **Sonnette** | Inter-session messaging — the mesh (`mesh_peers`, `send_message`). Sending works in any session; *receiving* only if launched with the channels flag — otherwise send-only |
+| **Sonner** | Inter-session messaging — `sonner <repo> "message"` rings a repo rather than a session id. A live session there gets it on its inbox socket; an empty repo gets one spawned first, so the message still arrives as a peer message rather than a user prompt |
 {% comment %}GENERATED:vocabulary:END{% endcomment %}
 
 ### GTD & Brigade Terms
@@ -52,7 +52,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | Non-technical data exploration UI | **plongeur** | trousse |
 | Track human-owned tasks and deadlines | **accomplis** | bon |
 | Multi-session orchestration | **aboyeur** | — |
-| Message another live Claude session, or see who's on the mesh | **sonnette** | — |
+| Message another live Claude session, or see who's running where | **sonner** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
 
 ## Dependency Direction
@@ -67,7 +67,7 @@ What feeds what — arrows show data flow.
 | Bon | → | trousse (hooks inject tactical state) |
 | Trousse | → | bon (session open/close triggers draw-down/draw-up) |
 | Aboyeur | → | Multiple sessions (spawns workers, collects results) |
-| Sonnette | → | Peer sessions (mesh messages — inbound arrives only in sessions launched with the channels flag) |
+| Sonner | → | Peer sessions (rings a repo — delivers to a live session's inbox socket, or spawns one and then delivers) |
 | All tools | → | Filesystem (files are the protocol — no IPC, no daemons) |
 {% comment %}GENERATED:dependency-direction:END{% endcomment %}
 
@@ -95,7 +95,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Plongeur | [ITV/mit-plongeur](https://github.com/ITV/mit-plongeur) |
 | Accomplis | [spm1001/accomplis](https://github.com/spm1001/accomplis) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
-| Sonnette | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
+| Sonner | [spm1001/sonner](https://github.com/spm1001/sonner) |
 {% comment %}GENERATED:key-repos:END{% endcomment %}
 
 | Tool | Repo |
