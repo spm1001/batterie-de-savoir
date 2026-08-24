@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.75.2] - 2026-08-24
+
+peer-messaging says plainly that cross-machine messaging is gone with sonnette
+
 ## [1.75.1] - 2026-08-24
 
 hublot points at sonner's receive path now that sonnette is gone
