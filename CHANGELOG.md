@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.75.3] - 2026-08-24
+
+Carrying mise: serverInfo reports the suite version and tool docs ride the public API (mise-vubeku); publish itself now pulls flavour siblings so mise-home can't fall silently stale
+
 ## [1.75.2] - 2026-08-24
 
 peer-messaging says plainly that cross-machine messaging is gone with sonnette
