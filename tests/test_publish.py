@@ -65,6 +65,15 @@ check("pull fail on other error",
       publish.plugin_update_disposition(1, "network unreachable"), "fail")
 check("pull fail on empty output", publish.plugin_update_disposition(1, ""), "fail")
 
+# ---- FLAVOUR_SIBLINGS (mise-home staleness, 2026-08-24) ----
+# Shape contract: name -> list of (sibling plugin, marketplace) tuples, and
+# the mise -> mise-home mapping that motivated the table stays present.
+check("flavour siblings: mise maps to mise-home@batterie-home",
+      publish.FLAVOUR_SIBLINGS.get("mise"), [("mise-home", "batterie-home")])
+check("flavour siblings: all entries are (name, marketplace) pairs",
+      all(isinstance(s, tuple) and len(s) == 2
+          for sibs in publish.FLAVOUR_SIBLINGS.values() for s in sibs), True)
+
 # ---- bump_version ----
 check("patch", publish.bump_version("0.26.5", "patch"), "0.26.6")
 check("minor", publish.bump_version("0.26.5", "minor"), "0.27.0")
