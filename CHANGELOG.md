@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.77.1] - 2026-08-26
+
+Carrying deglacer: the requestId prefix names the billing lane, so session history splits by provider
+
 ## [1.77.0] - 2026-08-24
 
 Carrying mise: crops= opt-out makes text-only PDF corpus walks 10x faster; page counts work on core installs; search and manifests carry the last-modifier (the only author signal on Shared Drives)
