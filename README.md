@@ -18,6 +18,7 @@ A suite of tools for AI-assisted knowledge work, each named for a station in a p
 | [**Accomplis**](https://github.com/spm1001/accomplis) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](https://github.com/spm1001/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
 | [**Sonner**](https://github.com/spm1001/sonner) | The bell | Inter-session messaging — ring a repo and a Claude answers, spawning one if nobody's home | 🧪 Alpha |
+| [**Arête**](https://github.com/spm1001/arete) | The fishbone | Lists in and out of MindNode — a pasted list becomes a mind map, a map comes back as Markdown | 🔧 Beta |
 <!-- GENERATED:brigade-table:END -->
 
 ## Install

@@ -31,6 +31,7 @@ If there's an aspiration, it is to acquire stars for the most pretentious dishes
 | [**Accomplis**](tools/accomplis) | The commis | Todoist integration with GTD coaching — human-owned tasks and deadlines | ⚡ Stable |
 | [**Aboyeur**](tools/aboyeur) | The caller | Multi-session orchestrator — alternates workers and reflectors | 🧪 Alpha |
 | [**Sonner**](tools/sonner) | The bell | Inter-session messaging — ring a repo and a Claude answers, spawning one if nobody's home | 🧪 Alpha |
+| [**Arête**](tools/arete) | The fishbone | Lists in and out of MindNode — a pasted list becomes a mind map, a map comes back as Markdown | 🔧 Beta |
 {% comment %}GENERATED:brigade-table:END{% endcomment %}
 
 Together they address knowledge work from different angles: bon tracks *what needs doing*, trousse gives each session *the right tools and memory of the last*, jeton handles *OAuth tokens* so the Google-facing tools don't have to, mise preps *content from the outside world*, passe *automates the browser*, consommé *clarifies raw data*, and aboyeur *coordinates multiple sessions* so no single context window has to hold everything.

@@ -24,7 +24,7 @@
 #     label         — parenthetical description
 
 [meta]
-order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "accomplis", "aboyeur", "sonner"]
+order = ["bon", "trousse", "jeton", "mise", "passe", "plongeur", "accomplis", "aboyeur", "sonner", "arete"]
 
 [tool.bon]
 name = "Bon"
@@ -154,6 +154,21 @@ routing = [
 
 # Dependency direction — relational, rendered as the Dependency Direction table
 # in docs/for-agents.md. from=["all"] renders as "All tools".
+
+[tool.arete]
+name = "Arête"
+slug = "arete"
+station = "The fishbone"
+what = "Lists in and out of MindNode — a pasted list becomes a mind map, a map comes back as Markdown"
+vocab_term = "Arête"
+vocab_meaning = "MindNode import/export — the fishbone a mind map is shaped like"
+maturity = "beta"
+repo = "spm1001/arete"
+skill = "mindnode-mapping"
+routing = [
+  {need = "Get a list into MindNode as separate nodes", not = ""},
+  {need = "Read a mind map back as Markdown", not = ""},
+]
 
 [[dependency]]
 from = ["mise", "passe"]

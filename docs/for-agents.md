@@ -21,6 +21,7 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | **Accomplis** | Todoist integration — human-owned tasks, weekly review, pattern detection |
 | **Aboyeur** | Multi-session orchestrator — alternates workers and reflectors |
 | **Sonner** | Inter-session messaging — `sonner <repo> "message"` rings a repo rather than a session id. A live session there gets it on its inbox socket; an empty repo gets one spawned first, so the message still arrives as a peer message rather than a user prompt |
+| **Arête** | MindNode import/export — the fishbone a mind map is shaped like |
 {% comment %}GENERATED:vocabulary:END{% endcomment %}
 
 ### GTD & Brigade Terms
@@ -53,6 +54,8 @@ This repo is the documentation site for the Batterie de Savoir — a suite of to
 | Track human-owned tasks and deadlines | **accomplis** | bon |
 | Multi-session orchestration | **aboyeur** | — |
 | Message another live Claude session, or see who's running where | **sonner** | — |
+| Get a list into MindNode as separate nodes | **arete** | — |
+| Read a mind map back as Markdown | **arete** | — |
 {% comment %}GENERATED:tool-routing:END{% endcomment %}
 
 ## Dependency Direction
@@ -96,6 +99,7 @@ Thinnest to thickest — reach for the thinnest layer that has what you need.
 | Accomplis | [spm1001/accomplis](https://github.com/spm1001/accomplis) |
 | Aboyeur | [spm1001/aboyeur](https://github.com/spm1001/aboyeur) |
 | Sonner | [spm1001/sonner](https://github.com/spm1001/sonner) |
+| Arête | [spm1001/arete](https://github.com/spm1001/arete) |
 {% comment %}GENERATED:key-repos:END{% endcomment %}
 
 | Tool | Repo |
