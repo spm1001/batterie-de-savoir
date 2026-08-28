@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.78.0] - 2026-08-28
+
+Deglacer can now translate a teleport session id into a resumable local UUID, and list the SDK-spawned sessions the resume picker hides
+
 ## [1.77.1] - 2026-08-26
 
 Carrying deglacer: the requestId prefix names the billing lane, so session history splits by provider
