@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.78.2] - 2026-08-28
+
+deglacer: dedupe usage per request, and --doctor catches CC format drift
+
 ## [1.78.1] - 2026-08-28
 
 Correction: the teleport-to-local session id IS computable — uuid5 over the resume URL, namespace read out of the CC bundle
