@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.79.1] - 2026-08-28
+
+Teleport scripts move inside the deglacer skill so they survive its migration; remote-sessions gains the rg fallback its sibling had
+
 ## [1.78.2] - 2026-08-28
 
 deglacer: dedupe usage per request, and --doctor catches CC format drift
