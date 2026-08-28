@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.78.1] - 2026-08-28
+
+Correction: the teleport-to-local session id IS computable — uuid5 over the resume URL, namespace read out of the CC bundle
+
 ## [1.78.0] - 2026-08-28
 
 Deglacer can now translate a teleport session id into a resumable local UUID, and list the SDK-spawned sessions the resume picker hides
