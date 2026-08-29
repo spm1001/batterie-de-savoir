@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.79.3] - 2026-08-29
+
+Carrying trousse: ardoise passes the caller's model through the isolation wall and announces the effective model — no more silent verifier downshifts
+
 ## [1.79.2] - 2026-08-28
 
 The close tap may now tick, add AND edit Toolmaking dispatch lines — the 2026-08-13 ticking sanction had never reached the skill
