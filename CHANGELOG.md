@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.80.1] - 2026-08-30
+
+Bon: /open target resolution spelled out — path vs bare-name glob, bon-move convention, ask on ambiguity
+
 ## [1.80.0] - 2026-08-30
 
 Bon: /open learns roaming — orient against any repo from a root-launched session, with the seven-seam checklist (bon-nujucu)
