@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.83.0] - 2026-08-30
+
+Carrying bon: the Common Core five — JSONL boards sync themselves (loud, lossless conflicts), /open sweeps every unprocessed handoff, the baton follows the ticket, close nudges file-it-then-do-it, and each rite reads a personal half at rite.personal
+
 ## [1.82.0] - 2026-08-30
 
 Bon: /review populates the dispatch-queue lanes as a pluggable socket; /open's compass reads the sectioned queue truthfully
