@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.82.0] - 2026-08-30
+
+Bon: /review populates the dispatch-queue lanes as a pluggable socket; /open's compass reads the sectioned queue truthfully
+
 ## [1.81.0] - 2026-08-30
 
 Carrying bon: handoffs resolve to the visible handoffs/ only, with a migration that converges any legacy .bon/handoffs pile on your next open or close
