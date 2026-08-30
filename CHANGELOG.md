@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.83.1] - 2026-08-30
+
+Carrying bon: rite.personal ids glossed as points inside the single rite — one /open for everyone, the personal half a file it reads
+
 ## [1.83.0] - 2026-08-30
 
 Carrying bon: the Common Core five — JSONL boards sync themselves (loud, lossless conflicts), /open sweeps every unprocessed handoff, the baton follows the ticket, close nudges file-it-then-do-it, and each rite reads a personal half at rite.personal
