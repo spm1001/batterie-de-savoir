@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.83.2] - 2026-08-31
+
+Bon's dashboard reads the 1M window from configuration, so a resumed session stops reporting 200k
+
 ## [1.83.1] - 2026-08-30
 
 Carrying bon: rite.personal ids glossed as points inside the single rite — one /open for everyone, the personal half a file it reads
