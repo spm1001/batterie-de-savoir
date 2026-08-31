@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.84.2] - 2026-09-01
+
+The /close cold reader gets a budget, a findings-only rule and a completion marker — a dead read can no longer read as an all-clear
+
 ## [1.84.1] - 2026-08-31
 
 Handoff metadata becomes real YAML frontmatter (fond-v2, contract v8) — every fond-v1 reader survives; frontmatter-aware ledgers render rich lines
