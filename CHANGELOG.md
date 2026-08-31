@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.84.0] - 2026-08-31
+
+Rite hardening: /open checks a card for staleness and declares which repo it is oriented on; /close cold-reads its own handoff and reports net board motion; the estate survey's scope flags refuse rather than widen
+
 ## [1.83.2] - 2026-08-31
 
 Bon's dashboard reads the 1M window from configuration, so a resumed session stops reporting 200k
