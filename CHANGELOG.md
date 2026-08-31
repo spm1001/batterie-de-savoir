@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.84.1] - 2026-08-31
+
+Handoff metadata becomes real YAML frontmatter (fond-v2, contract v8) — every fond-v1 reader survives; frontmatter-aware ledgers render rich lines
+
 ## [1.84.0] - 2026-08-31
 
 Rite hardening: /open checks a card for staleness and declares which repo it is oriented on; /close cold-reads its own handoff and reports net board motion; the estate survey's scope flags refuse rather than widen
