@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.2] - 2026-09-01
+
+Carrying bon: the open skill records what a subagent's environment can and cannot tell you about being one
+
 ## [1.85.1] - 2026-09-01
 
 Carrying bon: the breadcrumb follows the draw-down as a rite step — the 1.85.0 CLI write is reverted, its guard could never discriminate a worker
