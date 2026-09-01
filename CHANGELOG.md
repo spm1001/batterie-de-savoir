@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.0] - 2026-09-01
+
+Carrying bon: the statusline orientation breadcrumb follows the draw-down — bon work re-declares it for the board it claims on
+
 ## [1.84.2] - 2026-09-01
 
 The /close cold reader gets a budget, a findings-only rule and a completion marker — a dead read can no longer read as an all-clear
