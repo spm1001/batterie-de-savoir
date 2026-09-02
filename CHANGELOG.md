@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.3] - 2026-09-02
+
+Carrying trousse: hublot says to read a driven session's pane before tearing it down, and to pick the wallet a probe bills
+
 ## [1.85.2] - 2026-09-01
 
 Carrying bon: the open skill records what a subagent's environment can and cannot tell you about being one
