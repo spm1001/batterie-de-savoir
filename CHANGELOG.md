@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.4] - 2026-09-09
+
+Carrying trousse: /resume hides SDK-spawned sessions by design; teleport-id reads the live session registry and warns when a process still holds the transcript
+
 ## [1.85.3] - 2026-09-02
 
 Carrying trousse: hublot says to read a driven session's pane before tearing it down, and to pick the wallet a probe bills
