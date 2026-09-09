@@ -30,7 +30,7 @@ Claude Code's plugin cache is **version-keyed**. If you push content changes wit
 
 1. Run `/batterie:publish` from the source repo you edited — it bumps the **suite** version centrally, commits, pushes (a 2-repo push when the edited repo isn't this one), triggers assembly, and watches it green.
 2. The assembler stamps every vendored `plugin.json` to the suite version. A source repo's own `plugin.json` version is local-dev-only — **do NOT hand-bump it to "release"; the stamp overwrites it.**
-3. A red assemble is almost always a suite-level version-ratchet quarantine: vendored content changed without a suite bump. Ship the change via `/batterie:publish` rather than editing versions by hand.
+3. Vendored content pushed without a publish is no longer a red assemble: since 2026-09-09 the daily run bumps the suite itself and publishes the drift at the new patch version, with an auto-generated CHANGELOG line (bds-hajeli). A red assemble now means the auto-bump failed (missing `BDS_DEPLOY_KEY` secret on spm1001/batterie, or publish.py erroring) — read the run log, then ship via `/batterie:publish` rather than editing versions by hand.
 
 This applies to all suite source repos: batterie-de-savoir (this repo — the suite plugin), bon, trousse, mise-en-space, accomplis. (passe left the suite 2026-07-07; plongeur and aboyeur were never published plugins.)
 
