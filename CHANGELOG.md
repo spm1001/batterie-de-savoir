@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.5] - 2026-09-09
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — batterie: docs: the assembler auto-bumps on quarantine since 2026-09-09 (bds-hajeli)
+
 ## [1.85.4] - 2026-09-09
 
 Carrying trousse: /resume hides SDK-spawned sessions by design; teleport-id reads the live session registry and warns when a process still holds the transcript
