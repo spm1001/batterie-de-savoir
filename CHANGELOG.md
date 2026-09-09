@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.6] - 2026-09-09
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — trousse: docs(deglacer): remote-sessions header names the real reason the picker hides them (trousse-gigahe)
+
 ## [1.85.5] - 2026-09-09
 
 Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — batterie: docs: the assembler auto-bumps on quarantine since 2026-09-09 (bds-hajeli)
