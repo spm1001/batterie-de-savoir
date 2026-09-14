@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.9] - 2026-09-14
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: handoff: 1:1 reconciler — intent file, first read-only reconciliation, card released at step 3 (mise-redewa); accomplis: docs(cli-reference): labels can't be cleared from the CLI; deleted tasks still fetch by id (tgt-jalupa)
+
 ## [1.85.8] - 2026-09-13
 
 Carrying trousse: deja dropped from the estate — the deglacer skill now routes cross-session search to rg, with deglacer --find printing its own scope
