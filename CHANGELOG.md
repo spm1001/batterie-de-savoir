@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.12] - 2026-09-15
+
+Carrying mise: the share confirm gate is proven live and calendar.readonly lands (Option A) — every user re-consents once; search fans out over the calendar list
+
 ## [1.85.11] - 2026-09-14
 
 Carrying mise: Gmail thread Date lines render in UTC with a Z suffix, so a sender's own zone can no longer read as local time
