@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.11] - 2026-09-14
+
+Carrying mise: Gmail thread Date lines render in UTC with a Z suffix, so a sender's own zone can no longer read as local time
+
 ## [1.85.10] - 2026-09-14
 
 Carrying bon: waiting_for nested under brief is honoured and smuggled brief keys refused; close's motion window reads the NOW line as local and refuses a future start
