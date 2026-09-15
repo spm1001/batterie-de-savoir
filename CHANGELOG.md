@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.13] - 2026-09-15
+
+Carrying mise: calendar ids with a '#' (Google's holiday calendars) are percent-encoded in the events path, so the calendar-list fan-out no longer 404s on them
+
 ## [1.85.12] - 2026-09-15
 
 Carrying mise: the share confirm gate is proven live and calendar.readonly lands (Option A) — every user re-consents once; search fans out over the calendar list
