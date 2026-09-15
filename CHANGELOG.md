@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.14] - 2026-09-15
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: chore(deps): bump the python-deps group with 2 updates (#35)
+
 ## [1.85.13] - 2026-09-15
 
 Carrying mise: calendar ids with a '#' (Google's holiday calendars) are percent-encoded in the events path, so the calendar-list fan-out no longer 404s on them
