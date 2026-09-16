@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.15] - 2026-09-16
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: calendar: the coverage cue's two edges — an all-failed read says "none — 0 of N", and Google's reason survives every error-message shape (mise-gudeci)
+
 ## [1.85.14] - 2026-09-15
 
 Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: chore(deps): bump the python-deps group with 2 updates (#35)
