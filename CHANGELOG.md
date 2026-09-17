@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.16] - 2026-09-17
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: close: handoff for the DPP sweep + gudeci session; gudeci's CHANGELOG block stamped 1.85.15 (mise-gudeci, mise-zapelu, mise-leceva)
+
 ## [1.85.15] - 2026-09-16
 
 Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: calendar: the coverage cue's two edges — an all-failed read says "none — 0 of N", and Google's reason survives every error-message shape (mise-gudeci)
