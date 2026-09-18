@@ -13,6 +13,10 @@
 > from git history when the automation landed (bds-mawitu, 2026-07-12) — they
 > are honest headlines, not exhaustive; the per-repo changelogs hold the detail.
 
+## [1.85.17] - 2026-09-18
+
+Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: close: handoff for the sweep + leceva + nihebo-research session; Tier 1 pilot commissioned, pre-registration draft written; shipped_in() gets its second -C (mise-leceva, mise-lewube, mise-nihebo, mise-zidipo)
+
 ## [1.85.16] - 2026-09-17
 
 Auto-bump by the daily assembler (bds-hajeli): content drifted without a publish — mise: close: handoff for the DPP sweep + gudeci session; gudeci's CHANGELOG block stamped 1.85.15 (mise-gudeci, mise-zapelu, mise-leceva)
